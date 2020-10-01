@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GlM-1D-VW3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GlM-1D-VW3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,7 +42,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xup-4Q-XpW">
-                                                            <rect key="frame" x="3.5" y="61" width="43" height="20.5"/>
+                                                            <rect key="frame" x="4" y="61" width="42.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -67,6 +69,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="K9T-iz-uGz"/>
                         <color key="backgroundColor" name="ESB System Background"/>
                         <constraints>
                             <constraint firstItem="K9T-iz-uGz" firstAttribute="bottom" secondItem="nWA-ht-8K4" secondAttribute="bottom" id="5JI-Yh-Vbf"/>
@@ -74,7 +77,6 @@
                             <constraint firstItem="nWA-ht-8K4" firstAttribute="leading" secondItem="K9T-iz-uGz" secondAttribute="leading" id="qnr-OU-uDp"/>
                             <constraint firstItem="nWA-ht-8K4" firstAttribute="top" secondItem="K9T-iz-uGz" secondAttribute="top" id="vtl-4y-PbK"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="K9T-iz-uGz"/>
                     </view>
                     <navigationItem key="navigationItem" title="Dashboard" id="FPq-l9-Zd0"/>
                     <connections>
@@ -147,7 +149,7 @@
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="OtI-Zt-mu8" firstAttribute="leading" secondItem="JZP-au-rDI" secondAttribute="leading" id="2Ab-vN-5YG"/>
                                                         <constraint firstAttribute="trailing" secondItem="3p8-4U-PWg" secondAttribute="trailing" constant="12" id="C8G-Sm-W6X"/>
@@ -184,6 +186,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="f36-dc-5T8"/>
                         <color key="backgroundColor" name="ESB System Background"/>
                         <constraints>
                             <constraint firstItem="fSi-p9-JC8" firstAttribute="leading" secondItem="f36-dc-5T8" secondAttribute="leading" id="2eI-RT-7BU"/>
@@ -191,7 +194,6 @@
                             <constraint firstItem="fSi-p9-JC8" firstAttribute="bottom" secondItem="f36-dc-5T8" secondAttribute="bottom" id="kT7-gs-5Fh"/>
                             <constraint firstItem="fSi-p9-JC8" firstAttribute="trailing" secondItem="f36-dc-5T8" secondAttribute="trailing" id="rB2-GU-aci"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="f36-dc-5T8"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Profile" id="yxf-N1-BCO"/>
                     <connections>
@@ -255,7 +257,7 @@
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="W2d-Ro-G0W" firstAttribute="top" secondItem="8q2-MF-QxK" secondAttribute="top" constant="16" id="01w-ah-CmI"/>
                                                         <constraint firstAttribute="trailing" secondItem="6uu-Ag-8fr" secondAttribute="trailing" constant="12" id="2X2-MZ-XA1"/>
@@ -292,6 +294,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="oea-ft-cxA"/>
                         <color key="backgroundColor" name="ESB System Background"/>
                         <constraints>
                             <constraint firstItem="5TN-Jt-zdE" firstAttribute="trailing" secondItem="oea-ft-cxA" secondAttribute="trailing" id="2Ki-aT-1hM"/>
@@ -299,7 +302,6 @@
                             <constraint firstItem="5TN-Jt-zdE" firstAttribute="top" secondItem="oea-ft-cxA" secondAttribute="top" id="dbY-TK-cSa"/>
                             <constraint firstItem="5TN-Jt-zdE" firstAttribute="leading" secondItem="oea-ft-cxA" secondAttribute="leading" id="yEp-ne-RgU"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="oea-ft-cxA"/>
                     </view>
                     <navigationItem key="navigationItem" title="Properties" id="U66-3v-l33"/>
                     <connections>
@@ -366,6 +368,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="OtL-gV-79L"/>
                         <color key="backgroundColor" name="ESB System Background"/>
                         <constraints>
                             <constraint firstItem="MJx-T0-VeI" firstAttribute="trailing" secondItem="OtL-gV-79L" secondAttribute="trailing" id="Pum-Og-9Zb"/>
@@ -373,7 +376,6 @@
                             <constraint firstItem="MJx-T0-VeI" firstAttribute="bottom" secondItem="OtL-gV-79L" secondAttribute="bottom" id="U0g-CT-oVA"/>
                             <constraint firstItem="MJx-T0-VeI" firstAttribute="top" secondItem="OtL-gV-79L" secondAttribute="top" id="hTx-41-eSr"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="OtL-gV-79L"/>
                     </view>
                     <navigationItem key="navigationItem" title="Property Detail" id="2I8-RF-x7l">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="VHp-eE-LLo">
@@ -428,7 +430,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact us via Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9k-TP-aLc">
-                                                    <rect key="frame" x="49" y="11" width="155" height="21"/>
+                                                    <rect key="frame" x="49" y="11" width="154" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -521,7 +523,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow us on Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ag-6N-rTb">
-                                                    <rect key="frame" x="49" y="11" width="174" height="21"/>
+                                                    <rect key="frame" x="49" y="11" width="173" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -550,7 +552,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow us on Twitter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUH-mA-ltI">
-                                                    <rect key="frame" x="49" y="11" width="152.5" height="21"/>
+                                                    <rect key="frame" x="49" y="11" width="151.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -579,7 +581,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect with us on LinkedIn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lR2-uV-DgJ">
-                                                    <rect key="frame" x="49" y="11" width="216" height="21"/>
+                                                    <rect key="frame" x="49" y="11" width="215" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -608,7 +610,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow us on Instagram" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZmO-hk-8oR">
-                                                    <rect key="frame" x="49" y="11" width="176" height="21"/>
+                                                    <rect key="frame" x="49" y="11" width="175" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -637,7 +639,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribe on Youtube" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzY-JB-IMd">
-                                                    <rect key="frame" x="49" y="11" width="168.5" height="21"/>
+                                                    <rect key="frame" x="49" y="11" width="167.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -679,7 +681,6 @@
                     <connections>
                         <segue destination="AXZ-ks-3AO" kind="relationship" relationship="viewControllers" id="dbh-Vl-jkp"/>
                         <segue destination="PI5-vP-pYH" kind="relationship" relationship="viewControllers" id="KIS-3B-7xe"/>
-                        <segue destination="o16-eD-YUi" kind="relationship" relationship="viewControllers" id="aNc-lS-5Np"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYS-zz-wAO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -695,16 +696,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i9d-l5-RAs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1167" y="21"/>
-        </scene>
-        <!--Payments-->
-        <scene sceneID="3C4-mu-9PQ">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Payments" id="o16-eD-YUi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="aMk-71-dp0"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QbZ-5q-OgK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-829" y="21"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="XRA-9x-ltA">
@@ -746,5 +737,8 @@
         <namedColor name="ESB System Background">
             <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

@@ -33,7 +33,6 @@ class BackendController {
     var properties: [String: Property] = [:]
     var pickups: [String: Pickup] = [:]
     var hubs: [String: Hub] = [:]
-    var payments: [String: Payment] = [:]
     var pickupCartons: [String: PickupCarton] = [:]
     var hospitalityContracts: [String: HospitalityContract] = [:]
 
@@ -43,8 +42,6 @@ class BackendController {
                                                         .pickup:  BackendController.pickupParser,
                                                         .pickups: BackendController.pickupsParser,
                                                         .hub: BackendController.hubParser,
-                                                        .payment: BackendController.paymentParser,
-                                                        .payments: BackendController.paymentsParser
                                                         ]
 
     private static func propertyParser(data: Any?) throws {
@@ -113,27 +110,6 @@ class BackendController {
             throw Errors.ObjectInitFail
         }
         shared.hubs[hub.id] = hub
-    }
-
-    private static func paymentParser(data: Any?) throws {
-        guard let paymentContainer = data as? [String: Any] else {
-            throw newError(message: "Couldn't cast data as dictionary for PAYMENT initialization.")
-        }
-
-        guard let payment = Payment(dictionary: paymentContainer) else {
-            throw Errors.ObjectInitFail
-        }
-        shared.payments[payment.id] = payment
-    }
-
-    private static func paymentsParser(data: Any?) throws {
-        guard let paymentsContainer = data as? [[String: Any]] else {
-            throw newError(message: "Couldn't cast data as dictionary for PAYMENTS container.")
-        }
-
-        for payment in paymentsContainer {
-            try paymentParser(data: payment)
-        }
     }
 
     private static func cartonParser(data: Any?) throws {
@@ -209,34 +185,6 @@ class BackendController {
 
     func pickupsByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .pickupsByPropertyId, id: propertyId) else {
-            completion(Errors.RequestInitFail)
-            return
-        }
-        requestAPI(with: request) { (_, error) in
-            if let error = error {
-                completion(error)
-                return
-            }
-            completion(nil)
-        }
-    }
-
-    func nextPaymentByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
-        guard let request = Queries(name: .nextPaymentByPropertyId, id: propertyId) else {
-            completion(Errors.RequestInitFail)
-            return
-        }
-        requestAPI(with: request) { (_, error) in
-            if let error = error {
-                completion(error)
-                return
-            }
-            completion(nil)
-        }
-    }
-
-    func paymentsByPropertyId(propertyId: String, completion: @escaping (Error?) -> Void) {
-        guard let request = Queries(name: .paymentsByPropertyId, id: propertyId) else {
             completion(Errors.RequestInitFail)
             return
         }
@@ -361,17 +309,6 @@ class BackendController {
                         if let contract = HospitalityContract(dictionary: contractContainer) {
                             self.hospitalityContracts[contract.id] = contract
 
-                            // Handle payments.
-                            if let payments = contractContainer["payments"] as? [[String: Any]] {
-                                for paymentContainer in payments {
-                                    // Initializer handles error logs if failed to initialize.
-                                    if let payment = Payment(dictionary: paymentContainer) {
-                                        self.payments[payment.id] = payment
-                                    }
-                                }
-                            } else {
-                                NSLog("Couldn't cast payments dictionary array for contract with ID: \(contract.id)")
-                            }
                         }
                     } else {
                         NSLog("Couldn't cast contract dictionary for property with ID: \(property.id)")
@@ -402,21 +339,6 @@ class BackendController {
 
     func cancelPickup(input: CancelPickupInput, completion: @escaping (Error?) -> Void) {
         guard let request = Mutator(name: .cancelPickup, input: input) else {
-            completion(Errors.RequestInitFail)
-            return
-        }
-        requestAPI(with: request) { (_, error) in
-            if let error = error {
-                completion(error)
-                return
-            }
-
-            completion(nil)
-        }
-    }
-
-    func createPayment(input: CreatePaymentInput, completion: @escaping (Error?) -> Void) {
-        guard let request = Mutator(name: .createPayment, input: input) else {
             completion(Errors.RequestInitFail)
             return
         }
