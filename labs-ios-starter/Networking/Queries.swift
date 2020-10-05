@@ -198,6 +198,7 @@ class Queries: Request {
         phone
         skype
         signupTime
+        role
         properties {
             id
         }

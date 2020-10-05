@@ -20,7 +20,7 @@ class BackendController {
         case NoDataInResponse
     }
 
-    private let apiURL: URL = URL(string: "http://35.208.9.187:9096/ios-api-3")!
+    private let apiURL: URL = URL(string: "http://35.208.9.187:9194/ios-api-1")!
 
     var loggedInUser: User = User()
 
