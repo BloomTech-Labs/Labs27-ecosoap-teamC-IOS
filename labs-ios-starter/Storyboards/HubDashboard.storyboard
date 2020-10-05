@@ -7,6 +7,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,15 +19,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5K-7J-wv4">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5K-7J-wv4">
                                 <rect key="frame" x="20" y="743" width="374" height="50"/>
                                 <color key="backgroundColor" name="ESB Blue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="1NH-8a-1dj"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
                                 <state key="normal" title="New Report">
                                     <color key="titleColor" name="ESB System Background"/>
                                 </state>
+                                <connections>
+                                    <segue destination="0rH-x9-PbR" kind="show" identifier="AddProductionReportSegue" id="L36-dD-WBk"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="g8l-dy-cGf">
                                 <rect key="frame" x="20" y="108" width="374" height="615"/>
@@ -50,19 +55,42 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="UZ2-km-JC6">
-                                        <rect key="frame" x="0.0" y="210" width="374" height="405"/>
+                                        <rect key="frame" x="0.0" y="210" width="372" height="405"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Production Reports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLd-4U-xOd">
-                                                <rect key="frame" x="0.0" y="0.0" width="197" height="26.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="372" height="26.5"/>
                                                 <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m46-O9-avP">
-                                                <rect key="frame" x="0.0" y="28.5" width="374" height="376.5"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZnN-G8-UKB">
+                                                <rect key="frame" x="0.0" y="28.5" width="372" height="376.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            </tableView>
+                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mki-M9-tjh">
+                                                    <size key="itemSize" width="128" height="128"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cFD-x7-cek">
+                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2cK-5z-mH2">
+                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </collectionViewCellContentView>
+                                                        <connections>
+                                                            <segue destination="0rH-x9-PbR" kind="show" identifier="ViewProductionReportSegue" id="43e-Gx-bHI"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="kLd-4U-xOd" secondAttribute="trailing" id="ZHe-Ca-qrs"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZnN-G8-UKB" secondAttribute="trailing" id="uy6-hE-g0a"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -88,6 +116,144 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZi-R6-OSY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4131.884057971015" y="190.84821428571428"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="yhN-eu-6UY">
+            <objects>
+                <viewController id="0rH-x9-PbR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M3D-vN-vuR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ovn-6L-XM9" userLabel="Date Stack View">
+                                <rect key="frame" x="20" y="108" width="374" height="390"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b96-2Q-86u">
+                                        <rect key="frame" x="24.5" y="0.0" width="325" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="MEc-Qj-cEN"/>
+                                            <constraint firstAttribute="width" constant="325" id="lfy-oN-9du"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8W-DT-8Ix">
+                                        <rect key="frame" x="168" y="150" width="38.5" height="24"/>
+                                        <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="yV6-ei-bDM">
+                                        <rect key="frame" x="27" y="174" width="320" height="216"/>
+                                        <date key="minimumDate" timeIntervalSinceReferenceDate="623246400">
+                                            <!--2020-10-01 12:00:00 +0000-->
+                                        </date>
+                                        <variation key="heightClass=compact-widthClass=compact" layoutMarginsFollowReadableWidth="YES"/>
+                                    </datePicker>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xYK-Mj-2W4" userLabel="Fields Stack View">
+                                <rect key="frame" x="20" y="518" width="374" height="120.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="98" translatesAutoresizingMaskIntoConstraints="NO" id="bnS-Xk-YXk" userLabel="Bars Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="33.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bars produced" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEn-R1-TLe">
+                                                <rect key="frame" x="0.0" y="0.0" width="201" height="33.5"/>
+                                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K7w-ew-ZwL">
+                                                <rect key="frame" x="299" y="0.0" width="75" height="33.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="75" id="ak0-n5-sNF"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="next"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOu-wD-dQw" userLabel="Soapmakers Stack View">
+                                        <rect key="frame" x="0.0" y="43.5" width="374" height="33.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soapmakers worked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpU-Bk-6QJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="299" height="33.5"/>
+                                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A0u-Qk-wyF">
+                                                <rect key="frame" x="299" y="0.0" width="75" height="33.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="75" id="QYh-Id-Yhy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="next"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="UZB-fb-mpb" userLabel="Hours Stack View">
+                                        <rect key="frame" x="0.0" y="87" width="374" height="33.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours worked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9e-jV-aQ8">
+                                                <rect key="frame" x="0.0" y="0.0" width="274" height="33.5"/>
+                                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wH7-pG-jE1">
+                                                <rect key="frame" x="299" y="0.0" width="75" height="33.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="75" id="Ofd-1W-jMr"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="next"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ir4-zT-CuW">
+                                <rect key="frame" x="20" y="743" width="374" height="50"/>
+                                <color key="backgroundColor" name="ESB Blue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="tRC-3V-TLK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" name="ESB System Background"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6qJ-Iy-0ru"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ovn-6L-XM9" firstAttribute="top" secondItem="6qJ-Iy-0ru" secondAttribute="top" constant="20" id="2qY-Nn-45b"/>
+                            <constraint firstItem="ovn-6L-XM9" firstAttribute="centerX" secondItem="M3D-vN-vuR" secondAttribute="centerX" id="FDo-FP-0SH"/>
+                            <constraint firstItem="6qJ-Iy-0ru" firstAttribute="trailing" secondItem="xYK-Mj-2W4" secondAttribute="trailing" constant="20" id="Iwh-Yq-cen"/>
+                            <constraint firstItem="xYK-Mj-2W4" firstAttribute="leading" secondItem="6qJ-Iy-0ru" secondAttribute="leading" constant="20" id="Q3A-XU-VZQ"/>
+                            <constraint firstItem="6qJ-Iy-0ru" firstAttribute="bottom" secondItem="Ir4-zT-CuW" secondAttribute="bottom" constant="20" id="bkY-sN-xUQ"/>
+                            <constraint firstItem="ovn-6L-XM9" firstAttribute="leading" secondItem="6qJ-Iy-0ru" secondAttribute="leading" constant="20" id="gb9-Q6-sqA"/>
+                            <constraint firstItem="Ir4-zT-CuW" firstAttribute="centerX" secondItem="M3D-vN-vuR" secondAttribute="centerX" id="heg-ON-Smv"/>
+                            <constraint firstItem="Ir4-zT-CuW" firstAttribute="leading" secondItem="6qJ-Iy-0ru" secondAttribute="leading" constant="20" id="hq5-Iz-9ST"/>
+                            <constraint firstItem="6qJ-Iy-0ru" firstAttribute="trailing" secondItem="Ir4-zT-CuW" secondAttribute="trailing" constant="20" id="jgT-5f-M2W"/>
+                            <constraint firstItem="6qJ-Iy-0ru" firstAttribute="trailing" secondItem="ovn-6L-XM9" secondAttribute="trailing" constant="20" id="u4B-N8-sDf"/>
+                            <constraint firstItem="xYK-Mj-2W4" firstAttribute="top" secondItem="ovn-6L-XM9" secondAttribute="bottom" constant="20" id="wbs-0y-VuZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="f7D-pd-2Wc">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="trash" id="qPg-gf-aMU"/>
+                            <barButtonItem systemItem="edit" id="7Gg-PV-8Km">
+                                <connections>
+                                    <segue destination="0rH-x9-PbR" kind="show" identifier="EditProductionReportSegue" id="6r5-8z-dOW"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SMx-bi-oMx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4973.913043478261" y="190.84821428571428"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="yhD-92-eXw">
@@ -125,6 +291,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kVM-4E-xi1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e8A-4m-LCo">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -138,6 +305,9 @@
             <point key="canvasLocation" x="2311.594202898551" y="190.84821428571428"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="L36-dD-WBk"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="106"/>
         <namedColor name="ESB Blue">
