@@ -73,6 +73,7 @@
 		9CEA63BD24EE2D2800A2C446 /* Hub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BC24EE2D2800A2C446 /* Hub.swift */; };
 		9CEA63BF24EE3CA200A2C446 /* HospitalityContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BE24EE3CA200A2C446 /* HospitalityContract.swift */; };
 		BA5B10B7252BA993001202FE /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10B6252BA993001202FE /* Role.swift */; };
+		BA5B10BC252BB7A7001202FE /* HubDashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5B10BB252BB7A7001202FE /* HubDashboard.storyboard */; };
 		BAA8E9A025252576005EA47D /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BAA8E99F25252576005EA47D /* OktaAuth */; };
 		BAD33C832534C7FE0080FCC6 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BAD33C862534FCC40080FCC6 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -152,6 +153,7 @@
 		BA5B10B6252BA993001202FE /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		BAD33C8D25362E800080FCC6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		BAD33C96253630240080FCC6 /* LogInInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInInput.swift; sourceTree = "<group>"; };
+		BA5B10BB252BB7A7001202FE /* HubDashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = HubDashboard.storyboard; path = "labs-ios-starter/Storyboards/HubDashboard.storyboard"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 				13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */,
 				13A4A7D024E1F363005326F9 /* Pickups.storyboard */,
 				13A4A7DB24E1FA42005326F9 /* Onboarding.storyboard */,
+				BA5B10BB252BB7A7001202FE /* HubDashboard.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13A4A7D124E1F363005326F9 /* Pickups.storyboard in Resources */,
+				BA5B10BC252BB7A7001202FE /* HubDashboard.storyboard in Resources */,
 				466C4280249A8749007D033E /* LaunchScreen.storyboard in Resources */,
 				13A4A7CD24E1F332005326F9 /* Dashboard.storyboard in Resources */,
 				466C427D249A8749007D033E /* Assets.xcassets in Resources */,
