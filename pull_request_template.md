@@ -1,5 +1,10 @@
 # Pull request for ?? feature
-Description:
+Brief summary of feature:
 
 
-Reviewers: @exploratum
+
+Checklist of changes needed to implement this feature:
+
+
+
+Reviewers: @exploratum (TJ), @Bharatk2 (Kumar), @CrystalKnightCodes (Crystal)
