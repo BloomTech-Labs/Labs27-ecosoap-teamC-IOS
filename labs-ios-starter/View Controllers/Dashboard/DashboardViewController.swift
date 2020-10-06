@@ -54,7 +54,7 @@ class DashboardViewController: UIViewController {
             print("\(self.controller.users)")
             print("\(self.controller.properties)")
             print("\(self.controller.pickups)")
-            print("\(self.controller.payments)")
+//            print("\(self.controller.payments)")
             print("\(self.controller.hubs)")
             print("\(self.controller.pickupCartons)")
             print("\(self.controller.hospitalityContracts)")
@@ -68,7 +68,7 @@ class DashboardViewController: UIViewController {
           - ShowProfilePushSegue
           - ShowPropertiesPushSegue
           - ShowPaymentHistoryPushSegue
-          - ShowMakePaymentPushSegue
+          - ShowMakePaymentPushSegue  (Deleting)
           - ShowSettingsPushSegue
         */
     }

@@ -11,9 +11,6 @@
 		133559EB24EDD09E00447EDE /* PickupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133559EA24EDD09E00447EDE /* PickupTableViewCell.swift */; };
 		13518FBB2509C15D000C217F /* PropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13518FBA2509C15D000C217F /* PropertyTableViewCell.swift */; };
 		1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1380291924E63E820000C9FA /* StatisticsLayout.swift */; };
-		1385B7692515A02A00953FD4 /* Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1385B7682515A02A00953FD4 /* Payments.storyboard */; };
-		1385B76B2515ACC000953FD4 /* MakePaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1385B76A2515ACC000953FD4 /* MakePaymentViewController.swift */; };
-		1385B76D2515ADEF00953FD4 /* PaymentInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1385B76C2515ADEF00953FD4 /* PaymentInvoiceViewController.swift */; };
 		13A4A7CD24E1F332005326F9 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */; };
 		13A4A7CF24E1F34D005326F9 /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */; };
 		13A4A7D124E1F363005326F9 /* Pickups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A4A7D024E1F363005326F9 /* Pickups.storyboard */; };
@@ -56,7 +53,6 @@
 		46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */; };
 		9C25231C24F9E2BB0023D660 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25231B24F9E2BB0023D660 /* DateFormatter.swift */; };
 		9C25231E24F9E2C20023D660 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25231D24F9E2C20023D660 /* Date.swift */; };
-		9C2C775F24E1EE9E006EF13C /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9C2C775E24E1EE9E006EF13C /* OktaAuth */; };
 		9C364A8E24F5EA1600FF204D /* Mutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C364A8D24F5EA1600FF204D /* Mutator.swift */; };
 		9C364A9124F60E6100FF204D /* PickupInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C364A9024F60E6100FF204D /* PickupInput.swift */; };
 		9C364A9324F60E8300FF204D /* CartonInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C364A9224F60E8300FF204D /* CartonInput.swift */; };
@@ -83,7 +79,8 @@
 		9CEA63BB24EE26E700A2C446 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BA24EE26E700A2C446 /* Coordinates.swift */; };
 		9CEA63BD24EE2D2800A2C446 /* Hub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BC24EE2D2800A2C446 /* Hub.swift */; };
 		9CEA63BF24EE3CA200A2C446 /* HospitalityContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BE24EE3CA200A2C446 /* HospitalityContract.swift */; };
-		9CEA63C124EF5E7800A2C446 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63C024EF5E7800A2C446 /* Payment.swift */; };
+		BA5B10B7252BA993001202FE /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10B6252BA993001202FE /* Role.swift */; };
+		BAA8E9A025252576005EA47D /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BAA8E99F25252576005EA47D /* OktaAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,9 +88,6 @@
 		133559EA24EDD09E00447EDE /* PickupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupTableViewCell.swift; sourceTree = "<group>"; };
 		13518FBA2509C15D000C217F /* PropertyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTableViewCell.swift; sourceTree = "<group>"; };
 		1380291924E63E820000C9FA /* StatisticsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsLayout.swift; sourceTree = "<group>"; };
-		1385B7682515A02A00953FD4 /* Payments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Payments.storyboard; sourceTree = "<group>"; };
-		1385B76A2515ACC000953FD4 /* MakePaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePaymentViewController.swift; sourceTree = "<group>"; };
-		1385B76C2515ADEF00953FD4 /* PaymentInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInvoiceViewController.swift; sourceTree = "<group>"; };
 		13A4A7CC24E1F332005326F9 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Statistics.storyboard; sourceTree = "<group>"; };
 		13A4A7D024E1F363005326F9 /* Pickups.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pickups.storyboard; sourceTree = "<group>"; };
@@ -165,7 +159,7 @@
 		9CEA63BA24EE26E700A2C446 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		9CEA63BC24EE2D2800A2C446 /* Hub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hub.swift; sourceTree = "<group>"; };
 		9CEA63BE24EE3CA200A2C446 /* HospitalityContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalityContract.swift; sourceTree = "<group>"; };
-		9CEA63C024EF5E7800A2C446 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		BA5B10B6252BA993001202FE /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,22 +167,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C2C775F24E1EE9E006EF13C /* OktaAuth in Frameworks */,
+				BAA8E9A025252576005EA47D /* OktaAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1385B76E2515ADF500953FD4 /* Payments */ = {
-			isa = PBXGroup;
-			children = (
-				1385B76A2515ACC000953FD4 /* MakePaymentViewController.swift */,
-				1385B76C2515ADEF00953FD4 /* PaymentInvoiceViewController.swift */,
-			);
-			path = Payments;
-			sourceTree = "<group>";
-		};
 		13A4A7D224E1F374005326F9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,7 +193,6 @@
 				13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */,
 				13A4A7D024E1F363005326F9 /* Pickups.storyboard */,
 				13A4A7DB24E1FA42005326F9 /* Onboarding.storyboard */,
-				1385B7682515A02A00953FD4 /* Payments.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -231,7 +215,6 @@
 				13A4A7EC24E3592C005326F9 /* Pickups */,
 				13DC372224E5EFA800AE20B3 /* Impact Statistics */,
 				13A4A7D224E1F374005326F9 /* Login */,
-				1385B76E2515ADF500953FD4 /* Payments */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -411,6 +394,7 @@
 			children = (
 				9CEA63B524EE24A700A2C446 /* APIEnums.swift */,
 				9C364A9524F6217000FF204D /* ControllerEnums.swift */,
+				BA5B10B6252BA993001202FE /* Role.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -436,7 +420,6 @@
 				9C9A98E924E508BE007FC7DA /* Pickup.swift */,
 				9C9A98EB24E509B7007FC7DA /* ImpactStats.swift */,
 				9CEA63BC24EE2D2800A2C446 /* Hub.swift */,
-				9CEA63C024EF5E7800A2C446 /* Payment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -490,7 +473,7 @@
 			);
 			name = "labs-ios-starter";
 			packageProductDependencies = (
-				9C2C775E24E1EE9E006EF13C /* OktaAuth */,
+				BAA8E99F25252576005EA47D /* OktaAuth */,
 			);
 			productName = LabsScaffolding;
 			productReference = 466C4270249A8748007D033E /* labs-ios-starter.app */;
@@ -521,7 +504,7 @@
 			);
 			mainGroup = 466C4267249A8748007D033E;
 			packageReferences = (
-				9C2C775D24E1EE9E006EF13C /* XCRemoteSwiftPackageReference "OktaAuth" */,
+				BAA8E99E25252576005EA47D /* XCRemoteSwiftPackageReference "OktaAuth" */,
 			);
 			productRefGroup = 466C4271249A8748007D033E /* Products */;
 			projectDirPath = "";
@@ -543,7 +526,6 @@
 				466C427D249A8749007D033E /* Assets.xcassets in Resources */,
 				13A4A7CF24E1F34D005326F9 /* Statistics.storyboard in Resources */,
 				46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */,
-				1385B7692515A02A00953FD4 /* Payments.storyboard in Resources */,
 				466C427B249A8748007D033E /* Main.storyboard in Resources */,
 				13A4A7DC24E1FA42005326F9 /* Onboarding.storyboard in Resources */,
 			);
@@ -581,7 +563,6 @@
 				13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */,
 				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
 				13BA9FE025001A7900973F03 /* ProfileViewController.swift in Sources */,
-				9CEA63C124EF5E7800A2C446 /* Payment.swift in Sources */,
 				1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */,
 				9C9A98E124E4EF3C007FC7DA /* Queries.swift in Sources */,
 				463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */,
@@ -598,9 +579,7 @@
 				13A4A7EB24E35923005326F9 /* SchedulePickupViewController.swift in Sources */,
 				13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */,
 				1326A737250FFD4000EFA7CF /* PropertyInfoTableViewCell.swift in Sources */,
-				1385B76B2515ACC000953FD4 /* MakePaymentViewController.swift in Sources */,
 				13FD2A9C24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift in Sources */,
-				1385B76D2515ADEF00953FD4 /* PaymentInvoiceViewController.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
 				133559EB24EDD09E00447EDE /* PickupTableViewCell.swift in Sources */,
 				13BA9FDE24FD9FF800973F03 /* ConfrimPickupViewController.swift in Sources */,
@@ -608,6 +587,7 @@
 				9C364A8E24F5EA1600FF204D /* Mutator.swift in Sources */,
 				13FD2A9324E4575D006D6B43 /* PickupDateTableViewCell.swift in Sources */,
 				463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */,
+				BA5B10B7252BA993001202FE /* Role.swift in Sources */,
 				9C5F86DE24EF8DAC00DECB24 /* PickupCarton.swift in Sources */,
 				9C9A98E624E506A6007FC7DA /* User.swift in Sources */,
 				13A4A7E224E2034F005326F9 /* DashboardCollectionViewCell.swift in Sources */,
@@ -822,9 +802,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9C2C775D24E1EE9E006EF13C /* XCRemoteSwiftPackageReference "OktaAuth" */ = {
+		BAA8E99E25252576005EA47D /* XCRemoteSwiftPackageReference "OktaAuth" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:SpencerCurtis/OktaAuth.git";
+			repositoryURL = "https://github.com/SpencerCurtis/OktaAuth.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
@@ -833,9 +813,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9C2C775E24E1EE9E006EF13C /* OktaAuth */ = {
+		BAA8E99F25252576005EA47D /* OktaAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9C2C775D24E1EE9E006EF13C /* XCRemoteSwiftPackageReference "OktaAuth" */;
+			package = BAA8E99E25252576005EA47D /* XCRemoteSwiftPackageReference "OktaAuth" */;
 			productName = OktaAuth;
 		};
 /* End XCSwiftPackageProductDependency section */

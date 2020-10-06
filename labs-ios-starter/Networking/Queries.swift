@@ -21,8 +21,6 @@ class Queries: Request {
                                               .impactStatsByPropertyId: Queries.impactStatsByPropertyId,
                                               .hubByPropertyId: Queries.hubByPropertyId,
                                               .pickupsByPropertyId: Queries.pickupsByPropertyId,
-                                              .nextPaymentByPropertyId: Queries.nextPaymentByPropertyId,
-                                              .paymentsByPropertyId: Queries.paymentsByPropertyId,
                                               .monsterFetch: Queries.monsterFetch]
 
     private static let payloads: [QueryName: ResponseModel] = [.userById: .user,
@@ -31,8 +29,6 @@ class Queries: Request {
                                                                .impactStatsByPropertyId: .impactStats,
                                                                .hubByPropertyId: .hub,
                                                                .pickupsByPropertyId: .pickups,
-                                                               .nextPaymentByPropertyId: .payment,
-                                                               .paymentsByPropertyId: .payments,
                                                                .monsterFetch: .user]
 
     init?(name: QueryName, id: String) {
@@ -202,6 +198,7 @@ class Queries: Request {
         phone
         skype
         signupTime
+        role
         properties {
             id
         }
@@ -436,58 +433,6 @@ class Queries: Request {
           }
         }
 
-        """
-    }
-
-    private static func nextPaymentByPropertyId(propertyID: String) -> String {
-        """
-        query {
-          nextPaymentByPropertyId(input: {
-            propertyId: "\(propertyID)"
-          }) {
-            payment {
-              id
-              invoiceCode
-              invoice
-              amountPaid
-              amountDue
-              date
-              invoicePeriodStartDate
-              invoicePeriodEndDate
-              dueDate
-              paymentMethod
-              hospitalityContract {
-                id
-              }
-            }
-          }
-        }
-        """
-    }
-
-    private static func paymentsByPropertyId(propertyID: String) -> String {
-        """
-        query {
-          paymentsByPropertyId(input: {
-            propertyId: "\(propertyID)"
-          }) {
-          payments {
-              id
-              invoiceCode
-              invoice
-              amountPaid
-              amountDue
-              date
-              invoicePeriodStartDate
-              invoicePeriodEndDate
-              dueDate
-              paymentMethod
-              hospitalityContract {
-                id
-              }
-            }
-            }
-        }
         """
     }
 

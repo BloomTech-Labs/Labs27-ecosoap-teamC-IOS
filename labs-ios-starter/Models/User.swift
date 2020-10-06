@@ -15,6 +15,7 @@ class User {
     var middleName, title, company, phone, skype: String?
     var address: Address?
     var signupTime: Date?
+    let role: Role?
     var propertiesById: [String] = []
     
     init() {
@@ -23,6 +24,7 @@ class User {
         self.lastName = "Watts"
         self.email = "Miles.K.Watts.1599761674594@test.com"
         self.password = "1599761674594"
+        self.role = .HOTEL
     }
 
     init?(dictionary: [String: Any]) {
@@ -59,6 +61,12 @@ class User {
         if let signupTimeString = dictionary["signupTime"] as? String {
             self.signupTime = Date(longDate:  signupTimeString)
         }
+        
+        if let roleString = dictionary["role"] as? String {
+            self.role = Role(rawValue: roleString)
+        } else {
+            self.role = .HOTEL
+        }
 
         if let properties = dictionary["properties"] as? [[String: Any]] {
             for property in properties {
@@ -67,7 +75,5 @@ class User {
                 }
             }
         }
-
     }
-    
 }
