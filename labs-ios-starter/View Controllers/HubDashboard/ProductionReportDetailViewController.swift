@@ -11,6 +11,7 @@ import UIKit
 class ProductionReportDetailViewController: UIViewController {
 
     // MARK: - Outlets
+    @IBOutlet var reportImagesCollectionView: ProductionReportImagesCollectionView!
     @IBOutlet var editButton: UIBarButtonItem!
     @IBOutlet var deleteButton: UIBarButtonItem!
     @IBOutlet var datePicker: UIDatePicker!
@@ -25,6 +26,15 @@ class ProductionReportDetailViewController: UIViewController {
     var isAdmin: Bool = false
     var isNewReport: Bool = false
     var isEditingReport: Bool = false
+    var report: ProductionReport? {
+        didSet {
+            // TODO: Add images to collection view
+            datePicker.date = report?.date ?? Date()
+            barsProducedTextField.text = String(report?.barsProduced ?? 0)
+            soapmakersWorkedTextField.text = String(report?.soapmakersWorked ?? 0)
+            soapmakerHoursTextfield.text = String(report?.soapmakerHours ?? 0)
+        }
+    }
     
     // MARK: Views
     override func viewDidLoad() {
@@ -90,6 +100,7 @@ class ProductionReportDetailViewController: UIViewController {
     @IBAction func deleteReport(_ sender: UIBarButtonItem) {
     }
     @IBAction func dateChosen(_ sender: UIDatePicker) {
+        report?.date = datePicker.date
     }
     @IBAction func addSoapPhoto(_ sender: UIButton) {
     }
@@ -97,15 +108,4 @@ class ProductionReportDetailViewController: UIViewController {
     }
     @IBAction func submitReport(_ sender: UIButton) {
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -187,7 +187,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K7w-ew-ZwL">
+                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" borderStyle="line" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K7w-ew-ZwL">
                                                 <rect key="frame" x="299" y="0.0" width="75" height="33.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="ak0-n5-sNF"/>
@@ -206,7 +206,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A0u-Qk-wyF">
+                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" borderStyle="line" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A0u-Qk-wyF">
                                                 <rect key="frame" x="299" y="0.0" width="75" height="33.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="QYh-Id-Yhy"/>
@@ -225,7 +225,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wH7-pG-jE1">
+                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" borderStyle="line" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wH7-pG-jE1">
                                                 <rect key="frame" x="299" y="0.0" width="75" height="33.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="Ofd-1W-jMr"/>
@@ -322,6 +322,7 @@
                         <outlet property="datePicker" destination="yV6-ei-bDM" id="q1H-FV-CfE"/>
                         <outlet property="deleteButton" destination="qPg-gf-aMU" id="6pB-P9-Zwo"/>
                         <outlet property="editButton" destination="7Gg-PV-8Km" id="Lcv-7U-dOg"/>
+                        <outlet property="reportImagesCollectionView" destination="htQ-FR-o1T" id="kg9-xD-MOP"/>
                         <outlet property="soapmakerHoursTextfield" destination="wH7-pG-jE1" id="fdj-OC-if1"/>
                         <outlet property="soapmakersWorkedTextField" destination="A0u-Qk-wyF" id="dyE-0Z-s1T"/>
                         <outlet property="submitButton" destination="Ir4-zT-CuW" id="CLn-QB-WJ7"/>
