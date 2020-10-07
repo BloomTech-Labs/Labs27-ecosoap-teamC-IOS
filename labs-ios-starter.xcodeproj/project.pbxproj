@@ -74,6 +74,10 @@
 		9CEA63BF24EE3CA200A2C446 /* HospitalityContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BE24EE3CA200A2C446 /* HospitalityContract.swift */; };
 		BA5B10B7252BA993001202FE /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10B6252BA993001202FE /* Role.swift */; };
 		BA5B10BC252BB7A7001202FE /* HubDashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5B10BB252BB7A7001202FE /* HubDashboard.storyboard */; };
+		BA5B10C4252D21CD001202FE /* HubDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10C3252D21CD001202FE /* HubDashboardViewController.swift */; };
+		BA5B10C7252D2221001202FE /* ProductionReportsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10C6252D2221001202FE /* ProductionReportsCollectionView.swift */; };
+		BA5B10CA252D227B001202FE /* ProductionReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10C9252D227B001202FE /* ProductionReportDetailViewController.swift */; };
+		BA5B10CD252E2AD8001202FE /* ProductionReportImagesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10CC252E2AD8001202FE /* ProductionReportImagesCollectionView.swift */; };
 		BAA8E9A025252576005EA47D /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BAA8E99F25252576005EA47D /* OktaAuth */; };
 		BAD33C832534C7FE0080FCC6 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BAD33C862534FCC40080FCC6 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -154,6 +158,10 @@
 		BAD33C8D25362E800080FCC6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		BAD33C96253630240080FCC6 /* LogInInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInInput.swift; sourceTree = "<group>"; };
 		BA5B10BB252BB7A7001202FE /* HubDashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = HubDashboard.storyboard; path = "labs-ios-starter/Storyboards/HubDashboard.storyboard"; sourceTree = SOURCE_ROOT; };
+		BA5B10C3252D21CD001202FE /* HubDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubDashboardViewController.swift; sourceTree = "<group>"; };
+		BA5B10C6252D2221001202FE /* ProductionReportsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionReportsCollectionView.swift; sourceTree = "<group>"; };
+		BA5B10C9252D227B001202FE /* ProductionReportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionReportDetailViewController.swift; sourceTree = "<group>"; };
+		BA5B10CC252E2AD8001202FE /* ProductionReportImagesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionReportImagesCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				13A4A7D624E1F8D4005326F9 /* Dashboard */,
+				BA5B10C2252D218D001202FE /* HubDashboard */,
 				13A4A7EC24E3592C005326F9 /* Pickups */,
 				13DC372224E5EFA800AE20B3 /* Impact Statistics */,
 				13A4A7D224E1F374005326F9 /* Login */,
@@ -430,6 +439,17 @@
 			path = "Property Models";
 			sourceTree = "<group>";
 		};
+		BA5B10C2252D218D001202FE /* HubDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				BA5B10C3252D21CD001202FE /* HubDashboardViewController.swift */,
+				BA5B10CC252E2AD8001202FE /* ProductionReportImagesCollectionView.swift */,
+				BA5B10C6252D2221001202FE /* ProductionReportsCollectionView.swift */,
+				BA5B10C9252D227B001202FE /* ProductionReportDetailViewController.swift */,
+			);
+			path = HubDashboard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -532,8 +552,11 @@
 				13A4A7E924E24A8B005326F9 /* DashboardLayout.swift in Sources */,
 				9CEA63BB24EE26E700A2C446 /* Coordinates.swift in Sources */,
 				13C23F6024EC94AF00DC3F9A /* ImpactStatisticsIndividualCollectionViewCell.swift in Sources */,
+				BA5B10C4252D21CD001202FE /* HubDashboardViewController.swift in Sources */,
 				13EF37B7250FE86E002E7959 /* PropertyDetailViewController.swift in Sources */,
 				BAD33C832534C7FE0080FCC6 /* (null) in Sources */,
+				BA5B10CD252E2AD8001202FE /* ProductionReportImagesCollectionView.swift in Sources */,
+				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */,
 				13BA9FE025001A7900973F03 /* ProfileViewController.swift in Sources */,
 				1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */,
@@ -547,6 +570,7 @@
 				13DC372424E63B5F00AE20B3 /* ImpactStatisticsViewController.swift in Sources */,
 				9C25231E24F9E2C20023D660 /* Date.swift in Sources */,
 				13FD2A9924E457A1006D6B43 /* PickupPropertyTableViewCell.swift in Sources */,
+				BA5B10CA252D227B001202FE /* ProductionReportDetailViewController.swift in Sources */,
 				13FD2AA224E49B39006D6B43 /* PickupsViewController.swift in Sources */,
 				13A4A7EB24E35923005326F9 /* SchedulePickupViewController.swift in Sources */,
 				13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */,
@@ -555,6 +579,7 @@
 				13FD2A9C24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift in Sources */,
 				133559EB24EDD09E00447EDE /* PickupTableViewCell.swift in Sources */,
 				13BA9FDE24FD9FF800973F03 /* ConfrimPickupViewController.swift in Sources */,
+				BA5B10C7252D2221001202FE /* ProductionReportsCollectionView.swift in Sources */,
 				13D15E4B250895C700F021D5 /* ProfileInfoTableViewCell.swift in Sources */,
 				9C364A8E24F5EA1600FF204D /* Mutator.swift in Sources */,
 				13FD2A9324E4575D006D6B43 /* PickupDateTableViewCell.swift in Sources */,

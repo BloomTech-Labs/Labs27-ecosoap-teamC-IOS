@@ -14,7 +14,7 @@
         <!--Dashboard-->
         <scene sceneID="6Bp-fA-yjF">
             <objects>
-                <viewController id="VHb-O1-qn9" sceneMemberID="viewController">
+                <viewController id="VHb-O1-qn9" customClass="HubDashboardViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4tw-zx-GDW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,7 +46,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nTy-fD-Azb">
-                                                <rect key="frame" x="0.0" y="28.5" width="240" height="171.5"/>
+                                                <rect key="frame" x="0.0" y="28.5" width="374" height="171.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                         </subviews>
@@ -63,7 +63,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZnN-G8-UKB">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZnN-G8-UKB" customClass="ProductionReportsCollectionView" customModule="labs_ios_starter" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28.5" width="372" height="376.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mki-M9-tjh">
@@ -117,10 +117,10 @@
             </objects>
             <point key="canvasLocation" x="4131.884057971015" y="190.84821428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--Production Report Detail View Controller-->
         <scene sceneID="yhN-eu-6UY">
             <objects>
-                <viewController id="0rH-x9-PbR" sceneMemberID="viewController">
+                <viewController id="0rH-x9-PbR" customClass="ProductionReportDetailViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M3D-vN-vuR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -128,13 +128,31 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ovn-6L-XM9" userLabel="Date Stack View">
                                 <rect key="frame" x="20" y="108" width="374" height="390"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b96-2Q-86u">
-                                        <rect key="frame" x="24.5" y="0.0" width="325" height="150"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="htQ-FR-o1T" customClass="ProductionReportImagesCollectionView" customModule="labs_ios_starter" customModuleProvider="target">
+                                        <rect key="frame" x="12" y="0.0" width="350" height="150"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="MEc-Qj-cEN"/>
-                                            <constraint firstAttribute="width" constant="325" id="lfy-oN-9du"/>
+                                            <constraint firstAttribute="height" constant="150" id="Rw2-9a-N59"/>
+                                            <constraint firstAttribute="width" constant="350" id="sQT-Fz-ro6"/>
                                         </constraints>
-                                    </imageView>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FIx-bI-ynV">
+                                            <size key="itemSize" width="350" height="150"/>
+                                            <size key="estimatedItemSize" width="350" height="150"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" id="5Sz-Y5-UXK">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="150"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="27K-NY-eL4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="150"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8W-DT-8Ix">
                                         <rect key="frame" x="168" y="150" width="38.5" height="24"/>
                                         <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="18"/>
@@ -147,8 +165,15 @@
                                             <!--2020-10-01 12:00:00 +0000-->
                                         </date>
                                         <variation key="heightClass=compact-widthClass=compact" layoutMarginsFollowReadableWidth="YES"/>
+                                        <connections>
+                                            <action selector="dateChosen:" destination="0rH-x9-PbR" eventType="valueChanged" id="xpp-CC-6Ej"/>
+                                        </connections>
                                     </datePicker>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="htQ-FR-o1T" firstAttribute="centerX" secondItem="ovn-6L-XM9" secondAttribute="centerX" id="555-fs-zwc"/>
+                                    <constraint firstItem="htQ-FR-o1T" firstAttribute="top" secondItem="ovn-6L-XM9" secondAttribute="top" id="J9x-ft-NMc"/>
+                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xYK-Mj-2W4" userLabel="Fields Stack View">
                                 <rect key="frame" x="20" y="518" width="374" height="120.5"/>
@@ -194,7 +219,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="UZB-fb-mpb" userLabel="Hours Stack View">
                                         <rect key="frame" x="0.0" y="87" width="374" height="33.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours worked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9e-jV-aQ8">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soapmaker hours worked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9e-jV-aQ8">
                                                 <rect key="frame" x="0.0" y="0.0" width="274" height="33.5"/>
                                                 <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="18"/>
                                                 <nil key="textColor"/>
@@ -212,6 +237,36 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EWm-Qh-QsD" userLabel="Add Photo Stack View">
+                                <rect key="frame" x="20" y="658.5" width="374" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUg-qF-fAU">
+                                        <rect key="frame" x="0.0" y="0.0" width="182" height="50"/>
+                                        <color key="backgroundColor" name="ESB Blue"/>
+                                        <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
+                                        <state key="normal" title="Add Soap Photo">
+                                            <color key="titleColor" name="ESB System Background"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addSoapPhoto:" destination="0rH-x9-PbR" eventType="touchUpInside" id="4Ri-xL-GCQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mj9-VA-37u">
+                                        <rect key="frame" x="192" y="0.0" width="182" height="50"/>
+                                        <color key="backgroundColor" name="ESB Blue"/>
+                                        <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
+                                        <state key="normal" title="Add Media">
+                                            <color key="titleColor" name="ESB System Background"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addMedia:" destination="0rH-x9-PbR" eventType="touchUpInside" id="Z5q-rb-iYv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="tTX-Cm-Ioz"/>
+                                </constraints>
+                            </stackView>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ir4-zT-CuW">
                                 <rect key="frame" x="20" y="743" width="374" height="50"/>
                                 <color key="backgroundColor" name="ESB Blue"/>
@@ -222,6 +277,9 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" name="ESB System Background"/>
                                 </state>
+                                <connections>
+                                    <action selector="submitReport:" destination="0rH-x9-PbR" eventType="touchUpInside" id="ILT-gi-8sf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6qJ-Iy-0ru"/>
@@ -230,11 +288,14 @@
                             <constraint firstItem="ovn-6L-XM9" firstAttribute="top" secondItem="6qJ-Iy-0ru" secondAttribute="top" constant="20" id="2qY-Nn-45b"/>
                             <constraint firstItem="ovn-6L-XM9" firstAttribute="centerX" secondItem="M3D-vN-vuR" secondAttribute="centerX" id="FDo-FP-0SH"/>
                             <constraint firstItem="6qJ-Iy-0ru" firstAttribute="trailing" secondItem="xYK-Mj-2W4" secondAttribute="trailing" constant="20" id="Iwh-Yq-cen"/>
+                            <constraint firstItem="EWm-Qh-QsD" firstAttribute="top" secondItem="xYK-Mj-2W4" secondAttribute="bottom" constant="20" id="PWG-Ey-M1T"/>
                             <constraint firstItem="xYK-Mj-2W4" firstAttribute="leading" secondItem="6qJ-Iy-0ru" secondAttribute="leading" constant="20" id="Q3A-XU-VZQ"/>
                             <constraint firstItem="6qJ-Iy-0ru" firstAttribute="bottom" secondItem="Ir4-zT-CuW" secondAttribute="bottom" constant="20" id="bkY-sN-xUQ"/>
                             <constraint firstItem="ovn-6L-XM9" firstAttribute="leading" secondItem="6qJ-Iy-0ru" secondAttribute="leading" constant="20" id="gb9-Q6-sqA"/>
+                            <constraint firstAttribute="trailing" secondItem="EWm-Qh-QsD" secondAttribute="trailing" constant="20" id="gem-oG-O9y"/>
                             <constraint firstItem="Ir4-zT-CuW" firstAttribute="centerX" secondItem="M3D-vN-vuR" secondAttribute="centerX" id="heg-ON-Smv"/>
                             <constraint firstItem="Ir4-zT-CuW" firstAttribute="leading" secondItem="6qJ-Iy-0ru" secondAttribute="leading" constant="20" id="hq5-Iz-9ST"/>
+                            <constraint firstItem="EWm-Qh-QsD" firstAttribute="leading" secondItem="6qJ-Iy-0ru" secondAttribute="leading" constant="20" id="ie3-N3-qbW"/>
                             <constraint firstItem="6qJ-Iy-0ru" firstAttribute="trailing" secondItem="Ir4-zT-CuW" secondAttribute="trailing" constant="20" id="jgT-5f-M2W"/>
                             <constraint firstItem="6qJ-Iy-0ru" firstAttribute="trailing" secondItem="ovn-6L-XM9" secondAttribute="trailing" constant="20" id="u4B-N8-sDf"/>
                             <constraint firstItem="xYK-Mj-2W4" firstAttribute="top" secondItem="ovn-6L-XM9" secondAttribute="bottom" constant="20" id="wbs-0y-VuZ"/>
@@ -242,7 +303,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="f7D-pd-2Wc">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="trash" id="qPg-gf-aMU"/>
+                            <barButtonItem systemItem="trash" id="qPg-gf-aMU">
+                                <connections>
+                                    <action selector="deleteReport:" destination="0rH-x9-PbR" id="GqE-8g-pc9"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem systemItem="edit" id="7Gg-PV-8Km">
                                 <connections>
                                     <segue destination="0rH-x9-PbR" kind="show" identifier="EditProductionReportSegue" id="6r5-8z-dOW"/>
@@ -250,6 +315,15 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addMediaButton" destination="Mj9-VA-37u" id="OVP-2e-8sY"/>
+                        <outlet property="addSoapPhotoButton" destination="MUg-qF-fAU" id="vHh-kd-nER"/>
+                        <outlet property="barsProducedTextField" destination="K7w-ew-ZwL" id="jEM-C3-nAa"/>
+                        <outlet property="datePicker" destination="yV6-ei-bDM" id="q1H-FV-CfE"/>
+                        <outlet property="soapmakerHoursTextfield" destination="wH7-pG-jE1" id="fdj-OC-if1"/>
+                        <outlet property="soapmakersWorkedTextField" destination="A0u-Qk-wyF" id="dyE-0Z-s1T"/>
+                        <outlet property="submitButton" destination="Ir4-zT-CuW" id="CLn-QB-WJ7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SMx-bi-oMx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
