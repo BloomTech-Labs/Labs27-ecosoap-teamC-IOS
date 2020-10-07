@@ -9,12 +9,14 @@
 import Foundation
 
 class ProductionReport {
+    // MARK: - Properties
     let id, hubID: String
     var date: Date
     var barsProduced, soapmakersWorked, soapmakerHours: Int?
     var soapPhotoURLs, mediaURLs: [URL]?
 
-
+    // MARK: - Initializers
+    // Mock data initializer for testing.
     init() {
         self.id = "HubDailyProduction1"
         self.hubID = "HubId1"
@@ -32,29 +34,27 @@ class ProductionReport {
         self.mediaURLs = convertStringArrayToURLs(stringArray: mediaStringsArray)
     }
     
+    // GraphQL initializer
     init?(dictionary: [String: Any]) {
-        guard let id = dictionary["id"] as? String else {
-            NSLog("Error fetching Production Report for ID: \(String(describing: dictionary["id"]))")
-                return nil
+        guard let id = dictionary["id"] as? String,
+        let hubContainer = dictionary["hub"] as? [String: Any],
+        let dateString = dictionary["date"] as? String else {
+            NSLog("Error unwrapping non-optional properties for Production Report:")
+            NSLog("\tID: \(String(describing: dictionary["id"])) ")
+            NSLog("\tHub: \(String(describing: dictionary["hub"])) ")
+            NSLog("\tDate: \(String(describing: dictionary["date"]))")
+            return nil
         }
+        guard let hubID = hubContainer["id"] as? String else {
+            NSLog("Error unwrapping non-optional hub ID for Production Report:")
+            NSLog("\tHub ID: \(String(describing: hubContainer["id"]))")
+            return nil
+        }
+        
         
         self.id = id
-        
-        if let hubContainer = dictionary["hub"] as? [String: Any] {
-            if let hubID = hubContainer["id"] as? String {
-                self.hubID = hubID
-            } else {
-                self.hubID = "HubId1"
-            }
-        } else {
-            self.hubID = "HubId1"
-        }
-        
-        if let dateString = dictionary["date"] as? String {
-            self.date = Date(longDate: dateString)!
-        } else {
-            self.date = Date()
-        }
+        self.hubID = hubID
+        self.date = Date(longDate: dateString) ?? Date()
         
         if let barsProduced = dictionary["barsProduced"] as? Int {
             self.barsProduced = barsProduced
@@ -77,6 +77,7 @@ class ProductionReport {
         }
     }
     
+    // MARK: - Methods
     func convertStringArrayToURLs(stringArray: [String]) -> [URL] {
         var urlArray = [URL]()
         for url in stringArray {
