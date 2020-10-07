@@ -112,6 +112,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Dashboard" id="Xty-Fm-cfB"/>
+                    <connections>
+                        <outlet property="newReportButton" destination="x5K-7J-wv4" id="lOI-tZ-MX2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZi-R6-OSY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
