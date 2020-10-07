@@ -27,5 +27,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 - [] Change 2
 - [] Change 3
 
-### Reviewers: @Reviewer1 @Reviewer2
+### Reviewers: 
+@Reviewer1 @Reviewer2
 ```
