@@ -78,6 +78,7 @@
 		BA5B10C7252D2221001202FE /* ProductionReportsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10C6252D2221001202FE /* ProductionReportsCollectionView.swift */; };
 		BA5B10CA252D227B001202FE /* ProductionReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10C9252D227B001202FE /* ProductionReportDetailViewController.swift */; };
 		BA5B10CD252E2AD8001202FE /* ProductionReportImagesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10CC252E2AD8001202FE /* ProductionReportImagesCollectionView.swift */; };
+		BA5B10D1252E4158001202FE /* ProductionReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10D0252E4158001202FE /* ProductionReport.swift */; };
 		BAA8E9A025252576005EA47D /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BAA8E99F25252576005EA47D /* OktaAuth */; };
 		BAD33C832534C7FE0080FCC6 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BAD33C862534FCC40080FCC6 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -162,6 +163,7 @@
 		BA5B10C6252D2221001202FE /* ProductionReportsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionReportsCollectionView.swift; sourceTree = "<group>"; };
 		BA5B10C9252D227B001202FE /* ProductionReportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionReportDetailViewController.swift; sourceTree = "<group>"; };
 		BA5B10CC252E2AD8001202FE /* ProductionReportImagesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionReportImagesCollectionView.swift; sourceTree = "<group>"; };
+		BA5B10D0252E4158001202FE /* ProductionReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionReport.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -403,6 +405,7 @@
 				9C9A98E924E508BE007FC7DA /* Pickup.swift */,
 				9C9A98EB24E509B7007FC7DA /* ImpactStats.swift */,
 				9CEA63BC24EE2D2800A2C446 /* Hub.swift */,
+				BA5B10D0252E4158001202FE /* ProductionReport.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				13FD2A9C24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift in Sources */,
 				133559EB24EDD09E00447EDE /* PickupTableViewCell.swift in Sources */,
 				13BA9FDE24FD9FF800973F03 /* ConfrimPickupViewController.swift in Sources */,
+				BA5B10D1252E4158001202FE /* ProductionReport.swift in Sources */,
 				BA5B10C7252D2221001202FE /* ProductionReportsCollectionView.swift in Sources */,
 				13D15E4B250895C700F021D5 /* ProfileInfoTableViewCell.swift in Sources */,
 				9C364A8E24F5EA1600FF204D /* Mutator.swift in Sources */,
