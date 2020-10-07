@@ -11,7 +11,8 @@ import UIKit
 class ProductionReportDetailViewController: UIViewController {
 
     // MARK: - Outlets
-
+    @IBOutlet var editButton: UIBarButtonItem!
+    @IBOutlet var deleteButton: UIBarButtonItem!
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var barsProducedTextField: UITextField!
     @IBOutlet var soapmakersWorkedTextField: UITextField!
@@ -20,10 +21,70 @@ class ProductionReportDetailViewController: UIViewController {
     @IBOutlet var addMediaButton: UIButton!
     @IBOutlet var submitButton: UIButton!
     
+    // MARK: - Properties
+    var isAdmin: Bool = false
+    var isNewReport: Bool = false
+    var isEditingReport: Bool = false
+    
+    // MARK: Views
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        isEditingReport = false
+        updateViews()
+    }
+    
+    func updateViews() {
+        if isAdmin {
+            editButton.isEnabled = true
+            deleteButton.isEnabled = true
+            
+            if isEditingReport {
+                enableTextEntry()
+                showButtons()
+                if isNewReport {
+                    submitButton.titleLabel?.text = "Submit"
+                } else {
+                    submitButton.titleLabel?.text = "Save Changes"
+                }
+            } else {
+                disableTextEntry()
+                hideButtons()
+            }
+        } else {
+            editButton.isEnabled = false
+            deleteButton.isEnabled = false
+            hideButtons()
+        }
+    }
+    
+    func disableTextEntry() {
+        barsProducedTextField.isEnabled = false
+        soapmakersWorkedTextField.isEnabled = false
+        soapmakerHoursTextfield.isEnabled = false
+    }
+    
+    func enableTextEntry() {
+        barsProducedTextField.isEnabled = true
+        soapmakersWorkedTextField.isEnabled = true
+        soapmakerHoursTextfield.isEnabled = true
+    }
+    
+    func hideButtons() {
+        submitButton.isHidden = true
+        addSoapPhotoButton.isHidden = true
+        addMediaButton.isHidden = true
+    }
+    
+    func showButtons() {
+        submitButton.isHidden = false
+        addSoapPhotoButton.isHidden = false
+        addMediaButton.isHidden = false
+    }
+    
+    @IBAction func editReport(_ sender: UIBarButtonItem) {
+        isNewReport = false
+        isEditingReport = true
+        updateViews()
     }
     
     @IBAction func deleteReport(_ sender: UIBarButtonItem) {

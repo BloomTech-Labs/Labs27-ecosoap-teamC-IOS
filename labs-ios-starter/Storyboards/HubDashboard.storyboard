@@ -310,7 +310,7 @@
                             </barButtonItem>
                             <barButtonItem systemItem="edit" id="7Gg-PV-8Km">
                                 <connections>
-                                    <segue destination="0rH-x9-PbR" kind="show" identifier="EditProductionReportSegue" id="6r5-8z-dOW"/>
+                                    <action selector="editReport:" destination="0rH-x9-PbR" id="Ta7-JE-pke"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -320,6 +320,8 @@
                         <outlet property="addSoapPhotoButton" destination="MUg-qF-fAU" id="vHh-kd-nER"/>
                         <outlet property="barsProducedTextField" destination="K7w-ew-ZwL" id="jEM-C3-nAa"/>
                         <outlet property="datePicker" destination="yV6-ei-bDM" id="q1H-FV-CfE"/>
+                        <outlet property="deleteButton" destination="qPg-gf-aMU" id="6pB-P9-Zwo"/>
+                        <outlet property="editButton" destination="7Gg-PV-8Km" id="Lcv-7U-dOg"/>
                         <outlet property="soapmakerHoursTextfield" destination="wH7-pG-jE1" id="fdj-OC-if1"/>
                         <outlet property="soapmakersWorkedTextField" destination="A0u-Qk-wyF" id="dyE-0Z-s1T"/>
                         <outlet property="submitButton" destination="Ir4-zT-CuW" id="CLn-QB-WJ7"/>
