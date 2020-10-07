@@ -26,11 +26,9 @@ class ProductionReport {
         self.soapmakerHours = 8
         
         let soapPhotoStringsArray = ["http://www.fillmurray.com/1024/768"]
-        
         self.soapPhotoURLs = convertStringArrayToURLs(stringArray: soapPhotoStringsArray)
         
         let mediaStringsArray = ["http://www.fillmurray.com/1100/600", "http://www.fillmurray.com/800/800"]
-        
         self.mediaURLs = convertStringArrayToURLs(stringArray: mediaStringsArray)
     }
     
@@ -45,12 +43,12 @@ class ProductionReport {
             NSLog("\tDate: \(String(describing: dictionary["date"]))")
             return nil
         }
+        
         guard let hubID = hubContainer["id"] as? String else {
             NSLog("Error unwrapping non-optional hub ID for Production Report:")
             NSLog("\tHub ID: \(String(describing: hubContainer["id"]))")
             return nil
         }
-        
         
         self.id = id
         self.hubID = hubID
