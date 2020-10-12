@@ -8,8 +8,15 @@
 
 import UIKit
 import SwiftUI
-class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, HotelHeaderTableViewCellDelegate {
+import Charts
+import TinyConstraints
+class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, HotelHeaderTableViewCellDelegate, ChartViewDelegate {
    
+ 
+    
+    @IBOutlet weak var lineChartView: LineChartView!
+    
+    
     func toggleSection(_ header: HotelHeaderTableViewCell, section: Int) {
         let collapsed = !sections[section].isExpanded
 
@@ -18,28 +25,94 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         header.setCollapsed(collapsed)
 
         // Adjust the height of the rows inside the section
-        tableView.beginUpdates()
+        firsttableView.beginUpdates()
         for i in 0 ..< sections[section].names.count {
             let indexPath = IndexPath(item: i, section: 0)
-            tableView.reloadRows(at: [indexPath], with: .top)
+            firsttableView.reloadRows(at: [indexPath], with: .top)
         }
-        tableView.endUpdates()
+        firsttableView.endUpdates()
     }
   
     var sections = [MockHotelNames]()
+    var toggleArrow: Bool?
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var firsttableView: UITableView!
+    @IBOutlet weak var propertiesTableView: UITableView!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         sections = [ MockHotelNames(type: "Hotels", names: ["Mariott Hotel", "Hamptin In", "Ibis Hotel"], isExpanded: false)
         ]
+        setData()
         // set a background color so we can easily see the table
-        tableView.delegate = self
-        tableView.dataSource = self
+        firsttableView.delegate = self
+        firsttableView.dataSource = self
+        propertiesTableView.delegate = self
+        propertiesTableView.dataSource = self
     }
     
+    private let disclosureIndicator: UIImageView = {
+           let disclosureIndicator = UIImageView()
+           disclosureIndicator.image = UIImage(systemName: "chevron.down")
+           disclosureIndicator.contentMode = .scaleAspectFit
+           disclosureIndicator.preferredSymbolConfiguration = .init(textStyle: .body, scale: .small)
+           return disclosureIndicator
+       }()
+       
+    private let disclosureIndicatorDown: UIImageView = {
+              let disclosureIndicatorDown = UIImageView()
+              disclosureIndicatorDown.image = UIImage(systemName: "chevron.up")
+              disclosureIndicatorDown.contentMode = .scaleAspectFit
+              disclosureIndicatorDown.preferredSymbolConfiguration = .init(textStyle: .body, scale: .small)
+              return disclosureIndicatorDown
+          }()
+    
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        print(entry)
+    }
+    
+    func setData() {
+        let set1 = LineChartDataSet(entries: yValue, label: "Impact Statistics")
+        
+        let data = LineChartData(dataSet: set1)
+        lineChartView.data = data
+    }
+    
+    let yValue: [ChartDataEntry] = [
+        ChartDataEntry(x: 0.0, y: 10.0),
+        ChartDataEntry(x: 1.0, y: 5.0),
+        ChartDataEntry(x: 2.0, y: 7.0),
+        ChartDataEntry(x: 3.0, y: 5.0),
+        ChartDataEntry(x: 4.0, y: 10.0),
+        ChartDataEntry(x: 5.0, y: 6.0),
+        ChartDataEntry(x: 6.0, y: 5.0),
+        ChartDataEntry(x: 7.0, y: 7.0),
+        ChartDataEntry(x: 8.0, y: 8.0),
+        ChartDataEntry(x: 9.0, y: 12.0),
+        ChartDataEntry(x: 10.0, y: 13.0),
+        ChartDataEntry(x: 11.0, y: 5.0),
+        ChartDataEntry(x: 12.0, y: 7.0),
+        ChartDataEntry(x: 13.0, y: 3.0),
+        ChartDataEntry(x: 14.0, y: 15.0),
+        ChartDataEntry(x: 15.0, y: 6.0),
+        ChartDataEntry(x: 16.0, y: 6.0),
+        ChartDataEntry(x: 17.0, y: 7.0),
+        ChartDataEntry(x: 18.0, y: 3.0),
+        ChartDataEntry(x: 19.0, y: 10.0),
+        ChartDataEntry(x: 20.0, y: 12.0),
+         ChartDataEntry(x: 21.0, y: 15.0),
+        ChartDataEntry(x: 22.0, y: 17.0),
+        ChartDataEntry(x: 23.0, y: 15.0),
+        ChartDataEntry(x: 24.0, y: 10.0),
+        ChartDataEntry(x: 25.0, y: 10.0),
+        ChartDataEntry(x: 26.0, y: 10.0),
+        ChartDataEntry(x: 27.0, y: 17.0),
+  
+    ]
+    
+    // TableView Section
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -66,41 +139,45 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCellIdentifier = "HotelCell"
-           let headerCell = tableView.dequeueReusableCell(withIdentifier: headerCellIdentifier) as! HotelHeaderTableViewCell
+           let headerCell = tableView.dequeueReusableCell(withIdentifier: headerCellIdentifier) as? HotelHeaderTableViewCell
 
-        headerCell.textLabel?.text = sections[section].type
-           headerCell.setCollapsed(sections[section].isExpanded)
-
-           headerCell.section = section
-           headerCell.delegate = self
+        headerCell?.textLabel?.text = sections[section].type
+        headerCell?.setCollapsed(sections[section].isExpanded)
+        headerCell?.imageView?.image = disclosureIndicator.image
+        if headerCell?.isSelected == true  {
+            self.toggleArrow?.toggle()
+            headerCell?.imageView?.image = disclosureIndicator.image ?? disclosureIndicatorDown.image
+        }
+        headerCell?.section = section
+        headerCell?.delegate = self
 
            return headerCell
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HotelCell") else { return UITableViewCell() }
+        if tableView == firsttableView,
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HotelCell") as? HotelHeaderTableViewCell {
+         cell.textLabel?.text = sections[indexPath.section].names[indexPath.row]
+        return cell
+    }
+    if tableView == propertiesTableView,
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PropertiesCell") as? PropertiesTableViewCell {
         cell.textLabel?.text = sections[indexPath.section].names[indexPath.row]
         return cell
+        }
+        return UITableViewCell()
     }
     
     func toggleSection(header: ExpandableHeaderView, section: Int) {
         // this is the toggle system for expanding the view and collapsing.
         sections[section].isExpanded = !sections[section].isExpanded
     
-        tableView.beginUpdates()
+        firsttableView.beginUpdates()
         for i in 0 ..< sections[section].names.count {
-            tableView.reloadRows(at: [IndexPath(row: i, section: section)], with: .automatic)
+            firsttableView.reloadRows(at: [IndexPath(row: i, section: section)], with: .automatic)
         }
-        tableView.endUpdates()
+        firsttableView.endUpdates()
     }
 }
 
 
 
-
-
-
-struct HotelsViewController_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
-    }
-}

@@ -85,7 +85,6 @@
 		BA440F552534FBB40064666C /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BA440F542534FBB40064666C /* OktaAuth */; };
 		BA524F38252F82BE0090F073 /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA524F37252F82BE0090F073 /* ExpandableHeaderView.swift */; };
 		BA524F40252FE7B30090F073 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA524F3F252FE7B30090F073 /* UserController.swift */; };
-		BA524F45252FEBB70090F073 /* UserCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA524F44252FEBB70090F073 /* UserCodable.swift */; };
 		BA5B10B7252BA993001202FE /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10B6252BA993001202FE /* Role.swift */; };
 /* End PBXBuildFile section */
 
@@ -607,7 +606,6 @@
 				9C9A98EC24E509B7007FC7DA /* ImpactStats.swift in Sources */,
 				BA440F502534F03A0064666C /* HotelHeaderTableViewCell.swift in Sources */,
 				9C9A98E324E4F0D3007FC7DA /* NetworkController.swift in Sources */,
-				BA524F45252FEBB70090F073 /* UserCodable.swift in Sources */,
 				13A4A7E924E24A8B005326F9 /* DashboardLayout.swift in Sources */,
 				9CEA63BB24EE26E700A2C446 /* Coordinates.swift in Sources */,
 				13C23F6024EC94AF00DC3F9A /* ImpactStatisticsIndividualCollectionViewCell.swift in Sources */,
