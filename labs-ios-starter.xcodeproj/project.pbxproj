@@ -51,6 +51,7 @@
 		46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */; };
 		46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */; };
 		46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */; };
+		52634992B1B84360FC497C97 /* Pods_labs_ios_starter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168F2A307C524A4055AAFF12 /* Pods_labs_ios_starter.framework */; };
 		9C25231C24F9E2BB0023D660 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25231B24F9E2BB0023D660 /* DateFormatter.swift */; };
 		9C25231E24F9E2C20023D660 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25231D24F9E2C20023D660 /* Date.swift */; };
 		9C364A8E24F5EA1600FF204D /* Mutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C364A8D24F5EA1600FF204D /* Mutator.swift */; };
@@ -82,11 +83,31 @@
 		BA00CB6F252EAC10003A3041 /* HotelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00CB6E252EAC10003A3041 /* HotelsViewController.swift */; };
 		BA00CB72252EAE94003A3041 /* MockHotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00CB71252EAE94003A3041 /* MockHotel.swift */; };
 		BA440F502534F03A0064666C /* HotelHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA440F4F2534F03A0064666C /* HotelHeaderTableViewCell.swift */; };
-		BA440F552534FBB40064666C /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BA440F542534FBB40064666C /* OktaAuth */; };
+		BA440F5D253508A50064666C /* ImpactChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA440F5C253508A50064666C /* ImpactChart.swift */; };
+		BA440F6025350A050064666C /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA440F5F25350A050064666C /* String+Extension.swift */; };
+		BA440F73253510B00064666C /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BA440F72253510B00064666C /* OktaAuth */; };
+		BA440F7925351B530064666C /* PropertiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA440F7825351B530064666C /* PropertiesTableViewCell.swift */; };
 		BA524F38252F82BE0090F073 /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA524F37252F82BE0090F073 /* ExpandableHeaderView.swift */; };
 		BA524F40252FE7B30090F073 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA524F3F252FE7B30090F073 /* UserController.swift */; };
 		BA5B10B7252BA993001202FE /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10B6252BA993001202FE /* Role.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BA440F6A25350F180064666C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA440F6525350F180064666C /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
+			remoteInfo = Charts;
+		};
+		BA440F6C25350F180064666C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA440F6525350F180064666C /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
+			remoteInfo = ChartsTests;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1326A736250FFD4000EFA7CF /* PropertyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -118,6 +139,7 @@
 		13FD2A9B24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPickupCartonTableViewCell.swift; sourceTree = "<group>"; };
 		13FD2A9F24E46A72006D6B43 /* SelectPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPropertyViewController.swift; sourceTree = "<group>"; };
 		13FD2AA124E49B39006D6B43 /* PickupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupsViewController.swift; sourceTree = "<group>"; };
+		168F2A307C524A4055AAFF12 /* Pods_labs_ios_starter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_labs_ios_starter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
 		463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		466C4270249A8748007D033E /* labs-ios-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "labs-ios-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +158,7 @@
 		46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profiles.storyboard; sourceTree = "<group>"; };
 		46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SimpleAlert.swift"; sourceTree = "<group>"; };
 		46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarViewController.swift; sourceTree = "<group>"; };
+		5A52EEED0EE783C283D4B08C /* Pods-labs-ios-starter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-labs-ios-starter.release.xcconfig"; path = "Target Support Files/Pods-labs-ios-starter/Pods-labs-ios-starter.release.xcconfig"; sourceTree = "<group>"; };
 		9C25231B24F9E2BB0023D660 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9C25231D24F9E2C20023D660 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		9C364A8D24F5EA1600FF204D /* Mutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutator.swift; sourceTree = "<group>"; };
@@ -167,10 +190,16 @@
 		BA00CB6E252EAC10003A3041 /* HotelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelsViewController.swift; sourceTree = "<group>"; };
 		BA00CB71252EAE94003A3041 /* MockHotel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHotel.swift; sourceTree = "<group>"; };
 		BA440F4F2534F03A0064666C /* HotelHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		BA440F5C253508A50064666C /* ImpactChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactChart.swift; sourceTree = "<group>"; };
+		BA440F5F25350A050064666C /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		BA440F6125350EED0064666C /* SwiftChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA440F6525350F180064666C /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
+		BA440F7825351B530064666C /* PropertiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesTableViewCell.swift; sourceTree = "<group>"; };
 		BA524F37252F82BE0090F073 /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableHeaderView.swift; sourceTree = "<group>"; };
 		BA524F3F252FE7B30090F073 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		BA524F44252FEBB70090F073 /* UserCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCodable.swift; sourceTree = "<group>"; };
 		BA5B10B6252BA993001202FE /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		D87CD22D6711FC3CA3A09C4E /* Pods-labs-ios-starter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-labs-ios-starter.debug.xcconfig"; path = "Target Support Files/Pods-labs-ios-starter/Pods-labs-ios-starter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +207,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA440F552534FBB40064666C /* OktaAuth in Frameworks */,
+				BA440F73253510B00064666C /* OktaAuth in Frameworks */,
+				52634992B1B84360FC497C97 /* Pods_labs_ios_starter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +347,8 @@
 				466C4272249A8748007D033E /* labs-ios-starter */,
 				466C4271249A8748007D033E /* Products */,
 				BA440F522534FA560064666C /* Recovered References */,
+				F3E5D80E4AFF2709E08A6458 /* Pods */,
+				D3EAF9A05B07043AB044557B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -331,6 +363,7 @@
 		466C4272249A8748007D033E /* labs-ios-starter */ = {
 			isa = PBXGroup;
 			children = (
+				BA440F5E253509F20064666C /* Extensions */,
 				BA00CB70252EAE6B003A3041 /* MockData */,
 				9C9ACA7C24F779BB002D47B5 /* Helpers */,
 				9C9A98E424E5068B007FC7DA /* Models */,
@@ -483,6 +516,8 @@
 			isa = PBXGroup;
 			children = (
 				BA440F4F2534F03A0064666C /* HotelHeaderTableViewCell.swift */,
+				BA440F5C253508A50064666C /* ImpactChart.swift */,
+				BA440F7825351B530064666C /* PropertiesTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -505,6 +540,42 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		BA440F5E253509F20064666C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BA440F5F25350A050064666C /* String+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BA440F6625350F180064666C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA440F6B25350F180064666C /* Charts.framework */,
+				BA440F6D25350F180064666C /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D3EAF9A05B07043AB044557B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA440F6525350F180064666C /* Charts.xcodeproj */,
+				BA440F6125350EED0064666C /* SwiftChart.framework */,
+				168F2A307C524A4055AAFF12 /* Pods_labs_ios_starter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F3E5D80E4AFF2709E08A6458 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D87CD22D6711FC3CA3A09C4E /* Pods-labs-ios-starter.debug.xcconfig */,
+				5A52EEED0EE783C283D4B08C /* Pods-labs-ios-starter.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -512,9 +583,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 466C4284249A8749007D033E /* Build configuration list for PBXNativeTarget "labs-ios-starter" */;
 			buildPhases = (
+				1628A2A69397A3A6E7ADD33C /* [CP] Check Pods Manifest.lock */,
 				466C426C249A8748007D033E /* Sources */,
 				466C426D249A8748007D033E /* Frameworks */,
 				466C426E249A8748007D033E /* Resources */,
+				3B49C1E97CC78E827C81BAA0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -522,7 +595,7 @@
 			);
 			name = "labs-ios-starter";
 			packageProductDependencies = (
-				BA440F542534FBB40064666C /* OktaAuth */,
+				BA440F72253510B00064666C /* OktaAuth */,
 			);
 			productName = LabsScaffolding;
 			productReference = 466C4270249A8748007D033E /* labs-ios-starter.app */;
@@ -553,16 +626,39 @@
 			);
 			mainGroup = 466C4267249A8748007D033E;
 			packageReferences = (
-				BA440F532534FBB40064666C /* XCRemoteSwiftPackageReference "OktaAuth" */,
+				BA440F71253510B00064666C /* XCRemoteSwiftPackageReference "OktaAuth" */,
 			);
 			productRefGroup = 466C4271249A8748007D033E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BA440F6625350F180064666C /* Products */;
+					ProjectRef = BA440F6525350F180064666C /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				466C426F249A8748007D033E /* labs-ios-starter */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BA440F6B25350F180064666C /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = BA440F6A25350F180064666C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BA440F6D25350F180064666C /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = BA440F6C25350F180064666C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		466C426E249A8748007D033E /* Resources */ = {
@@ -581,6 +677,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1628A2A69397A3A6E7ADD33C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-labs-ios-starter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B49C1E97CC78E827C81BAA0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-labs-ios-starter/Pods-labs-ios-starter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-labs-ios-starter/Pods-labs-ios-starter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-labs-ios-starter/Pods-labs-ios-starter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		466C426C249A8748007D033E /* Sources */ = {
@@ -639,6 +777,7 @@
 				13D15E4B250895C700F021D5 /* ProfileInfoTableViewCell.swift in Sources */,
 				9C364A8E24F5EA1600FF204D /* Mutator.swift in Sources */,
 				13FD2A9324E4575D006D6B43 /* PickupDateTableViewCell.swift in Sources */,
+				BA440F7925351B530064666C /* PropertiesTableViewCell.swift in Sources */,
 				463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */,
 				BA5B10B7252BA993001202FE /* Role.swift in Sources */,
 				9C5F86DE24EF8DAC00DECB24 /* PickupCarton.swift in Sources */,
@@ -651,11 +790,13 @@
 				9C9ACA6C24F71F8C002D47B5 /* CancelPickupInput.swift in Sources */,
 				BA00CB6F252EAC10003A3041 /* HotelsViewController.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewControllerStarter.swift in Sources */,
+				BA440F6025350A050064666C /* String+Extension.swift in Sources */,
 				9CEA63B624EE24A700A2C446 /* APIEnums.swift in Sources */,
 				466C4276249A8748007D033E /* SceneDelegate.swift in Sources */,
 				9C9ACA7924F76248002D47B5 /* UpdatePropertyInput.swift in Sources */,
 				9C9A98EA24E508BE007FC7DA /* Pickup.swift in Sources */,
 				9C9ACA7524F7524C002D47B5 /* CoordinatesInput.swift in Sources */,
+				BA440F5D253508A50064666C /* ImpactChart.swift in Sources */,
 				9C9ACA7024F7296B002D47B5 /* AddressInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -798,6 +939,7 @@
 		};
 		466C4285249A8749007D033E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D87CD22D6711FC3CA3A09C4E /* Pods-labs-ios-starter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -816,6 +958,7 @@
 		};
 		466C4286249A8749007D033E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A52EEED0EE783C283D4B08C /* Pods-labs-ios-starter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -856,7 +999,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BA440F532534FBB40064666C /* XCRemoteSwiftPackageReference "OktaAuth" */ = {
+		BA440F71253510B00064666C /* XCRemoteSwiftPackageReference "OktaAuth" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SpencerCurtis/OktaAuth.git";
 			requirement = {
@@ -867,9 +1010,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BA440F542534FBB40064666C /* OktaAuth */ = {
+		BA440F72253510B00064666C /* OktaAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BA440F532534FBB40064666C /* XCRemoteSwiftPackageReference "OktaAuth" */;
+			package = BA440F71253510B00064666C /* XCRemoteSwiftPackageReference "OktaAuth" */;
 			productName = OktaAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
