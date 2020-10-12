@@ -79,8 +79,14 @@
 		9CEA63BB24EE26E700A2C446 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BA24EE26E700A2C446 /* Coordinates.swift */; };
 		9CEA63BD24EE2D2800A2C446 /* Hub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BC24EE2D2800A2C446 /* Hub.swift */; };
 		9CEA63BF24EE3CA200A2C446 /* HospitalityContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BE24EE3CA200A2C446 /* HospitalityContract.swift */; };
+		BA00CB6F252EAC10003A3041 /* HotelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00CB6E252EAC10003A3041 /* HotelsViewController.swift */; };
+		BA00CB72252EAE94003A3041 /* MockHotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA00CB71252EAE94003A3041 /* MockHotel.swift */; };
+		BA440F502534F03A0064666C /* HotelHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA440F4F2534F03A0064666C /* HotelHeaderTableViewCell.swift */; };
+		BA440F552534FBB40064666C /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BA440F542534FBB40064666C /* OktaAuth */; };
+		BA524F38252F82BE0090F073 /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA524F37252F82BE0090F073 /* ExpandableHeaderView.swift */; };
+		BA524F40252FE7B30090F073 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA524F3F252FE7B30090F073 /* UserController.swift */; };
+		BA524F45252FEBB70090F073 /* UserCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA524F44252FEBB70090F073 /* UserCodable.swift */; };
 		BA5B10B7252BA993001202FE /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10B6252BA993001202FE /* Role.swift */; };
-		BAA8E9A025252576005EA47D /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BAA8E99F25252576005EA47D /* OktaAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,6 +165,12 @@
 		9CEA63BA24EE26E700A2C446 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		9CEA63BC24EE2D2800A2C446 /* Hub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hub.swift; sourceTree = "<group>"; };
 		9CEA63BE24EE3CA200A2C446 /* HospitalityContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalityContract.swift; sourceTree = "<group>"; };
+		BA00CB6E252EAC10003A3041 /* HotelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelsViewController.swift; sourceTree = "<group>"; };
+		BA00CB71252EAE94003A3041 /* MockHotel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHotel.swift; sourceTree = "<group>"; };
+		BA440F4F2534F03A0064666C /* HotelHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		BA524F37252F82BE0090F073 /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableHeaderView.swift; sourceTree = "<group>"; };
+		BA524F3F252FE7B30090F073 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		BA524F44252FEBB70090F073 /* UserCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCodable.swift; sourceTree = "<group>"; };
 		BA5B10B6252BA993001202FE /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,7 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAA8E9A025252576005EA47D /* OktaAuth in Frameworks */,
+				BA440F552534FBB40064666C /* OktaAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +223,7 @@
 		13A4A7D724E1F8DE005326F9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BA00CB6A252EABB1003A3041 /* HomeView */,
 				13A4A7D624E1F8D4005326F9 /* Dashboard */,
 				13A4A7EC24E3592C005326F9 /* Pickups */,
 				13DC372224E5EFA800AE20B3 /* Impact Statistics */,
@@ -236,6 +249,7 @@
 		13A4A7E324E20353005326F9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BA00CB6B252EABD2003A3041 /* Home */,
 				13A4A7E424E2035F005326F9 /* Dashboard */,
 				13FD2A9A24E457A5006D6B43 /* Pickups */,
 				13DC372724E63C0E00AE20B3 /* Impact Statistics */,
@@ -303,6 +317,7 @@
 			children = (
 				466C4272249A8748007D033E /* labs-ios-starter */,
 				466C4271249A8748007D033E /* Products */,
+				BA440F522534FA560064666C /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -317,6 +332,7 @@
 		466C4272249A8748007D033E /* labs-ios-starter */ = {
 			isa = PBXGroup;
 			children = (
+				BA00CB70252EAE6B003A3041 /* MockData */,
 				9C9ACA7C24F779BB002D47B5 /* Helpers */,
 				9C9A98E424E5068B007FC7DA /* Models */,
 				9C9A98DF24E4E22F007FC7DA /* Networking */,
@@ -456,6 +472,40 @@
 			path = "Property Models";
 			sourceTree = "<group>";
 		};
+		BA00CB6A252EABB1003A3041 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				BA00CB6E252EAC10003A3041 /* HotelsViewController.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		BA00CB6B252EABD2003A3041 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BA440F4F2534F03A0064666C /* HotelHeaderTableViewCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BA00CB70252EAE6B003A3041 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				BA00CB71252EAE94003A3041 /* MockHotel.swift */,
+				BA524F37252F82BE0090F073 /* ExpandableHeaderView.swift */,
+			);
+			path = MockData;
+			sourceTree = "<group>";
+		};
+		BA440F522534FA560064666C /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				BA524F44252FEBB70090F073 /* UserCodable.swift */,
+				BA524F3F252FE7B30090F073 /* UserController.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -473,7 +523,7 @@
 			);
 			name = "labs-ios-starter";
 			packageProductDependencies = (
-				BAA8E99F25252576005EA47D /* OktaAuth */,
+				BA440F542534FBB40064666C /* OktaAuth */,
 			);
 			productName = LabsScaffolding;
 			productReference = 466C4270249A8748007D033E /* labs-ios-starter.app */;
@@ -504,7 +554,7 @@
 			);
 			mainGroup = 466C4267249A8748007D033E;
 			packageReferences = (
-				BAA8E99E25252576005EA47D /* XCRemoteSwiftPackageReference "OktaAuth" */,
+				BA440F532534FBB40064666C /* XCRemoteSwiftPackageReference "OktaAuth" */,
 			);
 			productRefGroup = 466C4271249A8748007D033E /* Products */;
 			projectDirPath = "";
@@ -550,11 +600,14 @@
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
 				9C9ACA6E24F72327002D47B5 /* CreatePaymentInput.swift in Sources */,
 				13A62495251BEA4600E335DC /* PickupDetailViewController.swift in Sources */,
+				BA00CB72252EAE94003A3041 /* MockHotel.swift in Sources */,
 				9CEA63BD24EE2D2800A2C446 /* Hub.swift in Sources */,
 				9C9ACA7224F72EFD002D47B5 /* UpdateUserProfileInput.swift in Sources */,
 				9C364A9C24F6393D00FF204D /* Input.swift in Sources */,
 				9C9A98EC24E509B7007FC7DA /* ImpactStats.swift in Sources */,
+				BA440F502534F03A0064666C /* HotelHeaderTableViewCell.swift in Sources */,
 				9C9A98E324E4F0D3007FC7DA /* NetworkController.swift in Sources */,
+				BA524F45252FEBB70090F073 /* UserCodable.swift in Sources */,
 				13A4A7E924E24A8B005326F9 /* DashboardLayout.swift in Sources */,
 				9CEA63BB24EE26E700A2C446 /* Coordinates.swift in Sources */,
 				13C23F6024EC94AF00DC3F9A /* ImpactStatisticsIndividualCollectionViewCell.swift in Sources */,
@@ -569,6 +622,7 @@
 				13A4A7DE24E1FB1E005326F9 /* HelperExtensions.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,
 				13DC372624E63C0A00AE20B3 /* ImpactStatisticsOverallCollectionViewCell.swift in Sources */,
+				BA524F40252FE7B30090F073 /* UserController.swift in Sources */,
 				13518FBB2509C15D000C217F /* PropertyTableViewCell.swift in Sources */,
 				9CEA63BF24EE3CA200A2C446 /* HospitalityContract.swift in Sources */,
 				9CEA63B924EE257600A2C446 /* Address.swift in Sources */,
@@ -577,6 +631,7 @@
 				13FD2A9924E457A1006D6B43 /* PickupPropertyTableViewCell.swift in Sources */,
 				13FD2AA224E49B39006D6B43 /* PickupsViewController.swift in Sources */,
 				13A4A7EB24E35923005326F9 /* SchedulePickupViewController.swift in Sources */,
+				BA524F38252F82BE0090F073 /* ExpandableHeaderView.swift in Sources */,
 				13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */,
 				1326A737250FFD4000EFA7CF /* PropertyInfoTableViewCell.swift in Sources */,
 				13FD2A9C24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift in Sources */,
@@ -596,6 +651,7 @@
 				9C364A9624F6217000FF204D /* ControllerEnums.swift in Sources */,
 				9C364A9124F60E6100FF204D /* PickupInput.swift in Sources */,
 				9C9ACA6C24F71F8C002D47B5 /* CancelPickupInput.swift in Sources */,
+				BA00CB6F252EAC10003A3041 /* HotelsViewController.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewControllerStarter.swift in Sources */,
 				9CEA63B624EE24A700A2C446 /* APIEnums.swift in Sources */,
 				466C4276249A8748007D033E /* SceneDelegate.swift in Sources */,
@@ -802,7 +858,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BAA8E99E25252576005EA47D /* XCRemoteSwiftPackageReference "OktaAuth" */ = {
+		BA440F532534FBB40064666C /* XCRemoteSwiftPackageReference "OktaAuth" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SpencerCurtis/OktaAuth.git";
 			requirement = {
@@ -813,9 +869,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BAA8E99F25252576005EA47D /* OktaAuth */ = {
+		BA440F542534FBB40064666C /* OktaAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BAA8E99E25252576005EA47D /* XCRemoteSwiftPackageReference "OktaAuth" */;
+			package = BA440F532534FBB40064666C /* XCRemoteSwiftPackageReference "OktaAuth" */;
 			productName = OktaAuth;
 		};
 /* End XCSwiftPackageProductDependency section */

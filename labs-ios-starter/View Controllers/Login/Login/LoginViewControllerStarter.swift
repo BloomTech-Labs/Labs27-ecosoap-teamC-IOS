@@ -255,7 +255,9 @@ class LoginViewControllerStarter: UIViewController {
     
     // MARK: Notification Handling
     private func checkForExistingProfile(with notification: Notification) {
-        checkForExistingProfile()
+       //        checkForExistingProfile()
+        // doesn't let the user authenticate as it skips the functionality.
+        self.performSegue(withIdentifier: "ShowDetailProfileList", sender: nil)
     }
     
     private func checkForExistingProfile() {
