@@ -3,7 +3,7 @@
 2️⃣ Contributors
 |                                                      Crystal                                                       |                                                       Bharat                                                                                          
  | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: 
- | [<img src="https://avatars0.githubusercontent.com/u/54729577?s=400&u=a058895a366ef38e4c30c625f5bc0ca5503ad01e&v=4" width = "200" />](https://github.com/CrystalKnightCodes) | [<img src="https://https://avatars2.githubusercontent.com/u/57078122?s=400&u=00c03d223d2c7c8400bef2dea378606ec83085d7&v=4" width = "200" />](https://github.com/Bharatk2) |
+ | [<img src="https://avatars0.githubusercontent.com/u/54729577?s=400&u=a058895a366ef38e4c30c625f5bc0ca5503ad01e&v=4" width = "200" />](https://github.com/CrystalKnightCodes) | [<img src="https://avatars2.githubusercontent.com/u/57078122?s=400&u=00c03d223d2c7c8400bef2dea378606ec83085d7&v=4" width = "200" />](https://github.com/Bharatk2) |
  |                                <img src="https://github.com/favicon.ico" width="15">                              |                            <img src="https://github.com/favicon.ico" width="15">                                         
  |                <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15">                |                 <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15">               
 
