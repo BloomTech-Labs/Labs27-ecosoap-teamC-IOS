@@ -15,19 +15,22 @@ class User {
     var middleName, title, company, phone, skype: String?
     var address: Address?
     var signupTime: Date?
-    let role: Role?
-    var propertiesById: [String] = []
+    var role: Role?
+    var propertiesById: [String?] = []
+    var hub: Hub?
     
     init() {
-        self.id = "00uzrwu3qoQExczZF4x6"
+        print("Default User Initialization")
+        self.id = "00u15tfyjl9AXGjxD4x7"
         self.firstName = "Miles"
-        self.lastName = "Watts"
-        self.email = "Miles.K.Watts.1599761674594@test.com"
-        self.password = "1599761674594"
+        self.lastName = "Schmidt"
+        self.email = "Miles.B.Schmidt.1602529359656@test.com"
+        self.password = "1602529359656"
         self.role = .HOTEL
     }
 
     init?(dictionary: [String: Any]) {
+        print("GraphQL User Initialization")
         guard let id = dictionary["id"] as? String,
         let firstName = dictionary["firstName"] as? String,
         let lastName = dictionary["lastName"] as? String,
@@ -74,6 +77,12 @@ class User {
                     self.propertiesById.append(id)
                 }
             }
+        }
+        
+        if let hubContainer = dictionary["hub"] as? [String: Any] {
+            self.hub = Hub(dictionary: hubContainer)
+        } else {
+            self.hub = nil
         }
     }
 }
