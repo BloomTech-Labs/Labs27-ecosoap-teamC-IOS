@@ -19,12 +19,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let context = URLContexts.first else { return }
 
         let url = context.url
-        ProfileController.shared.oktaAuth.receiveCredentials(fromCallbackURL: url) { (result) in
+        UserController.shared.oktaAuth.receiveCredentials(fromCallbackURL: url) { (result) in
             
             let notificationName: Notification.Name
             do {
                 try result.get()
-                guard (try? ProfileController.shared.oktaAuth.credentialsIfAvailable()) != nil else { return }
+                guard (try? UserController.shared.oktaAuth.credentialsIfAvailable()) != nil else { return }
                 notificationName = .oktaAuthenticationSuccessful
             } catch {
                 notificationName = .oktaAuthenticationFailed
