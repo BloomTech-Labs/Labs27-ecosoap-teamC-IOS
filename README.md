@@ -1,5 +1,19 @@
 # Labs27-Ecosoap-TeamC-IOS
 
+
+|                                                      Bharat                                                       |                                                       Crystal                                                                                          
+ | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: 
+ | <img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" /> | <img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />|
+ |                                <img src="https://github.com/favicon.ico" width="15">                              |                            <img src="https://github.com/favicon.ico" width="15">                                         
+ |                <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15">                |                 <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15">               
+
+ List tests implemented or test which passed, if applicable.
+ <br>
+ <br>
+
+ ### Style Guide
+ ![Swift](https://img.shields.io/badge/Swift-Version%205.3-orange)
+
 ### Branch Naming Convention
 Create a branch name relevant to the feature you are developing:  
 - `develop-[feature]`  
