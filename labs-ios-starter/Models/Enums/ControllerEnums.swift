@@ -10,6 +10,7 @@ import Foundation
 
 enum ResponseModel: String {
     case user
+    case logIn
     case property
     case properties
     case impactStats
@@ -21,6 +22,7 @@ enum ResponseModel: String {
 }
 
 enum MutationName: String {
+    case logIn
     case schedulePickup
     case cancelPickup
     case createPayment
