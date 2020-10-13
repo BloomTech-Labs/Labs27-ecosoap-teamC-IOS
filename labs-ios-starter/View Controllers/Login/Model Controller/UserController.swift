@@ -70,51 +70,10 @@ class UserController {
             }
             return
         }
-        
-        let requestURL = baseURL
-//
-//            .appendingPathComponent("profiles")
-//            .appendingPathComponent(userID)
-        var request = URLRequest(url: requestURL)
-//
-        request.addValue("Bearer \(oktaCredentials.idToken)", forHTTPHeaderField: "Authorization")
-//
-        let dataTask = URLSession.shared.dataTask(with: request) {
-            (data, response, error) in
+        let input = LogInInput(token: oktaCredentials.idToken)
+        BackendController.shared.logIn(input: input) { (error) in
             
-            var fetchedUser: User?
-            
-            defer {
-                DispatchQueue.main.async {
-                    completion(fetchedUser)
-                }
-            }
-            
-            if let error = error {
-                NSLog("Error getting User: \(error)")
-            }
-            
-            if let response = response as? HTTPURLResponse, response.statusCode != 200 {
-                NSLog("Returned status code is not the expected 200.  Instead it is \(response.statusCode)")
-            }
-            
-            guard let data = data else {
-                NSLog("No data returned when getting user.")
-                return
-            }
-            
-            
-            // Edit this to work with GraphQL?
-//            let decoder = JSONDecoder()
-//
-//            do {
-//                let user = try decoder.decode(User.self, from: data)
-//                fetchedUser = user
-//            } catch {
-//                NSLog("Unable to decode User from data: \(error)")
-//            }
         }
-        dataTask.resume()
     }
     
     func postAuthenticationExpiredNotification() {

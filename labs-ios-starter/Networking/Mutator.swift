@@ -54,7 +54,7 @@ class Mutator: Request {
         }
         return """
         mutation {
-            login(input:{
+            logIn(input:{
                 \(token.formatted)
             }) {
                 user {
@@ -104,6 +104,7 @@ class Mutator: Request {
                         workflow
                     }
                 }
+            }
         }
 """
     }

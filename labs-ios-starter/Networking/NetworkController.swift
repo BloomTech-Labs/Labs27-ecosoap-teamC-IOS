@@ -39,6 +39,7 @@ class BackendController {
     private var parsers: [ResponseModel: (Any?) throws ->()] = [.property: BackendController.propertyParser,
                                                         .properties: BackendController.propertiesParser,
                                                         .user: BackendController.userParser,
+                                                        .logIn: BackendController.loggedInUserParser,
                                                         .pickup:  BackendController.pickupParser,
                                                         .pickups: BackendController.pickupsParser,
                                                         .hub: BackendController.hubParser,
@@ -74,6 +75,17 @@ class BackendController {
             throw Errors.ObjectInitFail
         }
         shared.users[user.id] = user
+    }
+    
+    private static func loggedInUserParser(data: Any?) throws {
+        guard let userContainer = data as? [String: Any] else {
+            throw newError(message: "Couldn't USER cast data as dictionary for initialization")
+        }
+
+        guard let user = User(dictionary: userContainer) else {
+            throw Errors.ObjectInitFail
+        }
+        shared.loggedInUser = user
     }
 
     private static func pickupParser(data: Any?) throws {
@@ -322,6 +334,21 @@ class BackendController {
 
     // MARK: Mutations
 
+    func logIn(input: LogInInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .logIn, input: input) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (data, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            completion(nil)
+        }
+    }
+    
     func schedulePickup(input: PickupInput, completion: @escaping (Error?) -> Void) {
         guard let request = Mutator(name: .schedulePickup, input: input) else {
             completion(Errors.RequestInitFail)
@@ -424,9 +451,16 @@ class BackendController {
                 } else {
                     queryContainer = dataContainer[request.name] as? [String: Any]
                 }
+            
+                var payload = request.payload
+                
+                if request.name == "logIn" {
+                    payload = .logIn
+                }
+                
+                
 
-
-                guard let parser = self.parsers[request.payload] else {
+                guard let parser = self.parsers[payload] else {
                     print("The payload \(payloadString) doesn't possess a parser.")
                     completion(queryContainer?[payloadString], nil)
                     return

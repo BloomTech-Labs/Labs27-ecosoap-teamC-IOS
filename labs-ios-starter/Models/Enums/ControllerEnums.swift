@@ -10,6 +10,7 @@ import Foundation
 
 enum ResponseModel: String {
     case user
+    case logIn
     case property
     case properties
     case impactStats
