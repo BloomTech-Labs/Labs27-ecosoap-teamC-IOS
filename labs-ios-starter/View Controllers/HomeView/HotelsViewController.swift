@@ -17,6 +17,7 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var lineChartView: LineChartView!
     
     
+    
     func toggleSection(_ header: HotelHeaderTableViewCell, section: Int) {
         let collapsed = !sections[section].isExpanded
 
@@ -46,7 +47,17 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         sections = [ MockHotelNames(type: "Hotels", names: ["Mariott Hotel", "Hamptin In", "Ibis Hotel"], isExpanded: false)
         ]
         setData()
-        // set a background color so we can easily see the table
+        // Line Chart Implementation
+        lineChartView.rightAxis.enabled = false
+//        let yAxis = lineChartView.leftAxis
+//        yAxis.labelFont = .boldSystemFont(ofSize: 8)
+//        yAxis.setLabelCount(6, force: false)
+//        yAxis.labelTextColor = .white
+//        yAxis.axisLineColor = .white
+//        yAxis.labelPosition = .outsideChart
+//        lineChartView.xAxis.labelPosition = .bottom
+        lineChartView.animate(xAxisDuration: 2.5)
+        // Ends
         firsttableView.delegate = self
         firsttableView.dataSource = self
         propertiesTableView.delegate = self
@@ -75,8 +86,17 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func setData() {
         let set1 = LineChartDataSet(entries: yValue, label: "Impact Statistics")
+        set1.mode = .cubicBezier
+        set1.lineWidth = 3
+        set1.setColor(UIColor(named: "ESB Blue")!)
+        set1.drawCirclesEnabled = false
+        set1.fill = Fill(color: UIColor(named: "ESB Blue")!)
+        set1.fillAlpha = 0.8
+        set1.drawFilledEnabled = true
+        set1.drawHorizontalHighlightIndicatorEnabled = false
         
         let data = LineChartData(dataSet: set1)
+        data.setDrawValues(false)
         lineChartView.data = data
     }
     
@@ -142,6 +162,7 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
            let headerCell = tableView.dequeueReusableCell(withIdentifier: headerCellIdentifier) as? HotelHeaderTableViewCell
 
         headerCell?.textLabel?.text = sections[section].type
+        headerCell?.textLabel?.font = UIFont(name: "Euphemia UCAS", size: 20)
         headerCell?.setCollapsed(sections[section].isExpanded)
         headerCell?.imageView?.image = disclosureIndicator.image
         if headerCell?.isSelected == true  {
@@ -157,11 +178,14 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if tableView == firsttableView,
             let cell = tableView.dequeueReusableCell(withIdentifier: "HotelCell") as? HotelHeaderTableViewCell {
          cell.textLabel?.text = sections[indexPath.section].names[indexPath.row]
+            cell.textLabel?.font = UIFont(name: "Euphemia UCAS", size: 17)
         return cell
     }
     if tableView == propertiesTableView,
             let cell = tableView.dequeueReusableCell(withIdentifier: "PropertiesCell") as? PropertiesTableViewCell {
         cell.textLabel?.text = sections[indexPath.section].names[indexPath.row]
+        cell.textLabel?.font = UIFont(name: "Euphemia UCAS", size: 17)
+        
         return cell
         }
         return UITableViewCell()

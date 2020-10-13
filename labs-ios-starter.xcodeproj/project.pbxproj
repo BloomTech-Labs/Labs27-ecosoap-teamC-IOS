@@ -87,6 +87,7 @@
 		BA440F6025350A050064666C /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA440F5F25350A050064666C /* String+Extension.swift */; };
 		BA440F73253510B00064666C /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BA440F72253510B00064666C /* OktaAuth */; };
 		BA440F7925351B530064666C /* PropertiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA440F7825351B530064666C /* PropertiesTableViewCell.swift */; };
+		BA440F7B25352DDF0064666C /* MockImpactStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA440F7A25352DDF0064666C /* MockImpactStatistics.swift */; };
 		BA524F38252F82BE0090F073 /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA524F37252F82BE0090F073 /* ExpandableHeaderView.swift */; };
 		BA524F40252FE7B30090F073 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA524F3F252FE7B30090F073 /* UserController.swift */; };
 		BA5B10B7252BA993001202FE /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10B6252BA993001202FE /* Role.swift */; };
@@ -195,6 +196,7 @@
 		BA440F6125350EED0064666C /* SwiftChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA440F6525350F180064666C /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
 		BA440F7825351B530064666C /* PropertiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesTableViewCell.swift; sourceTree = "<group>"; };
+		BA440F7A25352DDF0064666C /* MockImpactStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImpactStatistics.swift; sourceTree = "<group>"; };
 		BA524F37252F82BE0090F073 /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableHeaderView.swift; sourceTree = "<group>"; };
 		BA524F3F252FE7B30090F073 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		BA524F44252FEBB70090F073 /* UserCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCodable.swift; sourceTree = "<group>"; };
@@ -527,6 +529,7 @@
 			children = (
 				BA00CB71252EAE94003A3041 /* MockHotel.swift */,
 				BA524F37252F82BE0090F073 /* ExpandableHeaderView.swift */,
+				BA440F7A25352DDF0064666C /* MockImpactStatistics.swift */,
 			);
 			path = MockData;
 			sourceTree = "<group>";
@@ -735,6 +738,7 @@
 				9C9A98E824E5078B007FC7DA /* Property.swift in Sources */,
 				9C25231C24F9E2BB0023D660 /* DateFormatter.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
+				BA440F7B25352DDF0064666C /* MockImpactStatistics.swift in Sources */,
 				9C9ACA6E24F72327002D47B5 /* CreatePaymentInput.swift in Sources */,
 				13A62495251BEA4600E335DC /* PickupDetailViewController.swift in Sources */,
 				BA00CB72252EAE94003A3041 /* MockHotel.swift in Sources */,
