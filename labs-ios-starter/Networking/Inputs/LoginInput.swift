@@ -20,5 +20,4 @@ class LogInInput: Input {
     init (token: String) {
         self.token = token
     }
-    
 }
