@@ -36,8 +36,6 @@
 		13FD2A9C24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9B24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift */; };
 		13FD2AA024E46A72006D6B43 /* SelectPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9F24E46A72006D6B43 /* SelectPropertyViewController.swift */; };
 		13FD2AA224E49B39006D6B43 /* PickupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2AA124E49B39006D6B43 /* PickupsViewController.swift */; };
-		463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */; };
-		463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */; };
 		466C4274249A8748007D033E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4273249A8748007D033E /* AppDelegate.swift */; };
 		466C4276249A8748007D033E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4275249A8748007D033E /* SceneDelegate.swift */; };
 		466C427B249A8748007D033E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466C4279249A8748007D033E /* Main.storyboard */; };
@@ -46,8 +44,6 @@
 		46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEB4E024C9828800FE0CD1 /* Profile.swift */; };
 		46BEB4E524C98CDC00FE0CD1 /* LoginViewControllerStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEB4E424C98CDC00FE0CD1 /* LoginViewControllerStarter.swift */; };
 		46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEB4E624C98D8900FE0CD1 /* Notifications.swift */; };
-		46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEB4E824C98DAF00FE0CD1 /* ProfileListViewController.swift */; };
-		46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEB4ED24C98ECC00FE0CD1 /* ProfileController.swift */; };
 		46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */; };
 		46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */; };
 		46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */; };
@@ -117,8 +113,6 @@
 		13FD2A9B24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPickupCartonTableViewCell.swift; sourceTree = "<group>"; };
 		13FD2A9F24E46A72006D6B43 /* SelectPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPropertyViewController.swift; sourceTree = "<group>"; };
 		13FD2AA124E49B39006D6B43 /* PickupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupsViewController.swift; sourceTree = "<group>"; };
-		463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
-		463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		466C4270249A8748007D033E /* labs-ios-starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "labs-ios-starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		466C4273249A8748007D033E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		466C4275249A8748007D033E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,8 +124,6 @@
 		46BEB4E024C9828800FE0CD1 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		46BEB4E424C98CDC00FE0CD1 /* LoginViewControllerStarter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerStarter.swift; sourceTree = "<group>"; };
 		46BEB4E624C98D8900FE0CD1 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
-		46BEB4E824C98DAF00FE0CD1 /* ProfileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListViewController.swift; sourceTree = "<group>"; };
-		46BEB4ED24C98ECC00FE0CD1 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profiles.storyboard; sourceTree = "<group>"; };
 		46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SimpleAlert.swift"; sourceTree = "<group>"; };
 		46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarViewController.swift; sourceTree = "<group>"; };
@@ -354,7 +346,6 @@
 		46BEB4EC24C98EBB00FE0CD1 /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
-				46BEB4ED24C98ECC00FE0CD1 /* ProfileController.swift */,
 				BAD33C8D25362E800080FCC6 /* UserController.swift */,
 			);
 			path = "Model Controller";
@@ -364,7 +355,6 @@
 			isa = PBXGroup;
 			children = (
 				46BEB4E424C98CDC00FE0CD1 /* LoginViewControllerStarter.swift */,
-				463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */,
 				466C4279249A8748007D033E /* Main.storyboard */,
 				46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */,
 			);
@@ -374,8 +364,6 @@
 		46BEB4F224C98F1100FE0CD1 /* Profiles */ = {
 			isa = PBXGroup;
 			children = (
-				46BEB4E824C98DAF00FE0CD1 /* ProfileListViewController.swift */,
-				463AD24224CF275900447BB8 /* ProfileDetailViewController.swift */,
 				46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */,
 			);
 			path = Profiles;
@@ -550,7 +538,6 @@
 				13FD2AA024E46A72006D6B43 /* SelectPropertyViewController.swift in Sources */,
 				9C364A9A24F6310E00FF204D /* Request.swift in Sources */,
 				13BA9FE225001A8500973F03 /* PropertiesViewController.swift in Sources */,
-				46BEB4EE24C98ECC00FE0CD1 /* ProfileController.swift in Sources */,
 				13E0E39F24F819BC008AE0F8 /* PickupCartonTableViewCell.swift in Sources */,
 				BAD33C8E25362E800080FCC6 /* UserController.swift in Sources */,
 				46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */,
@@ -571,11 +558,9 @@
 				BAD33C832534C7FE0080FCC6 /* (null) in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */,
-				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
 				13BA9FE025001A7900973F03 /* ProfileViewController.swift in Sources */,
 				1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */,
 				9C9A98E124E4EF3C007FC7DA /* Queries.swift in Sources */,
-				463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */,
 				13A4A7DE24E1FB1E005326F9 /* HelperExtensions.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,
 				13DC372624E63C0A00AE20B3 /* ImpactStatisticsOverallCollectionViewCell.swift in Sources */,
@@ -597,7 +582,6 @@
 				13D15E4B250895C700F021D5 /* ProfileInfoTableViewCell.swift in Sources */,
 				9C364A8E24F5EA1600FF204D /* Mutator.swift in Sources */,
 				13FD2A9324E4575D006D6B43 /* PickupDateTableViewCell.swift in Sources */,
-				463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */,
 				BA5B10B7252BA993001202FE /* Role.swift in Sources */,
 				9C5F86DE24EF8DAC00DECB24 /* PickupCarton.swift in Sources */,
 				BAD33C862534FCC40080FCC6 /* (null) in Sources */,

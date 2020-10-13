@@ -13,7 +13,7 @@ class LogInInput: Input {
     
     var formatted: String {
         return """
-            token: \(token)
+            token: "\(token)"
             """
     }
     
