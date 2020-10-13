@@ -9,7 +9,7 @@
 
  <br>
  <br>
- ### Style Guide
+### Style Guide
  ![Swift](https://img.shields.io/badge/Swift-Version%205.3-orange)
  
  ## Project Overview
