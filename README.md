@@ -1,7 +1,7 @@
 # Labs27-Ecosoap-TeamC-IOS
 
 
-|                                                      Bharat                                                       |                                                       Crystal                                                                                          
+|                                                      Crystal                                                       |                                                       Bharat                                                                                          
  | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: 
  | <img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" /> | <img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />|
  |                                <img src="https://github.com/favicon.ico" width="15">                              |                            <img src="https://github.com/favicon.ico" width="15">                                         
