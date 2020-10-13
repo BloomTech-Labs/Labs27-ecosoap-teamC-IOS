@@ -20,7 +20,6 @@ class User {
     var hub: Hub?
     
     init() {
-        print("Default User Initialization")
         self.id = "00u15tfyjl9AXGjxD4x7"
         self.firstName = "Miles"
         self.lastName = "Schmidt"
@@ -30,7 +29,6 @@ class User {
     }
 
     init?(dictionary: [String: Any]) {
-        print("GraphQL User Initialization")
         guard let id = dictionary["id"] as? String,
         let firstName = dictionary["firstName"] as? String,
         let lastName = dictionary["lastName"] as? String,
