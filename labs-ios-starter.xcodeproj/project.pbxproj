@@ -81,6 +81,8 @@
 		9CEA63BF24EE3CA200A2C446 /* HospitalityContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BE24EE3CA200A2C446 /* HospitalityContract.swift */; };
 		BA5B10B7252BA993001202FE /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10B6252BA993001202FE /* Role.swift */; };
 		BAA8E9A025252576005EA47D /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BAA8E99F25252576005EA47D /* OktaAuth */; };
+		BAD33C832534C7FE0080FCC6 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33C822534C7FE0080FCC6 /* UserController.swift */; };
+		BAD33C862534FCC40080FCC6 /* LoginInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33C852534FCC40080FCC6 /* LoginInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -349,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				46BEB4ED24C98ECC00FE0CD1 /* ProfileController.swift */,
+				BAD33C822534C7FE0080FCC6 /* UserController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				9C9ACA6B24F71F8C002D47B5 /* CancelPickupInput.swift */,
 				9C9ACA6D24F72327002D47B5 /* CreatePaymentInput.swift */,
 				9C9ACA7124F72EFD002D47B5 /* UpdateUserProfileInput.swift */,
+				BAD33C852534FCC40080FCC6 /* LoginInput.swift */,
 				9C9ACA7824F76248002D47B5 /* UpdatePropertyInput.swift */,
 			);
 			path = Inputs;
@@ -558,7 +562,11 @@
 				13A4A7E924E24A8B005326F9 /* DashboardLayout.swift in Sources */,
 				9CEA63BB24EE26E700A2C446 /* Coordinates.swift in Sources */,
 				13C23F6024EC94AF00DC3F9A /* ImpactStatisticsIndividualCollectionViewCell.swift in Sources */,
+				BA5B10C4252D21CD001202FE /* HubDashboardViewController.swift in Sources */,
 				13EF37B7250FE86E002E7959 /* PropertyDetailViewController.swift in Sources */,
+				BA5B10DB252F829E001202FE /* DeleteProductionReportInput.swift in Sources */,
+				BAD33C832534C7FE0080FCC6 /* UserController.swift in Sources */,
+				BA5B10CD252E2AD8001202FE /* ProductionReportImagesCollectionView.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */,
 				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
@@ -589,6 +597,7 @@
 				463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */,
 				BA5B10B7252BA993001202FE /* Role.swift in Sources */,
 				9C5F86DE24EF8DAC00DECB24 /* PickupCarton.swift in Sources */,
+				BAD33C862534FCC40080FCC6 /* LoginInput.swift in Sources */,
 				9C9A98E624E506A6007FC7DA /* User.swift in Sources */,
 				13A4A7E224E2034F005326F9 /* DashboardCollectionViewCell.swift in Sources */,
 				9C364A9324F60E8300FF204D /* CartonInput.swift in Sources */,

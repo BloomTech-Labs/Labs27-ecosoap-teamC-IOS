@@ -12,7 +12,8 @@ import OktaAuth
 class LoginViewControllerStarter: UIViewController {
     
     // MARK: - Properties
-    let profileController = ProfileController.shared
+//    let profileController = ProfileController.shared
+    let userController = UserController.shared
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -22,7 +23,7 @@ class LoginViewControllerStarter: UIViewController {
         NotificationCenter.default.addObserver(forName: .oktaAuthenticationSuccessful,
                                                object: nil,
                                                queue: .main,
-                                               using: checkForExistingProfile)
+                                               using: checkForExistingUser)
         
         NotificationCenter.default.addObserver(forName: .oktaAuthenticationExpired,
                                                object: nil,
@@ -187,7 +188,7 @@ class LoginViewControllerStarter: UIViewController {
     
     // MARK: - Actions
     @objc func login() {
-        UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
+        UIApplication.shared.open(UserController.shared.oktaAuth.identityAuthURL()!)
     }
     
     // MARK: - Private Methods
@@ -254,12 +255,13 @@ class LoginViewControllerStarter: UIViewController {
     }
     
     // MARK: Notification Handling
-    private func checkForExistingProfile(with notification: Notification) {
-        checkForExistingProfile()
+    private func checkForExistingUser(with notification: Notification) {
+        checkForExistingUser()
     }
     
-    private func checkForExistingProfile() {
-        profileController.checkForExistingAuthenticatedUserProfile { [weak self] (exists) in
+    // TODO: Modify
+    private func checkForExistingUser() {
+        userController.checkForExistingAuthenticatedUser { [weak self] (exists) in
             
             guard let self = self,
                 self.presentedViewController == nil else { return }
@@ -273,17 +275,17 @@ class LoginViewControllerStarter: UIViewController {
     }
     
     // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ModalAddProfile" {
-            guard let addProfileVC = segue.destination as? AddProfileViewController else { return }
-            addProfileVC.delegate = self
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "ModalAddProfile" {
+//            guard let addProfileVC = segue.destination as? AddProfileViewController else { return }
+//            addProfileVC.delegate = self
+//        }
+//    }
 }
 
 // MARK: - Add Profile Delegate
-extension LoginViewControllerStarter: AddProfileDelegate {
-    func profileWasAdded() {
-        checkForExistingProfile()
-    }
-}
+//extension LoginViewControllerStarter: AddProfileDelegate {
+//    func profileWasAdded() {
+//        checkForExistingUser()
+//    }
+//}
