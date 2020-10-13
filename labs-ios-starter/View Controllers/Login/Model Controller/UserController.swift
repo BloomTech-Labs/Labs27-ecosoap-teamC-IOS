@@ -76,9 +76,9 @@ class UserController {
 //            .appendingPathComponent("profiles")
 //            .appendingPathComponent(userID)
         var request = URLRequest(url: requestURL)
-//        
+//
         request.addValue("Bearer \(oktaCredentials.idToken)", forHTTPHeaderField: "Authorization")
-//        
+//
         let dataTask = URLSession.shared.dataTask(with: request) {
             (data, response, error) in
             
