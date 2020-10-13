@@ -30,6 +30,8 @@ Eco-Soap Bank is a humanitarian and environmental non-profit organization workin
 - User can track delivery
 
 # 1️⃣ APIs
+### GraphQL API 
+- The GraphQL API is query language to access the queries in the API, it gives the access to multiple data in one request by giving the fastast runtime even in the slower network connection devices.
 ### Okta Auth
 - This API is to provide us the authentication of the users, to be able to register multiple users and provide scalability to the applicatoon.
 
