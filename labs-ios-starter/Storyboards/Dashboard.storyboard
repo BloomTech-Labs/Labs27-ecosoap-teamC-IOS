@@ -672,7 +672,7 @@
             <objects>
                 <viewController id="yQ5-mv-t2u" customClass="HotelsViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gjp-7d-lpG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRw-7J-duI">
@@ -762,7 +762,7 @@
                                                             </subviews>
                                                         </tableViewCellContentView>
                                                         <connections>
-                                                            <segue destination="iJZ-YB-z5y" kind="show" id="86P-By-brl"/>
+                                                            <segue destination="Wgf-De-h5o" kind="show" id="DrB-I3-C4B"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
@@ -803,7 +803,6 @@
                         <outlet property="firsttableView" destination="QVc-au-dkk" id="d0Y-a4-GPb"/>
                         <outlet property="lineChartView" destination="UpA-k7-64E" id="KyP-fp-rU6"/>
                         <outlet property="propertiesTableView" destination="7mC-2F-w57" id="dlM-P5-Ip1"/>
-                        <segue destination="iJZ-YB-z5y" kind="show" id="Ti0-cc-mdc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ki7-1F-xhV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -815,18 +814,9 @@
             <objects>
                 <viewController id="iJZ-YB-z5y" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mu1-y3-mIm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNb-zD-WF6">
-                                <rect key="frame" x="20" y="641" width="169" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="ESB Blue"/>
-                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
-                                <state key="normal" title="Edit">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Z2z-4X-eIn">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="612"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -842,14 +832,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TzH-VU-2TL">
-                                <rect key="frame" x="226" y="641" width="168" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
-                                <state key="normal" title="Delete">
-                                    <color key="titleColor" name="ESB Blue"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="1OF-6Z-jAP"/>
@@ -858,7 +840,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBy-YR-z8s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="507" y="-758"/>
+            <point key="canvasLocation" x="1239" y="-699"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="JBM-rm-gXK">
@@ -951,7 +933,7 @@
             <objects>
                 <viewController id="f0Z-XQ-DpI" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mla-2e-vur">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osJ-Cj-K7R">
@@ -996,10 +978,111 @@
             </objects>
             <point key="canvasLocation" x="-542" y="-1104"/>
         </scene>
+        <!--Property Detail-->
+        <scene sceneID="ahQ-5w-8i4">
+            <objects>
+                <viewController id="Wgf-De-h5o" customClass="PropertyDetailViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CSU-Te-AsK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="aCN-oK-8fW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="566"/>
+                                <color key="backgroundColor" name="ESB System Background"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PropertyInfoCell" rowHeight="75" id="ufn-zJ-Q2i" customClass="PropertyInfoTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="55.5" width="374" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ufn-zJ-Q2i" id="UMS-tK-isZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="75"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="VLX-ED-E2q">
+                                                    <rect key="frame" x="20" y="11" width="334" height="53"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwo-rR-3Qy">
+                                                            <rect key="frame" x="0.0" y="0.0" width="334" height="14.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yK5-BR-gut">
+                                                            <rect key="frame" x="0.0" y="18.5" width="334" height="34.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VLX-ED-E2q" firstAttribute="top" secondItem="UMS-tK-isZ" secondAttribute="topMargin" id="072-vA-fCC"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="VLX-ED-E2q" secondAttribute="bottom" id="0kv-Pk-JMQ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="VLX-ED-E2q" secondAttribute="trailing" id="Wxp-9c-bJY"/>
+                                                <constraint firstItem="VLX-ED-E2q" firstAttribute="centerY" secondItem="UMS-tK-isZ" secondAttribute="centerY" id="xuE-j0-KCH"/>
+                                                <constraint firstItem="VLX-ED-E2q" firstAttribute="leading" secondItem="UMS-tK-isZ" secondAttribute="leadingMargin" id="zPe-xB-nEh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionTextField" destination="yK5-BR-gut" id="5oi-F7-LI0"/>
+                                            <outlet property="titleLabel" destination="Rwo-rR-3Qy" id="yDT-Z2-ZOr"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Wgf-De-h5o" id="YGu-qL-8Za"/>
+                                    <outlet property="delegate" destination="Wgf-De-h5o" id="ksp-AW-B5v"/>
+                                </connections>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="Olq-gM-LQm">
+                                <rect key="frame" x="20" y="592" width="374" height="39"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNb-zD-WF6">
+                                        <rect key="frame" x="0.0" y="0.0" width="168.5" height="39"/>
+                                        <color key="backgroundColor" name="ESB Blue"/>
+                                        <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
+                                        <state key="normal" title="Edit">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TzH-VU-2TL">
+                                        <rect key="frame" x="205.5" y="0.0" width="168.5" height="39"/>
+                                        <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
+                                        <state key="normal" title="Delete">
+                                            <color key="titleColor" name="ESB Blue"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="ESB System Background"/>
+                        <constraints>
+                            <constraint firstItem="Olq-gM-LQm" firstAttribute="centerX" secondItem="CSU-Te-AsK" secondAttribute="centerX" id="3EQ-Ta-5SS"/>
+                            <constraint firstItem="Olq-gM-LQm" firstAttribute="leading" secondItem="tXa-m2-i0G" secondAttribute="leading" constant="20" id="BiY-6R-QVD"/>
+                            <constraint firstItem="aCN-oK-8fW" firstAttribute="top" secondItem="tXa-m2-i0G" secondAttribute="top" id="Gle-3b-RRT"/>
+                            <constraint firstItem="aCN-oK-8fW" firstAttribute="trailing" secondItem="tXa-m2-i0G" secondAttribute="trailing" id="PPo-EF-Z2c"/>
+                            <constraint firstItem="tXa-m2-i0G" firstAttribute="trailing" secondItem="Olq-gM-LQm" secondAttribute="trailing" constant="20" id="QCL-U4-kH3"/>
+                            <constraint firstItem="Olq-gM-LQm" firstAttribute="top" secondItem="aCN-oK-8fW" secondAttribute="bottom" constant="26" id="R6R-x5-A4q"/>
+                            <constraint firstItem="tXa-m2-i0G" firstAttribute="bottom" secondItem="Olq-gM-LQm" secondAttribute="bottom" constant="94" id="dbz-kW-mzv"/>
+                            <constraint firstItem="aCN-oK-8fW" firstAttribute="leading" secondItem="tXa-m2-i0G" secondAttribute="leading" id="k7z-jS-Shc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tXa-m2-i0G"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Property Detail" id="qcC-05-k4o">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="LIP-iB-gQ9">
+                            <connections>
+                                <action selector="editButtonTapped:" destination="Wgf-De-h5o" id="RAi-0G-DQP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="aCN-oK-8fW" id="XSl-QX-HOd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ie-0Z-ow6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="501" y="-748"/>
+        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Ti0-cc-mdc"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" name="ESB Green"/>
     <resources>
         <image name="ESB Property" width="85" height="124"/>
