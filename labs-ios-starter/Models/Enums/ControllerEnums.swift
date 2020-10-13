@@ -21,6 +21,7 @@ enum ResponseModel: String {
 }
 
 enum MutationName: String {
+    case logIn
     case schedulePickup
     case cancelPickup
     case createPayment

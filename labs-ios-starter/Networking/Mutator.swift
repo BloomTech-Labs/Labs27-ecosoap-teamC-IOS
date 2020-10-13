@@ -16,12 +16,14 @@ class Mutator: Request {
 
     var name: String
 
-    private static let collection = [MutationName.schedulePickup: Mutator.schedulePickup,
+    private static let collection = [MutationName.logIn: Mutator.logInInput,
+                                     .schedulePickup: Mutator.schedulePickup,
                                      .cancelPickup: Mutator.cancelPickup,
                                      .updateUserProfile: Mutator.updateUserProfile,
                                      .updateProperty: Mutator.updateProperty]
 
-    private static let payloads: [MutationName: ResponseModel] = [.schedulePickup: .pickup,
+    private static let payloads: [MutationName: ResponseModel] = [.logIn: .user,
+                                                                  .schedulePickup: .pickup,
                                                                   .cancelPickup: .pickup,
                                                                   .updateUserProfile: .user,
                                                                   .updateProperty: .property]
@@ -45,6 +47,67 @@ class Mutator: Request {
         self.name = name.rawValue
     }
 
+    private static func logInInput(input: Input) -> String? {
+        guard let token = input as? LogInInput else {
+            NSLog("Couldn't cast input to LogInInput.  Please make sure your input matches the mutation's required input.")
+            return nil
+        }
+        return """
+        mutation {
+            login(input:{
+                \(token.formatted)
+            }) {
+                user {
+                    id
+                    firstName
+                    middleName
+                    lastName
+                    title
+                    company
+                    email
+                    password
+                    phone
+                    skype
+                    address {
+                        address1
+                        address2
+                        address3
+                        city
+                        state
+                        postalCode
+                        country
+                        formattedAddress
+                    }
+                    signupTime
+                    role
+                    properties {
+                        id
+                    }
+                    hub {
+                        id
+                        name
+                        address {
+                            address1
+                            address2
+                            address3
+                            city
+                            state
+                            postalCode
+                            country
+                            formattedAddress
+                        }
+                        email
+                        phone
+                        properties {
+                            id
+                        }
+                        workflow
+                    }
+                }
+        }
+"""
+    }
+    
     private static func schedulePickup(input: Input) -> String? {
         guard let pickup = input as? PickupInput else {
             NSLog("Couldn't cast input to PickupInput. Please make sure your input matches the mutation's required input.")
@@ -296,5 +359,4 @@ class Mutator: Request {
         }
         """
     }
-
 }
