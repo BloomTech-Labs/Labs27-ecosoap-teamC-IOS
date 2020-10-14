@@ -20,6 +20,12 @@ class HotelHeaderTableViewCell: UITableViewCell {
         super.awakeFromNib()
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(HotelHeaderTableViewCell.tapHeader(_:))))
     }
+    
+    var property: Property? {
+           didSet {
+               updateViews()
+           }
+       }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -37,6 +43,11 @@ class HotelHeaderTableViewCell: UITableViewCell {
     func setCollapsed(_ collapsed: Bool) {
         // Animate the arrow rotation (see Extensions.swf)
         // arrowLabel.rotate(collapsed ? 0.0 : CGFloat(M_PI_2))
+    }
+    
+    private func updateViews() {
+        guard let property = property else { return }
+        self.textLabel?.text = property.name
     }
 
 }

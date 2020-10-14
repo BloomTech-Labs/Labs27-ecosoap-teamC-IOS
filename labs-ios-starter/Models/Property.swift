@@ -21,7 +21,7 @@ class Property {
     var impact: ImpactStats?
     var usersById: [String] = []
     var pickupsById: [String] = []
-
+    
     init?(dictionary: [String: Any]) {
         guard let id = dictionary["id"] as? String,
         let name = dictionary["name"] as? String,
@@ -95,3 +95,4 @@ class Property {
     }
 
 }
+
