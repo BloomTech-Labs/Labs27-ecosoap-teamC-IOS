@@ -9,20 +9,100 @@
 import UIKit
 
 class HubDashboardViewController: UIViewController {
+    enum Section {
+        case main
+    }
+    
     // MARK: - Outlets
-    @IBOutlet var newReportButton: UIButton!
+//    @IBOutlet var newReportButton: UIButton!
     
     // MARK: - Properties
     var isAdmin: Bool = false
+    var reports: [ProductionReport] = []
+    
+    // Mock data
+    let report1 = ProductionReport()
+    let report2 = ProductionReport()
+    func addMockData() {
+    reports.append(report1)
+    reports.append(report2)
+    }
+    
+    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+    private var dataSource: UICollectionViewDiffableDataSource<Section, ProductionReport>?
+    
+    private let padding: CGFloat = 12
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if isAdmin {
-            newReportButton.isHidden = false
+        addMockData()
+        setUpCollectionView()
+        setUpDataSource()
+        collectionView.delegate = self
+        
+        if BackendController.shared.loggedInUser.role == .HUB_ADMIN {
+            isAdmin = true
+//            newReportButton.isHidden = false
         } else {
-            newReportButton.isHidden = true
+            isAdmin = false
+//            newReportButton.isHidden = true
         }
+    }
+    
+    @objc func viewReport() {
+        performSegue(withIdentifier: "ViewReportSegue", sender: self)
+    }
+    
+    
+    private func createLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(50))
+        
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = padding
+        section.contentInsets = .init(top: padding, leading: padding, bottom: padding, trailing: padding)
+        
+        return UICollectionViewCompositionalLayout(section: section)
+    }
+    
+    private func setUpCollectionView() {
+        collectionView.register(ReportCell.self, forCellWithReuseIdentifier: String(describing: ReportCell.self))
+        collectionView.backgroundColor = .white
+        
+        view.addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+                                        collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                                        collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+                                        collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+                                        collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
+    private func setUpDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, ProductionReport>(collectionView: collectionView) {
+            (collectionView, indexPath, report) -> UICollectionViewCell? in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ReportCell.self), for: indexPath) as? ReportCell else {
+                fatalError("Could not cast cell as \(ReportCell.self)")
+            }
+            cell.report = report
+            cell.dashboardVC = self
+            return cell
+        }
+        collectionView.dataSource = dataSource
+        
+        var snapshot = NSDiffableDataSourceSnapshot<Section, ProductionReport>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(reports)
+        dataSource?.apply(snapshot)
+    }
+    
+    func fetchReports() {
+        
     }
     
     // MARK: - Navigation
@@ -32,6 +112,36 @@ class HubDashboardViewController: UIViewController {
             productionReportVC.isAdmin = isAdmin
             productionReportVC.isEditing = true
             productionReportVC.isNewReport = true
+        } else if segue.identifier == "ViewReportSegue" {
+            guard let productionReportVC = segue.destination as? ProductionReportDetailViewController else { return }
+            guard let selectedIndexPaths = collectionView.indexPathsForSelectedItems else { return }
+            let indexPath = selectedIndexPaths[0]
+            productionReportVC.report = reports[indexPath.row]
+            productionReportVC.isAdmin = isAdmin
+            productionReportVC.isEditing = false
+            productionReportVC.isNewReport = false
         }
     }
 }
+
+extension HubDashboardViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        guard let dataSource = dataSource else { return false }
+        
+        if collectionView.indexPathsForSelectedItems?.contains(indexPath) ?? false {
+            collectionView.deselectItem(at: indexPath, animated: true)
+        } else {
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+        }
+        dataSource.refresh()
+        
+        return false
+    }
+}
+
+extension UICollectionViewDiffableDataSource {
+    func refresh(completion: (() -> Void)? = nil) {
+        self.apply(self.snapshot(), animatingDifferences: true, completion: completion)
+    }
+}
+

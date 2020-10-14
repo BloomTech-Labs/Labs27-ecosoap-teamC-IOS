@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,102 +19,12 @@
                     <view key="view" contentMode="scaleToFill" id="4tw-zx-GDW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5K-7J-wv4">
-                                <rect key="frame" x="20" y="743" width="374" height="50"/>
-                                <color key="backgroundColor" name="ESB Blue"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="1NH-8a-1dj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
-                                <state key="normal" title="New Report">
-                                    <color key="titleColor" name="ESB System Background"/>
-                                </state>
-                                <connections>
-                                    <segue destination="0rH-x9-PbR" kind="show" identifier="AddProductionReportSegue" id="L36-dD-WBk"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="g8l-dy-cGf">
-                                <rect key="frame" x="20" y="108" width="374" height="615"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="KtG-aZ-UUn">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="200"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Impact Statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4X-0Y-O0Y">
-                                                <rect key="frame" x="0.0" y="0.0" width="169.5" height="26.5"/>
-                                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nTy-fD-Azb">
-                                                <rect key="frame" x="0.0" y="28.5" width="374" height="171.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            </view>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="0AO-9N-zJl"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="UZ2-km-JC6">
-                                        <rect key="frame" x="0.0" y="210" width="372" height="405"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Production Reports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLd-4U-xOd">
-                                                <rect key="frame" x="0.0" y="0.0" width="372" height="26.5"/>
-                                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZnN-G8-UKB" customClass="ProductionReportsCollectionView" customModule="labs_ios_starter" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28.5" width="372" height="376.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mki-M9-tjh">
-                                                    <size key="itemSize" width="128" height="128"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReportCell" id="cFD-x7-cek">
-                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2cK-5z-mH2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </collectionViewCellContentView>
-                                                        <connections>
-                                                            <segue destination="0rH-x9-PbR" kind="show" identifier="ViewProductionReportSegue" id="43e-Gx-bHI"/>
-                                                        </connections>
-                                                    </collectionViewCell>
-                                                </cells>
-                                            </collectionView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="kLd-4U-xOd" secondAttribute="trailing" id="ZHe-Ca-qrs"/>
-                                            <constraint firstAttribute="trailing" secondItem="ZnN-G8-UKB" secondAttribute="trailing" id="uy6-hE-g0a"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="KtG-aZ-UUn" secondAttribute="trailing" id="1sS-Nf-Wec"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="2Fh-0i-LPR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="x5K-7J-wv4" firstAttribute="centerX" secondItem="4tw-zx-GDW" secondAttribute="centerX" id="1qF-sT-jIY"/>
-                            <constraint firstItem="x5K-7J-wv4" firstAttribute="top" secondItem="g8l-dy-cGf" secondAttribute="bottom" constant="20" id="6Il-9A-Lp5"/>
-                            <constraint firstItem="2Fh-0i-LPR" firstAttribute="trailing" secondItem="x5K-7J-wv4" secondAttribute="trailing" constant="20" id="E5m-BV-Pug"/>
-                            <constraint firstItem="g8l-dy-cGf" firstAttribute="leading" secondItem="2Fh-0i-LPR" secondAttribute="leading" constant="20" id="PMA-x3-v2n"/>
-                            <constraint firstItem="2Fh-0i-LPR" firstAttribute="trailing" secondItem="g8l-dy-cGf" secondAttribute="trailing" constant="20" id="ZUk-4h-Ild"/>
-                            <constraint firstItem="2Fh-0i-LPR" firstAttribute="bottom" secondItem="x5K-7J-wv4" secondAttribute="bottom" constant="20" id="fgr-eR-8xb"/>
-                            <constraint firstItem="x5K-7J-wv4" firstAttribute="leading" secondItem="2Fh-0i-LPR" secondAttribute="leading" constant="20" id="fk8-KI-T8o"/>
-                            <constraint firstItem="g8l-dy-cGf" firstAttribute="top" secondItem="2Fh-0i-LPR" secondAttribute="top" constant="20" id="kyY-Jo-zJ4"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Dashboard" id="Xty-Fm-cfB"/>
                     <connections>
-                        <outlet property="newReportButton" destination="x5K-7J-wv4" id="lOI-tZ-MX2"/>
+                        <segue destination="0rH-x9-PbR" kind="presentation" identifier="ViewReportSegue" modalPresentationStyle="fullScreen" id="jUb-Ut-xY8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZi-R6-OSY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -123,13 +34,13 @@
         <!--Production Report Detail View Controller-->
         <scene sceneID="yhN-eu-6UY">
             <objects>
-                <viewController id="0rH-x9-PbR" customClass="ProductionReportDetailViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductionReportVC" id="0rH-x9-PbR" customClass="ProductionReportDetailViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M3D-vN-vuR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ovn-6L-XM9" userLabel="Date Stack View">
-                                <rect key="frame" x="20" y="108" width="374" height="390"/>
+                                <rect key="frame" x="20" y="64" width="374" height="390"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="htQ-FR-o1T" customClass="ProductionReportImagesCollectionView" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="12" y="0.0" width="350" height="150"/>
@@ -146,7 +57,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" id="5Sz-Y5-UXK">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="ReportImageCell" id="5Sz-Y5-UXK">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="150"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="27K-NY-eL4">
@@ -163,7 +74,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="yV6-ei-bDM">
-                                        <rect key="frame" x="27" y="174" width="320" height="216"/>
+                                        <rect key="frame" x="47" y="174" width="280" height="216"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="ZM9-5d-aEd"/>
+                                        </constraints>
                                         <date key="minimumDate" timeIntervalSinceReferenceDate="623246400">
                                             <!--2020-10-01 12:00:00 +0000-->
                                         </date>
@@ -179,7 +93,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xYK-Mj-2W4" userLabel="Fields Stack View">
-                                <rect key="frame" x="20" y="518" width="374" height="120.5"/>
+                                <rect key="frame" x="20" y="474" width="374" height="120.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="98" translatesAutoresizingMaskIntoConstraints="NO" id="bnS-Xk-YXk" userLabel="Bars Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="33.5"/>
@@ -241,7 +155,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EWm-Qh-QsD" userLabel="Add Photo Stack View">
-                                <rect key="frame" x="20" y="658.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="614.5" width="374" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUg-qF-fAU">
                                         <rect key="frame" x="0.0" y="0.0" width="182" height="50"/>
@@ -271,7 +185,7 @@
                                 </constraints>
                             </stackView>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ir4-zT-CuW">
-                                <rect key="frame" x="20" y="743" width="374" height="50"/>
+                                <rect key="frame" x="20" y="792" width="374" height="50"/>
                                 <color key="backgroundColor" name="ESB Blue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tRC-3V-TLK"/>
@@ -339,7 +253,9 @@
         <scene sceneID="yhD-92-eXw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qkC-FS-HTi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Dashboard" selectedImage="house" catalog="system" id="hwO-Yr-vyI"/>
+                    <tabBarItem key="tabBarItem" title="Dashboard" id="hwO-Yr-vyI">
+                        <imageReference key="image" image="house" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wZP-7j-Xf9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -373,7 +289,10 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e8A-4m-LCo">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="ESB Green"/>
+                        <color key="tintColor" name="ESB Aqua"/>
+                        <color key="barTintColor" name="ESB Blue"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="qkC-FS-HTi" kind="relationship" relationship="viewControllers" id="SR9-KJ-URV"/>
@@ -385,13 +304,16 @@
             <point key="canvasLocation" x="2311.594202898551" y="190.84821428571428"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="L36-dD-WBk"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="106"/>
+        <namedColor name="ESB Aqua">
+            <color red="0.17254901960784313" green="0.60784313725490191" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ESB Blue">
             <color red="0.1803921568627451" green="0.54117647058823526" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ESB Green">
+            <color red="0.23137254901960785" green="0.70980392156862748" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ESB System Background">
             <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

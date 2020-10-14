@@ -9,9 +9,12 @@
 import UIKit
 
 class ReportCell: UICollectionViewCell {
+    // MARK: - Properties
     var report: ProductionReport? { didSet { updateContent() } }
     override var isSelected: Bool { didSet { updateAppearance() } }
+    weak var dashboardVC: HubDashboardViewController?
     
+    // Labels
     private let dateLabel: UILabel = {
         let dateLabel = UILabel()
         dateLabel.font = .preferredFont(forTextStyle: .headline)
@@ -22,6 +25,19 @@ class ReportCell: UICollectionViewCell {
     private let soapmakersWorkedLabel = UILabel()
     private let soapmakerHoursLabel =  UILabel()
     
+    private let viewReportButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("View Report", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor(named: "ESB Blue")
+        button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(viewReport), for: .touchUpInside)
+        return button
+    }()
+    
+    // Chevron
     private let disclosureIndicator: UIImageView = {
         let disclosureIndicator = UIImageView()
         disclosureIndicator.image = UIImage(systemName: "chevron.down")
@@ -30,6 +46,7 @@ class ReportCell: UICollectionViewCell {
         return disclosureIndicator
     }()
     
+    // Stack Views
     private lazy var rootStack: UIStackView = {
         let rootStack = UIStackView(arrangedSubviews: [labelStack, disclosureIndicator])
         rootStack.alignment = .top
@@ -42,19 +59,26 @@ class ReportCell: UICollectionViewCell {
        dateLabel,
         barsProducedLabel,
         soapmakersWorkedLabel,
-        soapmakerHoursLabel
+        soapmakerHoursLabel,
+        viewReportButton
        ])
         labelStack.axis = .vertical
         labelStack.spacing = padding
         return labelStack
     }()
     
+    // Constraints
     private var closedConstraint: NSLayoutConstraint?
     private var openConstraint: NSLayoutConstraint?
     
     private let padding: CGFloat = 8
     private let cornerRadius: CGFloat = 8
     
+    // MARK: - Actions
+    @objc func viewReport() {
+    }
+    
+    // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUp()
@@ -65,6 +89,7 @@ class ReportCell: UICollectionViewCell {
         setUp()
     }
     
+    // MARK: - Methods
     private func setUp() {
         backgroundColor = .systemGray6
         clipsToBounds = true
@@ -88,22 +113,44 @@ class ReportCell: UICollectionViewCell {
             rootStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
         ])
         
-
         closedConstraint =
             dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding)
         closedConstraint?.priority = .defaultLow
         
+        if BackendController.shared.loggedInUser.role == .HUB_ADMIN {
         openConstraint =
-            soapmakerHoursLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding)
+            viewReportButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding)
+        } else {
+            openConstraint = soapmakerHoursLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding)
+        }
         openConstraint?.priority = .defaultLow
     }
     
     private func updateContent() {
         guard let report = report else { return }
-        dateLabel.text = String(describing: report.date)
-        barsProducedLabel.text = "Bars Produced: \(String(describing: report.barsProduced))"
-        soapmakersWorkedLabel.text = "Soapmakers Worked: \(String(describing: report.soapmakersWorked))"
-        soapmakerHoursLabel.text = "Soapmaker Hours: \(String(describing: report.soapmakerHours))"
+        
+        let dateString = report.date.asShortDateString()
+        dateLabel.text = dateString
+        
+        if let barsProduced = report.barsProduced {
+        barsProducedLabel.text = "Bars Produced: \(barsProduced)"
+        } else {
+            barsProducedLabel.text = "Bars Produced: 0"
+        }
+        
+        if let soapmakersWorked = report.soapmakersWorked {
+        soapmakersWorkedLabel.text = "Soapmakers Worked: \(soapmakersWorked)"
+        } else {
+            soapmakersWorkedLabel.text = "Soapmakers Worked: 0"
+        }
+        
+        if let soapmakerHours = report.soapmakerHours {
+            soapmakerHoursLabel.text = "Soapmaker Hours: \(soapmakerHours)"
+        } else {
+            soapmakerHoursLabel.text = "Soapmaker Hours: 0"
+        }
+        
+            viewReportButton.titleLabel?.text = "View Report Details"
     }
     
     private func updateAppearance() {
