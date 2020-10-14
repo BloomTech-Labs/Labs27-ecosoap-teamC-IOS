@@ -86,6 +86,7 @@
 		BAD33C97253630240080FCC6 /* LogInInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33C96253630240080FCC6 /* LogInInput.swift */; };
 		BAD33CAE25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CAD25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift */; };
 		BAD33CB125375EED0080FCC6 /* CreateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB025375EED0080FCC6 /* CreateProductionReportInput.swift */; };
+		BAD33CB4253766BA0080FCC6 /* UpdateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB3253766BA0080FCC6 /* UpdateProductionReportInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,6 +169,7 @@
 		BAD33C96253630240080FCC6 /* LogInInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInInput.swift; sourceTree = "<group>"; };
 		BAD33CAD25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionReportsByHubIdInput.swift; sourceTree = "<group>"; };
 		BAD33CB025375EED0080FCC6 /* CreateProductionReportInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductionReportInput.swift; sourceTree = "<group>"; };
+		BAD33CB3253766BA0080FCC6 /* UpdateProductionReportInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProductionReportInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -376,6 +378,7 @@
 				9C9ACA7824F76248002D47B5 /* UpdatePropertyInput.swift */,
 				BAD33CAD25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift */,
 				BAD33CB025375EED0080FCC6 /* CreateProductionReportInput.swift */,
+				BAD33CB3253766BA0080FCC6 /* UpdateProductionReportInput.swift */,
 			);
 			path = Inputs;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				9C9A98E624E506A6007FC7DA /* User.swift in Sources */,
 				13A4A7E224E2034F005326F9 /* DashboardCollectionViewCell.swift in Sources */,
 				9C364A9324F60E8300FF204D /* CartonInput.swift in Sources */,
+				BAD33CB4253766BA0080FCC6 /* UpdateProductionReportInput.swift in Sources */,
 				9C9ACA7724F7541D002D47B5 /* ImpactStatsInput.swift in Sources */,
 				9C364A9624F6217000FF204D /* ControllerEnums.swift in Sources */,
 				9C364A9124F60E6100FF204D /* PickupInput.swift in Sources */,

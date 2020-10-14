@@ -30,7 +30,14 @@ class CreateProductionReportInput: Input {
         return string
     }
     
-    init (hubId: String, date: Date, barsProduced: Int?, soapmakersWorked: Int?, soapmakerHours: Int?, soapPhotos: [String]?, media: [String]?) {
+    init(hubId: String,
+         date: Date,
+         barsProduced: Int?,
+         soapmakersWorked: Int?,
+         soapmakerHours: Int?,
+         soapPhotos: [String]?,
+         media: [String]?) {
+        
         self.hubId = hubId
         self.date = date
         self.barsProduced = barsProduced
