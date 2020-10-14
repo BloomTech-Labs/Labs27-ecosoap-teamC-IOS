@@ -167,11 +167,11 @@ class LoginViewControllerStarter: UIViewController {
             
             if exists {
                 // TODO: Uncomment if-else statement after Production Reports Feature is merged with main.
-//                if BackendController.shared.loggedInUser.role == .HOTEL {
+                if BackendController.shared.loggedInUser.role == .HOTEL {
                     self.performSegue(withIdentifier: "ShowDetailProfileList", sender: nil)
-//                } else {
-//                    self.performSegue(withIdentifier: "ShowHubDashboardSegue", sender: nil)
-//                }
+                } else {
+                    self.performSegue(withIdentifier: "ShowHubDashboardSegue", sender: nil)
+                }
             } else {
                 NSLog("Invalid Login.")
             }
