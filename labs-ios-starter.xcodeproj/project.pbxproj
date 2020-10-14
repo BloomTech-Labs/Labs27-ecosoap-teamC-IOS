@@ -88,6 +88,7 @@
 		BAD33CB125375EED0080FCC6 /* CreateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB025375EED0080FCC6 /* CreateProductionReportInput.swift */; };
 		BAD33CB4253766BA0080FCC6 /* UpdateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB3253766BA0080FCC6 /* UpdateProductionReportInput.swift */; };
 		BAD33CB725376ED10080FCC6 /* DeleteProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB625376ED10080FCC6 /* DeleteProductionReportInput.swift */; };
+		BAD33CBA253780650080FCC6 /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB9253780650080FCC6 /* ReportCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -172,6 +173,7 @@
 		BAD33CB025375EED0080FCC6 /* CreateProductionReportInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductionReportInput.swift; sourceTree = "<group>"; };
 		BAD33CB3253766BA0080FCC6 /* UpdateProductionReportInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProductionReportInput.swift; sourceTree = "<group>"; };
 		BAD33CB625376ED10080FCC6 /* DeleteProductionReportInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductionReportInput.swift; sourceTree = "<group>"; };
+		BAD33CB9253780650080FCC6 /* ReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,6 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				BA5B10C3252D21CD001202FE /* HubDashboardViewController.swift */,
+				BAD33CB9253780650080FCC6 /* ReportCell.swift */,
 				BA5B10CC252E2AD8001202FE /* ProductionReportImagesCollectionView.swift */,
 				BA5B10C6252D2221001202FE /* ProductionReportsCollectionView.swift */,
 				BA5B10C9252D227B001202FE /* ProductionReportDetailViewController.swift */,
@@ -611,6 +614,7 @@
 				9C364A9124F60E6100FF204D /* PickupInput.swift in Sources */,
 				9C9ACA6C24F71F8C002D47B5 /* CancelPickupInput.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewControllerStarter.swift in Sources */,
+				BAD33CBA253780650080FCC6 /* ReportCell.swift in Sources */,
 				9CEA63B624EE24A700A2C446 /* APIEnums.swift in Sources */,
 				466C4276249A8748007D033E /* SceneDelegate.swift in Sources */,
 				9C9ACA7924F76248002D47B5 /* UpdatePropertyInput.swift in Sources */,

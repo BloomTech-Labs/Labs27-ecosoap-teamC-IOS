@@ -8,7 +8,22 @@
 
 import Foundation
 
-class ProductionReport {
+class ProductionReport: Equatable {
+    static func == (lhs: ProductionReport, rhs: ProductionReport) -> Bool {
+        if lhs.id == rhs.id,
+           lhs.hubID == rhs.hubID,
+           lhs.date == rhs.date,
+           lhs.barsProduced == rhs.barsProduced,
+           lhs.soapmakersWorked == rhs.soapmakersWorked,
+           lhs.soapmakerHours == rhs.soapmakerHours,
+           lhs.soapPhotos == rhs.soapPhotos,
+           lhs.media == rhs.media {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     // MARK: - Properties
     let id, hubID: String
     var date: Date
