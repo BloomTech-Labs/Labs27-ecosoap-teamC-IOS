@@ -87,6 +87,7 @@
 		BAD33CAE25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CAD25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift */; };
 		BAD33CB125375EED0080FCC6 /* CreateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB025375EED0080FCC6 /* CreateProductionReportInput.swift */; };
 		BAD33CB4253766BA0080FCC6 /* UpdateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB3253766BA0080FCC6 /* UpdateProductionReportInput.swift */; };
+		BAD33CB725376ED10080FCC6 /* DeleteProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB625376ED10080FCC6 /* DeleteProductionReportInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +171,7 @@
 		BAD33CAD25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionReportsByHubIdInput.swift; sourceTree = "<group>"; };
 		BAD33CB025375EED0080FCC6 /* CreateProductionReportInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductionReportInput.swift; sourceTree = "<group>"; };
 		BAD33CB3253766BA0080FCC6 /* UpdateProductionReportInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProductionReportInput.swift; sourceTree = "<group>"; };
+		BAD33CB625376ED10080FCC6 /* DeleteProductionReportInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductionReportInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -379,6 +381,7 @@
 				BAD33CAD25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift */,
 				BAD33CB025375EED0080FCC6 /* CreateProductionReportInput.swift */,
 				BAD33CB3253766BA0080FCC6 /* UpdateProductionReportInput.swift */,
+				BAD33CB625376ED10080FCC6 /* DeleteProductionReportInput.swift */,
 			);
 			path = Inputs;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 				9C9A98EA24E508BE007FC7DA /* Pickup.swift in Sources */,
 				BAD33CB125375EED0080FCC6 /* CreateProductionReportInput.swift in Sources */,
 				9C9ACA7524F7524C002D47B5 /* CoordinatesInput.swift in Sources */,
+				BAD33CB725376ED10080FCC6 /* DeleteProductionReportInput.swift in Sources */,
 				9C9ACA7024F7296B002D47B5 /* AddressInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
