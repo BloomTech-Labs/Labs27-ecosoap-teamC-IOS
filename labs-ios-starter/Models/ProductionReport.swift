@@ -13,7 +13,7 @@ class ProductionReport {
     let id, hubID: String
     var date: Date
     var barsProduced, soapmakersWorked, soapmakerHours: Int?
-    var soapPhotoURLs, mediaURLs: [URL]?
+    var soapPhotos, media: [String]?
 
     // MARK: - Initializers
     // Mock data initializer for testing.
@@ -24,12 +24,8 @@ class ProductionReport {
         self.barsProduced = 5000
         self.soapmakersWorked = 6
         self.soapmakerHours = 8
-        
-        let soapPhotoStringsArray = ["http://www.fillmurray.com/1024/768"]
-        self.soapPhotoURLs = convertStringArrayToURLs(stringArray: soapPhotoStringsArray)
-        
-        let mediaStringsArray = ["http://www.fillmurray.com/1100/600", "http://www.fillmurray.com/800/800"]
-        self.mediaURLs = convertStringArrayToURLs(stringArray: mediaStringsArray)
+        self.soapPhotos = ["http://www.fillmurray.com/1024/768"]
+        self.media = ["http://www.fillmurray.com/1100/600", "http://www.fillmurray.com/800/800"]
     }
     
     // GraphQL initializer
@@ -66,24 +62,13 @@ class ProductionReport {
             self.soapmakerHours = soapmakerHours
         }
         
-        if let soapPhotoStringsArray = dictionary["soapPhotos"] as? [String] {
-            self.soapPhotoURLs = convertStringArrayToURLs(stringArray: soapPhotoStringsArray)
+        if let soapPhotos = dictionary["soapPhotos"] as? [String] {
+            self.soapPhotos = soapPhotos
         }
         
-        if let mediaStringsArray = dictionary["media"] as? [String] {
-            self.soapPhotoURLs = convertStringArrayToURLs(stringArray: mediaStringsArray)
+        if let media = dictionary["media"] as? [String] {
+            self.media = media
         }
-    }
-    
-    // MARK: - Methods
-    func convertStringArrayToURLs(stringArray: [String]) -> [URL] {
-        var urlArray = [URL]()
-        for url in stringArray {
-            if let newURL = URL(string: url) {
-                urlArray.append(newURL)
-            }
-        }
-        return urlArray
     }
 }
 
