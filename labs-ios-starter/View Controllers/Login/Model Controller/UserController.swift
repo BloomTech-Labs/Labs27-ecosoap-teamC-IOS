@@ -72,7 +72,7 @@ class UserController {
         }
         let input = LogInInput(token: oktaCredentials.idToken)
         BackendController.shared.logIn(input: input) { (error) in
-            
+            completion( BackendController.shared.loggedInUser)
         }
     }
     
