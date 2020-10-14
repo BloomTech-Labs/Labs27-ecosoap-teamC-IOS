@@ -26,20 +26,11 @@ class ProductionReportDetailViewController: UIViewController {
     var isAdmin: Bool = false
     var isNewReport: Bool = false
     var isEditingReport: Bool = false
-    var report: ProductionReport? {
-        didSet {
-            // TODO: Add images to collection view
-            datePicker.date = report?.date ?? Date()
-            barsProducedTextField.text = String(report?.barsProduced ?? 0)
-            soapmakersWorkedTextField.text = String(report?.soapmakersWorked ?? 0)
-            soapmakerHoursTextfield.text = String(report?.soapmakerHours ?? 0)
-        }
-    }
+    var report: ProductionReport?
     
     // MARK: Views
     override func viewDidLoad() {
         super.viewDidLoad()
-        isEditingReport = false
         updateViews()
     }
     
@@ -65,18 +56,24 @@ class ProductionReportDetailViewController: UIViewController {
             deleteButton.isEnabled = false
             hideButtons()
         }
+        
+        if report == report {
+            displayReport()
+        }
     }
     
     func disableTextEntry() {
         barsProducedTextField.isEnabled = false
         soapmakersWorkedTextField.isEnabled = false
         soapmakerHoursTextfield.isEnabled = false
+        datePicker.isEnabled = false
     }
     
     func enableTextEntry() {
         barsProducedTextField.isEnabled = true
         soapmakersWorkedTextField.isEnabled = true
         soapmakerHoursTextfield.isEnabled = true
+        datePicker.isEnabled = true
     }
     
     func hideButtons() {
@@ -89,6 +86,16 @@ class ProductionReportDetailViewController: UIViewController {
         submitButton.isHidden = false
         addSoapPhotoButton.isHidden = false
         addMediaButton.isHidden = false
+    }
+    
+    func displayReport() {
+        guard let report = report else { return }
+        
+        // TODO: Add images to collection view
+        datePicker.date = report.date
+        barsProducedTextField.text = String(report.barsProduced ?? 0)
+        soapmakersWorkedTextField.text = String(report.soapmakersWorked ?? 0)
+        soapmakerHoursTextfield.text = String(report.soapmakerHours ?? 0)
     }
     
     @IBAction func editReport(_ sender: UIBarButtonItem) {
