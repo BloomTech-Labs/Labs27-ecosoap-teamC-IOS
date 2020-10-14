@@ -416,8 +416,6 @@ class BackendController {
 
         urlRequest.httpBody = try! JSONSerialization.data(withJSONObject: ["query": request.body], options: [])
 
-        print("Request body")
-        print(String(data: urlRequest.httpBody!, encoding: .utf8)!)
         URLSession.shared.dataTask(with: urlRequest) { data, _, error in
             if let _ = error {
                 completion(nil, error)
