@@ -85,6 +85,7 @@
 		BAD33C8E25362E800080FCC6 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33C8D25362E800080FCC6 /* UserController.swift */; };
 		BAD33C97253630240080FCC6 /* LogInInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33C96253630240080FCC6 /* LogInInput.swift */; };
 		BAD33CAE25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CAD25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift */; };
+		BAD33CB125375EED0080FCC6 /* CreateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB025375EED0080FCC6 /* CreateProductionReportInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,6 +167,7 @@
 		BAD33C8D25362E800080FCC6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		BAD33C96253630240080FCC6 /* LogInInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInInput.swift; sourceTree = "<group>"; };
 		BAD33CAD25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionReportsByHubIdInput.swift; sourceTree = "<group>"; };
+		BAD33CB025375EED0080FCC6 /* CreateProductionReportInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductionReportInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,6 +375,7 @@
 				BAD33C96253630240080FCC6 /* LogInInput.swift */,
 				9C9ACA7824F76248002D47B5 /* UpdatePropertyInput.swift */,
 				BAD33CAD25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift */,
+				BAD33CB025375EED0080FCC6 /* CreateProductionReportInput.swift */,
 			);
 			path = Inputs;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				466C4276249A8748007D033E /* SceneDelegate.swift in Sources */,
 				9C9ACA7924F76248002D47B5 /* UpdatePropertyInput.swift in Sources */,
 				9C9A98EA24E508BE007FC7DA /* Pickup.swift in Sources */,
+				BAD33CB125375EED0080FCC6 /* CreateProductionReportInput.swift in Sources */,
 				9C9ACA7524F7524C002D47B5 /* CoordinatesInput.swift in Sources */,
 				9C9ACA7024F7296B002D47B5 /* AddressInput.swift in Sources */,
 			);
