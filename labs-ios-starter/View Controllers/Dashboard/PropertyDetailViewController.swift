@@ -91,7 +91,7 @@ extension PropertyDetailViewController: UITableViewDelegate, UITableViewDataSour
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PropertyInfoCell", for: indexPath) as? PropertyInfoTableViewCell else { return UITableViewCell() }
         
         cell.titleLabel.text = accountInfoLabels[indexPath.row].uppercased()
-//        cell.descriptionTextField.text = propertyData[indexPath.row]
+        cell.descriptionTextField.text = propertyData[indexPath.row]
         
         return cell
     }

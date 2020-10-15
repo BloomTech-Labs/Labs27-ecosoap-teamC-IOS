@@ -13,41 +13,46 @@ import TinyConstraints
 class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ChartViewDelegate {
    
  
-    
+    var impactStats = [ImpactStats]()
+    @IBOutlet weak var propertyTextField: UITextField!
     @IBOutlet weak var lineChartView: LineChartView!
-    @IBOutlet weak var firsttableView: UITableView!
     @IBOutlet weak var propertiesTableView: UITableView!
     
     let controller = BackendController.shared
-//    var sections = [MockHotelNames]()
     var toggleArrow: Bool?
+    private let propertyPicker = UIPickerView()
+    private var propertyPickerData: [[String]]?
     private var properties: [Property] = []
+    private var selectedProperty: Property? {
+        didSet {
+            updateViews()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        sections = [ MockHotelNames(type: "Hotels", names: ["Mariott Hotel", "Hamptin In", "Ibis Hotel"], isExpanded: false)
-        //        ]
         fetchAll()
+        grabProperties()
+        setUpViews()
         controller.propertiesByUserId(id: controller.loggedInUser.id) { (error) in
             if error != nil {
                 NSLog("Error in getting the properties")
                 return
             } else {
                 DispatchQueue.main.async {
-                    self.firsttableView.reloadData()
                     self.propertiesTableView.reloadData()
                 }
-                
             }
         }
         
-        
-        
-        
-        
+        updateViews()
         setData()
         // Line Chart Implementation
         lineChartView.rightAxis.enabled = false
+        lineChartView.delegate = self
+        lineChartView.xAxis.enabled = true
+        lineChartView.xAxis.labelPosition = .bottom
+        lineChartView.rightAxis.drawLabelsEnabled = false
 //        let yAxis = lineChartView.leftAxis
 //        yAxis.labelFont = .boldSystemFont(ofSize: 8)
 //        yAxis.setLabelCount(6, force: false)
@@ -56,12 +61,18 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //        yAxis.labelPosition = .outsideChart
 //        lineChartView.xAxis.labelPosition = .bottom
         lineChartView.animate(xAxisDuration: 2.5)
+        
         // Ends
-        firsttableView.delegate = self
-        firsttableView.dataSource = self
         propertiesTableView.delegate = self
         propertiesTableView.dataSource = self
-        
+    }
+    func setUpViews() {
+        propertyPicker.delegate = self
+        propertyPicker.dataSource = self
+        propertyTextField.layer.cornerRadius = 8
+        propertyTextField.setupTextField()
+        propertyTextField.inputView = propertyPicker
+        self.hideKeyboardWhenViewTapped()
     }
     
 //    func toggleSection(_ header: HotelHeaderTableViewCell, section: Int) {
@@ -79,6 +90,8 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //        }
 //        firsttableView.endUpdates()
 //    }
+
+
     
     private func fetchAll() {
             controller.initialFetch(userId: controller.loggedInUser.id) { (error) in
@@ -89,7 +102,6 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 if let user = self.controller.users[self.controller.loggedInUser.id] {
                     self.controller.loggedInUser = user
                     print(self.controller.loggedInUser)
-                    
                 }
                 print("\(self.controller.users)")
                 print("\(self.controller.properties)")
@@ -98,14 +110,53 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 print("\(self.controller.hubs)")
                 print("\(self.controller.pickupCartons)")
                 print("\(self.controller.hospitalityContracts)")
+                
             }
         }
     
     private func grabProperties() {
+        var propertyNames: [String] = []
         for property in controller.properties.values {
+            propertyNames.append(property.name)
             properties.append(property)
         }
+        let data: [[String]] = [propertyNames]
+        propertyPickerData = data
+        
+        guard propertyNames.count > 0, properties.count > 0 else { return }
+        DispatchQueue.main.async {
+            self.propertyTextField.text = propertyNames[0]
+            self.selectedProperty = self.properties[0]
+        }
+ 
     }
+    
+    private func updateViews() {
+        guard let selectedProperty = selectedProperty else { return }
+       controller.impactStatsByPropertyId(id: selectedProperty.id) { (error) in
+           if let error = error {
+               print("Error fetching stats \(error)")
+           }
+           DispatchQueue.main.async {
+            self.lineChartView.reloadInputViews()
+           }
+       }
+    }
+    
+    private func overallBreakDown() -> (Int, Int, Int, Int) {
+           guard let selectedProperty = selectedProperty else { return (0,0,0,0) }
+           let bottlesRecycled = selectedProperty.impact?.bottlesRecycled ?? 0
+           let soapRecycled = selectedProperty.impact?.soapRecycled ?? 0
+           let paperRecycled = selectedProperty.impact?.paperRecycled ?? 0
+           let linensRecycled = selectedProperty.impact?.linensRecycled ?? 0
+           
+           let total = bottlesRecycled + soapRecycled + paperRecycled + linensRecycled
+           let soapPercentage = (Double(soapRecycled) / Double(total)) * 100
+           let bottlesPercentage = (Double(bottlesRecycled) / Double(total)) * 100
+           let paperPercentage = (Double(paperRecycled) / Double(total)) * 100
+           let linensPercentage = (Double(linensRecycled) / Double(total)) * 100
+           return (Int(soapPercentage), Int(linensPercentage), Int(bottlesPercentage), Int(paperPercentage))
+       }
     
     
     
@@ -130,7 +181,15 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func setData() {
-        let set1 = LineChartDataSet(entries: yValue, label: "Impact Statistics")
+        var dataEntries: [ChartDataEntry] = []
+        let dataPoints = ["Soap", "Bottles", "Paper", "Linen"]
+        let values = [overallBreakDown().0, overallBreakDown().1
+            ,overallBreakDown().2, overallBreakDown().3]
+        for i in 0..<dataPoints.count {
+            let dataEntry = ChartDataEntry(x: Double(values[i]), y: Double(i))
+            dataEntries.append(dataEntry)
+        }
+        let set1 = LineChartDataSet(entries: dataEntries, label: "Impact Statistics")
         set1.mode = .cubicBezier
         set1.lineWidth = 3
         set1.setColor(UIColor(named: "ESB Blue")!)
@@ -145,37 +204,15 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         lineChartView.data = data
     }
     
-    let yValue: [ChartDataEntry] = [
-        ChartDataEntry(x: 0.0, y: 10.0),
-        ChartDataEntry(x: 1.0, y: 5.0),
-        ChartDataEntry(x: 2.0, y: 7.0),
-        ChartDataEntry(x: 3.0, y: 5.0),
-        ChartDataEntry(x: 4.0, y: 10.0),
-        ChartDataEntry(x: 5.0, y: 6.0),
-        ChartDataEntry(x: 6.0, y: 5.0),
-        ChartDataEntry(x: 7.0, y: 7.0),
-        ChartDataEntry(x: 8.0, y: 8.0),
-        ChartDataEntry(x: 9.0, y: 12.0),
-        ChartDataEntry(x: 10.0, y: 13.0),
-        ChartDataEntry(x: 11.0, y: 5.0),
-        ChartDataEntry(x: 12.0, y: 7.0),
-        ChartDataEntry(x: 13.0, y: 3.0),
-        ChartDataEntry(x: 14.0, y: 15.0),
-        ChartDataEntry(x: 15.0, y: 6.0),
-        ChartDataEntry(x: 16.0, y: 6.0),
-        ChartDataEntry(x: 17.0, y: 7.0),
-        ChartDataEntry(x: 18.0, y: 3.0),
-        ChartDataEntry(x: 19.0, y: 10.0),
-        ChartDataEntry(x: 20.0, y: 12.0),
-         ChartDataEntry(x: 21.0, y: 15.0),
-        ChartDataEntry(x: 22.0, y: 17.0),
-        ChartDataEntry(x: 23.0, y: 15.0),
-        ChartDataEntry(x: 24.0, y: 10.0),
-        ChartDataEntry(x: 25.0, y: 10.0),
-        ChartDataEntry(x: 26.0, y: 10.0),
-        ChartDataEntry(x: 27.0, y: 17.0),
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           if segue.identifier == "ShowPropertyDetailPushSegue" {
+               guard let propertyDetailVC = segue.destination as? PropertyDetailViewController else { return }
+               guard let selectedIndexPath = propertiesTableView.indexPathForSelectedRow else { return }
+               propertyDetailVC.property = properties[selectedIndexPath.row]
+           }
+
+       }
   
-    ]
     
     // TableView Section
     
@@ -220,13 +257,6 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //           return headerCell
 //    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == firsttableView,
-            let cell = tableView.dequeueReusableCell(withIdentifier: "HotelCell") as? HotelHeaderTableViewCell {
-             grabProperties()
-            let property = properties[indexPath.row]
-            cell.property = property
-        return cell
-    }
     if tableView == propertiesTableView,
             let cell = tableView.dequeueReusableCell(withIdentifier: "PropertiesCell") as? PropertiesTableViewCell {
          grabProperties()
@@ -241,4 +271,32 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 }
 
 
+extension HotelsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        guard let propertyPickerData = propertyPickerData else { return 0 }
+        return propertyPickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        guard let propertyPickerData = propertyPickerData else { return 0 }
+        return propertyPickerData[component].count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        guard let propertyPickerData = propertyPickerData else { return nil }
+
+        let componentArray = propertyPickerData[component]
+        let title = componentArray[row]
+        
+        return title
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        return pickerView.bounds.width - 40
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedProperty = properties[row]
+    }
+}
 
