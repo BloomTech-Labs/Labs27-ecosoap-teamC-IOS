@@ -8,7 +8,11 @@
 
 import UIKit
 
-class PropertyDetailViewController: UIViewController {
+class PropertyDetailViewController: UIViewController, MydataSendingDelegate {
+    func sendDataToController(myData: String) {
+        delegate?.descriptionTextField.text = myData
+    }
+    
 
     
     // MARK: - IBOutlets
@@ -23,6 +27,8 @@ class PropertyDetailViewController: UIViewController {
             updateViews()
         }
     }
+
+    var controller = BackendController.shared
     
     private var saveButton: UIButton = {
         let button = UIButton()
@@ -31,6 +37,9 @@ class PropertyDetailViewController: UIViewController {
         button.setTitle("Save Changes", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        button.target(forAction: #selector(updatePropertyNow), withSender: self)
+        button.isUserInteractionEnabled = true
+        button.isEnabled = true
         return button
     }()
     
@@ -49,9 +58,10 @@ class PropertyDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        
+        delegate?.delegate = self
       
     }
+    
     
     
     // MARK: - Private Methods
@@ -61,7 +71,7 @@ class PropertyDetailViewController: UIViewController {
     
     private func updateViews() {
         guard let property = property else { return }
-        
+        propertyData.append(property.id)
         propertyData.append(property.name)
         propertyData.append(property.propertyType)
         propertyData.append("\(property.rooms)")
@@ -76,7 +86,6 @@ class PropertyDetailViewController: UIViewController {
     }
     
     @IBAction func editButtonIsTapped(_ sender: UIButton) {
-        guard let property = property else { return }
         self.view.addSubview(self.saveButton)
         saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
@@ -88,13 +97,28 @@ class PropertyDetailViewController: UIViewController {
             self.saveButton.alpha = 1.0
           
         }
-        let input = UpdatePropertyInput(id: property.id)
-        
+        updatePropertyNow()
  
         
         
-        
     }
+    
+    @objc func updatePropertyNow() {
+                guard let property = property else { return }
+        let input = UpdatePropertyInput(id: property.id, name: delegate?.descriptionTextField.text , propertyType: .HOTEL, services: [.SOAP, .LINENS, .BOTTLES, .PAPER], collectionType: .GENERATED_LABEL, phone: property.phone, shippingNote: property.shippingNote, notes: property.notes, hubId: property.hub?.id, contractId: property.contractId, rooms: property.rooms, logo: property.logo, billingAddress: AddressInput(address1: property.billingAddress?.address1, address2: property.billingAddress?.address2, address3: property.billingAddress?.address3, city: property.billingAddress?.city, state: property.billingAddress?.state, postalCode: property.billingAddress?.postalCode, country: nil), shippingAddress: AddressInput(address1: property.shippingAddress?.address1, address2: property.shippingAddress?.address2, address3: property.shippingAddress?.address3, city: property.shippingAddress?.city, state: property.shippingAddress?.state, postalCode: property.shippingAddress?.postalCode, country: nil) , coordinates: CoordinatesInput(longitude: property.coordinates?.longitude, latitude: property.coordinates?.latitude), impact: ImpactStatsInput(soapRecycled: property.impact?.soapRecycled, linensRecycled: property.impact?.linensRecycled, bottlesRecycled: property.impact?.bottlesRecycled, paperRecycled: property.impact?.paperRecycled, peopleServed: property.impact?.peopleServed, womenEmployed: property.impact?.womenEmployed), userIds: property.usersById, pickupIds: property.pickupsById)
+        
+        controller.updateProperty(input: input) { (error) in
+            if let error = error {
+                NSLog("Error in updating the property: \(error)")
+                return
+            } else {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
     // MARK: - IBActions
     @IBAction func editButtonTapped(_ sender: Any) {
         view.addSubview(saveButton)
