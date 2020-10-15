@@ -18,6 +18,8 @@ enum ResponseModel: String {
     case pickups
     case pickup
     case productionReports
+    case productionReport
+    case success
 }
 
 enum MutationName: String {

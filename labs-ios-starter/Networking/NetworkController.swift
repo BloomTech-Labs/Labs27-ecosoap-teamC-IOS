@@ -44,12 +44,23 @@ class BackendController {
                                                         .pickup:  BackendController.pickupParser,
                                                         .pickups: BackendController.pickupsParser,
                                                         .hub: BackendController.hubParser,
-                                                        .productionReports: BackendController.productionReportsParser
+                                                        .productionReports: BackendController.productionReportsParser,
+                                                        .productionReport: BackendController.productionReportParser
                                                         ]
 
     private static func productionReportsParser(data: Any?) throws {
+        guard let reportsContainer = data as? [[String: Any]] else {
+            throw newError(message: "Couldn't cast data as PRODUCTION REPORTs dictionary for initialization.")
+        }
+        
+        for report in reportsContainer {
+            try productionReportParser(data: report)
+        }
+    }
+    
+    private static func productionReportParser(data: Any?) throws {
         guard let reportContainer = data as? [String: Any] else {
-            throw newError(message: "Couldn't cast data as PRODUCTION REPORT dictionary for initialization.")
+            throw newError(message: "Couldn't case REPORT data as dictionary for initialization.")
         }
         
         guard let report = ProductionReport(dictionary: reportContainer) else {
@@ -297,6 +308,7 @@ class BackendController {
                 return
             }
             self.users[user.id] = user
+            
 
             // Unwrap array of Properties if present
             guard let properties = container["properties"] as? [[String: Any]] else {
@@ -357,6 +369,42 @@ class BackendController {
             
             completion(nil)
         }
+        // Fetch Production Reports, if present
+        if let hubId = loggedInUser.hub?.id {
+            guard let request = Queries(name: .productionReportsByHubId, id: hubId) else {
+                completion(Errors.RequestInitFail)
+                return
+            }
+            
+            requestAPI(with: request) { (data, error) in
+                if let error = error {
+                    completion(error)
+                    return
+                }
+                // Cast data into dictionary.
+                guard let container = data as? [String?: Any] else {
+                    NSLog("Couldn't unwrap ProductionReport data as dictionary in initial fetch.")
+                    NSLog("\(String(describing: data))")
+                    completion(NSError(domain: "Error unwrapping data", code: 0, userInfo: nil))
+                    return
+                }
+                // Initialize reports
+                guard let reports = container["productionReports"] as? [[String: Any]] else {
+                    NSLog("Failed to unwrap production reports array from report payload.")
+                    NSLog("\tReports: \(String(describing: container["productionReports"]))")
+                    completion(NSError(domain: "Error unwrapping data.", code: 0, userInfo: nil))
+                    return
+                }
+                
+                // Initialize each report and add it to the dictionary
+                for reportContainer in reports {
+                    if let report = ProductionReport(dictionary: reportContainer) {
+                        self.productionReports[report.id] = report
+                    }
+                }
+            }
+        }
+        completion(nil)
     }
 
     // MARK: Mutations
