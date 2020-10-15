@@ -20,13 +20,7 @@ class HubDashboardViewController: UIViewController {
     var isAdmin: Bool = false
     var reports: [ProductionReport] = []
     
-    // Mock data
-    let report1 = ProductionReport()
-    let report2 = ProductionReport()
-    func addMockData() {
-    reports.append(report1)
-    reports.append(report2)
-    }
+    let controller = BackendController.shared
     
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
     private var dataSource: UICollectionViewDiffableDataSource<Section, ProductionReport>?
@@ -35,12 +29,11 @@ class HubDashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addMockData()
+        fetchReports()
         setUpCollectionView()
-        setUpDataSource()
         collectionView.delegate = self
         
-        if BackendController.shared.loggedInUser.role == .HUB_ADMIN {
+        if controller.loggedInUser.role == .HUB_ADMIN {
             isAdmin = true
 //            newReportButton.isHidden = false
         } else {
@@ -102,7 +95,19 @@ class HubDashboardViewController: UIViewController {
     }
     
     func fetchReports() {
-        
+        if let hubId = controller.loggedInUser.hub?.id {
+            controller.productionReportsByHubId(hubId: hubId) { (error) in
+                if let error = error {
+                    NSLog("\(error): Error occured during initial fetch of production reports.")
+                }
+                for report in self.controller.productionReports.values {
+                    self.reports.append(report)
+                }
+                DispatchQueue.main.async {
+                    self.setUpDataSource()
+                }
+            }
+        } 
     }
     
     // MARK: - Navigation
