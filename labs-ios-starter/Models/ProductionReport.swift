@@ -10,7 +10,7 @@ import Foundation
 
 struct ProductionReport: Hashable {
     // MARK: - Properties
-    let id, hubID: String
+    var id, hubID: String
     var date: Date
     var barsProduced, soapmakersWorked, soapmakerHours: Int?
     var soapPhotos, media: [String]?
@@ -69,6 +69,18 @@ struct ProductionReport: Hashable {
         if let media = dictionary["media"] as? [String] {
             self.media = media
         }
+    }
+    
+    // Create/update report initializer
+    init(id: String, hubId: String, date: Date, barsProduced: Int?, soapmakersWorked: Int?, soapmakerHours: Int?, soapPhotos: [String]?, media: [String]?) {
+        self.id = id
+        self.hubID = hubId
+        self.date = date
+        self.barsProduced = barsProduced
+        self.soapmakersWorked = soapmakersWorked
+        self.soapmakerHours = soapmakerHours
+        self.soapPhotos = soapPhotos
+        self.media = media
     }
 }
 
