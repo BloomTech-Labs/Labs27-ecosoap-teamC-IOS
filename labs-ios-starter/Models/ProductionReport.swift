@@ -48,7 +48,7 @@ struct ProductionReport: Hashable {
         
         self.id = id
         self.hubID = hubID
-        self.date = Date(longDate: dateString) ?? Date()
+        self.date = Date(shortDate: dateString) ?? Date()
         
         if let barsProduced = dictionary["barsProduced"] as? Int {
             self.barsProduced = barsProduced
