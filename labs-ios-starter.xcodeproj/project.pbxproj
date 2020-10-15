@@ -36,6 +36,7 @@
 		13FD2A9C24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9B24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift */; };
 		13FD2AA024E46A72006D6B43 /* SelectPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2A9F24E46A72006D6B43 /* SelectPropertyViewController.swift */; };
 		13FD2AA224E49B39006D6B43 /* PickupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD2AA124E49B39006D6B43 /* PickupsViewController.swift */; };
+		38630D9C9213384FAE186797 /* Pods_labs_ios_starter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9850F321C1EA99F22F8ED244 /* Pods_labs_ios_starter.framework */; };
 		466C4274249A8748007D033E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4273249A8748007D033E /* AppDelegate.swift */; };
 		466C4276249A8748007D033E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4275249A8748007D033E /* SceneDelegate.swift */; };
 		466C427B249A8748007D033E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466C4279249A8748007D033E /* Main.storyboard */; };
@@ -72,20 +73,18 @@
 		9CEA63BB24EE26E700A2C446 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BA24EE26E700A2C446 /* Coordinates.swift */; };
 		9CEA63BD24EE2D2800A2C446 /* Hub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BC24EE2D2800A2C446 /* Hub.swift */; };
 		9CEA63BF24EE3CA200A2C446 /* HospitalityContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BE24EE3CA200A2C446 /* HospitalityContract.swift */; };
-		BA29123F253770AF00932B42 /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BA29123E253770AF00932B42 /* OktaAuth */; };
+		BA29123F253770AF00932B42 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = BA29123E253770AF00932B42 /* SwiftPackageProductDependency */; };
 		BA2912412537729700932B42 /* HotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2912402537729700932B42 /* HotelViewController.swift */; };
 		BA2912432537735800932B42 /* HotelHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2912422537735800932B42 /* HotelHeaderTableViewCell.swift */; };
 		BA291245253779A800932B42 /* PropertiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA291244253779A800932B42 /* PropertiesTableViewCell.swift */; };
 		BA5B10B7252BA993001202FE /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10B6252BA993001202FE /* Role.swift */; };
-		BAD33C832534C7FE0080FCC6 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		BAD33C862534FCC40080FCC6 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		BAD33C832534C7FE0080FCC6 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		BAD33C862534FCC40080FCC6 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		BAD33C8E25362E800080FCC6 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33C8D25362E800080FCC6 /* UserController.swift */; };
 		BAD33C97253630240080FCC6 /* LogInInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33C96253630240080FCC6 /* LogInInput.swift */; };
-		EC2F308ACBAFE87B9F88E836 /* Pods_labs_ios_starter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BCD02DD08043C11E001534 /* Pods_labs_ios_starter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		02FA1E040BB546859B01C107 /* Pods-labs-ios-starter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-labs-ios-starter.release.xcconfig"; path = "Target Support Files/Pods-labs-ios-starter/Pods-labs-ios-starter.release.xcconfig"; sourceTree = "<group>"; };
 		1326A736250FFD4000EFA7CF /* PropertyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyInfoTableViewCell.swift; sourceTree = "<group>"; };
 		133559EA24EDD09E00447EDE /* PickupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupTableViewCell.swift; sourceTree = "<group>"; };
 		13518FBA2509C15D000C217F /* PropertyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTableViewCell.swift; sourceTree = "<group>"; };
@@ -126,7 +125,8 @@
 		46BEB4E424C98CDC00FE0CD1 /* LoginViewControllerStarter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerStarter.swift; sourceTree = "<group>"; };
 		46BEB4E624C98D8900FE0CD1 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SimpleAlert.swift"; sourceTree = "<group>"; };
-		68BCD02DD08043C11E001534 /* Pods_labs_ios_starter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_labs_ios_starter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		960D6411606241E3E6562C53 /* Pods-labs-ios-starter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-labs-ios-starter.debug.xcconfig"; path = "Target Support Files/Pods-labs-ios-starter/Pods-labs-ios-starter.debug.xcconfig"; sourceTree = "<group>"; };
+		9850F321C1EA99F22F8ED244 /* Pods_labs_ios_starter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_labs_ios_starter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C25231B24F9E2BB0023D660 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9C25231D24F9E2C20023D660 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		9C364A8D24F5EA1600FF204D /* Mutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutator.swift; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 		BA5B10B6252BA993001202FE /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		BAD33C8D25362E800080FCC6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		BAD33C96253630240080FCC6 /* LogInInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInInput.swift; sourceTree = "<group>"; };
-		E1059D65253A23827B429F12 /* Pods-labs-ios-starter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-labs-ios-starter.debug.xcconfig"; path = "Target Support Files/Pods-labs-ios-starter/Pods-labs-ios-starter.debug.xcconfig"; sourceTree = "<group>"; };
+		ED7ADBB3F2DCC7B025997D1A /* Pods-labs-ios-starter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-labs-ios-starter.release.xcconfig"; path = "Target Support Files/Pods-labs-ios-starter/Pods-labs-ios-starter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,8 +169,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA29123F253770AF00932B42 /* OktaAuth in Frameworks */,
-				EC2F308ACBAFE87B9F88E836 /* Pods_labs_ios_starter.framework in Frameworks */,
+				BA29123F253770AF00932B42 /* BuildFile in Frameworks */,
+				38630D9C9213384FAE186797 /* Pods_labs_ios_starter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,21 +302,13 @@
 			path = Pickups;
 			sourceTree = "<group>";
 		};
-		16F5559294B0DDC1A004DD52 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				68BCD02DD08043C11E001534 /* Pods_labs_ios_starter.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		466C4267249A8748007D033E = {
 			isa = PBXGroup;
 			children = (
 				466C4272249A8748007D033E /* labs-ios-starter */,
 				466C4271249A8748007D033E /* Products */,
 				D810AE65868965CD3669E736 /* Pods */,
-				16F5559294B0DDC1A004DD52 /* Frameworks */,
+				601CCAE7157DC10A7D76B8BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -366,6 +358,14 @@
 				466C4279249A8748007D033E /* Main.storyboard */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		601CCAE7157DC10A7D76B8BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9850F321C1EA99F22F8ED244 /* Pods_labs_ios_starter.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		9C364A8F24F60E4F00FF204D /* Inputs */ = {
@@ -454,8 +454,8 @@
 		D810AE65868965CD3669E736 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E1059D65253A23827B429F12 /* Pods-labs-ios-starter.debug.xcconfig */,
-				02FA1E040BB546859B01C107 /* Pods-labs-ios-starter.release.xcconfig */,
+				960D6411606241E3E6562C53 /* Pods-labs-ios-starter.debug.xcconfig */,
+				ED7ADBB3F2DCC7B025997D1A /* Pods-labs-ios-starter.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -467,11 +467,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 466C4284249A8749007D033E /* Build configuration list for PBXNativeTarget "labs-ios-starter" */;
 			buildPhases = (
-				85B0E41DD8776D9CC5422033 /* [CP] Check Pods Manifest.lock */,
+				673A63F1CC84D4558AF12922 /* [CP] Check Pods Manifest.lock */,
 				466C426C249A8748007D033E /* Sources */,
 				466C426D249A8748007D033E /* Frameworks */,
 				466C426E249A8748007D033E /* Resources */,
-				F96572B2595E3B632052F0C6 /* [CP] Embed Pods Frameworks */,
+				C759312B8497F37117130F0F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -479,7 +479,7 @@
 			);
 			name = "labs-ios-starter";
 			packageProductDependencies = (
-				BA29123E253770AF00932B42 /* OktaAuth */,
+				BA29123E253770AF00932B42 /* SwiftPackageProductDependency */,
 			);
 			productName = LabsScaffolding;
 			productReference = 466C4270249A8748007D033E /* labs-ios-starter.app */;
@@ -510,7 +510,7 @@
 			);
 			mainGroup = 466C4267249A8748007D033E;
 			packageReferences = (
-				BA29123D253770AF00932B42 /* XCRemoteSwiftPackageReference "OktaAuth" */,
+				BA29123D253770AF00932B42 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 466C4271249A8748007D033E /* Products */;
 			projectDirPath = "";
@@ -539,7 +539,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		85B0E41DD8776D9CC5422033 /* [CP] Check Pods Manifest.lock */ = {
+		673A63F1CC84D4558AF12922 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -561,7 +561,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F96572B2595E3B632052F0C6 /* [CP] Embed Pods Frameworks */ = {
+		C759312B8497F37117130F0F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -607,7 +607,7 @@
 				9CEA63BB24EE26E700A2C446 /* Coordinates.swift in Sources */,
 				13C23F6024EC94AF00DC3F9A /* ImpactStatisticsIndividualCollectionViewCell.swift in Sources */,
 				13EF37B7250FE86E002E7959 /* PropertyDetailViewController.swift in Sources */,
-				BAD33C832534C7FE0080FCC6 /* (null) in Sources */,
+				BAD33C832534C7FE0080FCC6 /* BuildFile in Sources */,
 				13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */,
 				13BA9FE025001A7900973F03 /* ProfileViewController.swift in Sources */,
 				1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */,
@@ -636,7 +636,7 @@
 				BA5B10B7252BA993001202FE /* Role.swift in Sources */,
 				BA2912412537729700932B42 /* HotelViewController.swift in Sources */,
 				9C5F86DE24EF8DAC00DECB24 /* PickupCarton.swift in Sources */,
-				BAD33C862534FCC40080FCC6 /* (null) in Sources */,
+				BAD33C862534FCC40080FCC6 /* BuildFile in Sources */,
 				9C9A98E624E506A6007FC7DA /* User.swift in Sources */,
 				13A4A7E224E2034F005326F9 /* DashboardCollectionViewCell.swift in Sources */,
 				9C364A9324F60E8300FF204D /* CartonInput.swift in Sources */,
@@ -792,7 +792,7 @@
 		};
 		466C4285249A8749007D033E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E1059D65253A23827B429F12 /* Pods-labs-ios-starter.debug.xcconfig */;
+			baseConfigurationReference = 960D6411606241E3E6562C53 /* Pods-labs-ios-starter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -811,7 +811,7 @@
 		};
 		466C4286249A8749007D033E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02FA1E040BB546859B01C107 /* Pods-labs-ios-starter.release.xcconfig */;
+			baseConfigurationReference = ED7ADBB3F2DCC7B025997D1A /* Pods-labs-ios-starter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -852,7 +852,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BA29123D253770AF00932B42 /* XCRemoteSwiftPackageReference "OktaAuth" */ = {
+		BA29123D253770AF00932B42 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SpencerCurtis/OktaAuth.git";
 			requirement = {
@@ -863,9 +863,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BA29123E253770AF00932B42 /* OktaAuth */ = {
+		BA29123E253770AF00932B42 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BA29123D253770AF00932B42 /* XCRemoteSwiftPackageReference "OktaAuth" */;
+			package = BA29123D253770AF00932B42 /* RemoteSwiftPackageReference */;
 			productName = OktaAuth;
 		};
 /* End XCSwiftPackageProductDependency section */

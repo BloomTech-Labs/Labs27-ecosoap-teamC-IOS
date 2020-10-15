@@ -13,7 +13,10 @@ class PropertyDetailViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    var delegate: PropertyInfoTableViewCell?
+   var addressInput = AddressInput()
     // MARK: - Properties
     var property: Property? {
         didSet {
@@ -24,7 +27,7 @@ class PropertyDetailViewController: UIViewController {
     private var saveButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor(named: .colorESBGreen)
+        button.backgroundColor = UIColor(named: .colorESBBlue)
         button.setTitle("Save Changes", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
@@ -46,7 +49,10 @@ class PropertyDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        
+      
     }
+    
     
     // MARK: - Private Methods
     private func setupViews() {
@@ -69,6 +75,26 @@ class PropertyDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
     
+    @IBAction func editButtonIsTapped(_ sender: UIButton) {
+        guard let property = property else { return }
+        self.view.addSubview(self.saveButton)
+        saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        saveButton.alpha = 0
+        UIView.animate(withDuration: 2.0) {
+             sender.isHidden = true
+            self.deleteButton.isHidden = true
+            self.saveButton.alpha = 1.0
+          
+        }
+        let input = UpdatePropertyInput(id: property.id)
+        
+ 
+        
+        
+        
+    }
     // MARK: - IBActions
     @IBAction func editButtonTapped(_ sender: Any) {
         view.addSubview(saveButton)
@@ -92,6 +118,8 @@ extension PropertyDetailViewController: UITableViewDelegate, UITableViewDataSour
         
         cell.titleLabel.text = accountInfoLabels[indexPath.row].uppercased()
         cell.descriptionTextField.text = propertyData[indexPath.row]
+      
+        
         
         return cell
     }

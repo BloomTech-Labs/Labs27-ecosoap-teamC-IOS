@@ -137,6 +137,7 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
            if let error = error {
                print("Error fetching stats \(error)")
            }
+        
            DispatchQueue.main.async {
             self.lineChartView.reloadInputViews()
            }
@@ -209,6 +210,7 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                guard let propertyDetailVC = segue.destination as? PropertyDetailViewController else { return }
                guard let selectedIndexPath = propertiesTableView.indexPathForSelectedRow else { return }
                propertyDetailVC.property = properties[selectedIndexPath.row]
+            propertyDetailVC.delegate?.wasEdited = true 
            }
 
        }
@@ -262,7 +264,7 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
          grabProperties()
         let property = properties[indexPath.row]
         cell.property = property
-
+        
         return cell
         }
         return UITableViewCell()

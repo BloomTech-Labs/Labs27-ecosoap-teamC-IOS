@@ -683,6 +683,9 @@
                                 <state key="normal" title="Add New Property">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Wgf-De-h5o" kind="show" identifier="addNewPropertySegue" id="5nx-i9-653"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="RJu-2q-ed2">
                                 <rect key="frame" x="10" y="10" width="394" height="627"/>
@@ -803,7 +806,8 @@
                         <viewLayoutGuide key="safeArea" id="ykL-eY-Feh"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="sZg-Lr-crW">
-                        <barButtonItem key="rightBarButtonItem" image="icon" id="tUf-hW-0ik">
+                        <barButtonItem key="rightBarButtonItem" image="gear" catalog="system" id="tUf-hW-0ik">
+                            <color key="tintColor" name="ESB Blue"/>
                             <connections>
                                 <segue destination="f0Z-XQ-DpI" kind="show" id="BSU-Il-Rcn"/>
                             </connections>
@@ -1017,6 +1021,7 @@
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yK5-BR-gut">
                                                             <rect key="frame" x="0.0" y="18.5" width="334" height="34.5"/>
+                                                            <color key="tintColor" name="ESB Blue"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
@@ -1052,6 +1057,9 @@
                                         <state key="normal" title="Edit">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="editButtonIsTapped:" destination="Wgf-De-h5o" eventType="touchUpInside" id="f84-bX-X1q"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TzH-VU-2TL">
                                         <rect key="frame" x="205.5" y="0.0" width="168.5" height="39"/>
@@ -1076,14 +1084,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tXa-m2-i0G"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Property Detail" id="qcC-05-k4o">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="LIP-iB-gQ9">
-                            <connections>
-                                <action selector="editButtonTapped:" destination="Wgf-De-h5o" id="RAi-0G-DQP"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Property Detail" id="qcC-05-k4o"/>
                     <connections>
+                        <outlet property="deleteButton" destination="TzH-VU-2TL" id="ssl-VE-pBb"/>
+                        <outlet property="editButton" destination="TNb-zD-WF6" id="uVP-ux-N1r"/>
                         <outlet property="tableView" destination="aCN-oK-8fW" id="XSl-QX-HOd"/>
                     </connections>
                 </viewController>
@@ -1092,6 +1096,9 @@
             <point key="canvasLocation" x="501" y="-748"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5nx-i9-653"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" name="ESB Green"/>
     <resources>
         <image name="ESB Property" width="85" height="124"/>
@@ -1105,7 +1112,7 @@
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="desktopcomputer" catalog="system" width="128" height="101"/>
         <image name="envelope.fill" catalog="system" width="128" height="93"/>
-        <image name="icon" width="22" height="22"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="phone.fill" catalog="system" width="128" height="114"/>
         <image name="rectangle.3.offgrid.fill" catalog="system" width="128" height="81"/>
         <namedColor name="ESB Blue">
