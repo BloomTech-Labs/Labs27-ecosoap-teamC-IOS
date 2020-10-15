@@ -24,7 +24,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Dashboard" id="Xty-Fm-cfB"/>
                     <connections>
-                        <segue destination="0rH-x9-PbR" kind="presentation" identifier="ViewReportSegue" modalPresentationStyle="fullScreen" id="jUb-Ut-xY8"/>
+                        <segue destination="0rH-x9-PbR" kind="show" identifier="ViewReportSegue" id="jUb-Ut-xY8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZi-R6-OSY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ovn-6L-XM9" userLabel="Date Stack View">
-                                <rect key="frame" x="20" y="64" width="374" height="390"/>
+                                <rect key="frame" x="20" y="108" width="374" height="390"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="htQ-FR-o1T" customClass="ProductionReportImagesCollectionView" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="12" y="0.0" width="350" height="150"/>
@@ -93,7 +93,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xYK-Mj-2W4" userLabel="Fields Stack View">
-                                <rect key="frame" x="20" y="474" width="374" height="120.5"/>
+                                <rect key="frame" x="20" y="518" width="374" height="120.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="98" translatesAutoresizingMaskIntoConstraints="NO" id="bnS-Xk-YXk" userLabel="Bars Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="33.5"/>
@@ -155,7 +155,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EWm-Qh-QsD" userLabel="Add Photo Stack View">
-                                <rect key="frame" x="20" y="614.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="658.5" width="374" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUg-qF-fAU">
                                         <rect key="frame" x="0.0" y="0.0" width="182" height="50"/>
@@ -185,7 +185,7 @@
                                 </constraints>
                             </stackView>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ir4-zT-CuW">
-                                <rect key="frame" x="20" y="792" width="374" height="50"/>
+                                <rect key="frame" x="20" y="743" width="374" height="50"/>
                                 <color key="backgroundColor" name="ESB Blue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tRC-3V-TLK"/>
