@@ -83,7 +83,6 @@ class HubDashboardViewController: UIViewController {
                 fatalError("Could not cast cell as \(ReportCell.self)")
             }
             cell.report = report
-            cell.dashboardVC = self
             return cell
         }
         collectionView.dataSource = dataSource

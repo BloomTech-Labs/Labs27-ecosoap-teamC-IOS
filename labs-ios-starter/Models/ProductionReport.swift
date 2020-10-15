@@ -10,16 +10,15 @@ import Foundation
 
 struct ProductionReport: Hashable {
     // MARK: - Properties
-    var id, hubID: String
+    var id: String
     var date: Date
     var barsProduced, soapmakersWorked, soapmakerHours: Int?
     var soapPhotos, media: [String]?
-
+    
     // MARK: - Initializers
     // Mock data initializer for testing.
     init() {
         self.id = "HubDailyProduction1"
-        self.hubID = "HubId1"
         self.date = Date(shortDate: "09/01/2020") ?? Date()
         self.barsProduced = 5000
         self.soapmakersWorked = 6
@@ -31,23 +30,16 @@ struct ProductionReport: Hashable {
     // GraphQL initializer
     init?(dictionary: [String: Any]) {
         guard let id = dictionary["id"] as? String,
-        let hubContainer = dictionary["hub"] as? [String: Any],
-        let dateString = dictionary["date"] as? String else {
+              let dateString = dictionary["date"] as? String else {
             NSLog("Error unwrapping non-optional properties for Production Report:")
             NSLog("\tID: \(String(describing: dictionary["id"])) ")
-            NSLog("\tHub: \(String(describing: dictionary["hub"])) ")
             NSLog("\tDate: \(String(describing: dictionary["date"]))")
             return nil
         }
         
-        guard let hubID = hubContainer["id"] as? String else {
-            NSLog("Error unwrapping non-optional hub ID for Production Report:")
-            NSLog("\tHub ID: \(String(describing: hubContainer["id"]))")
-            return nil
-        }
-        
         self.id = id
-        self.hubID = hubID
+        self.date = Date()
+        
         self.date = Date(shortDate: dateString) ?? Date()
         
         if let barsProduced = dictionary["barsProduced"] as? Int {
@@ -69,18 +61,6 @@ struct ProductionReport: Hashable {
         if let media = dictionary["media"] as? [String] {
             self.media = media
         }
-    }
-    
-    // Create/update report initializer
-    init(id: String, hubId: String, date: Date, barsProduced: Int?, soapmakersWorked: Int?, soapmakerHours: Int?, soapPhotos: [String]?, media: [String]?) {
-        self.id = id
-        self.hubID = hubId
-        self.date = date
-        self.barsProduced = barsProduced
-        self.soapmakersWorked = soapmakersWorked
-        self.soapmakerHours = soapmakerHours
-        self.soapPhotos = soapPhotos
-        self.media = media
     }
 }
 

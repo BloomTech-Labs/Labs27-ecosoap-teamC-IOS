@@ -25,7 +25,7 @@ class UpdateProductionReportInput: Input {
             photoArray.append(photo)
         }
         
-        return "soapPhotos: [\(photoArray.joined(separator: ", "))]\n"
+        return "soapPhotos: \"[\(photoArray.joined(separator: ", "))]\"\n"
     }
     
     private var mediaQuery: String {
@@ -39,7 +39,7 @@ class UpdateProductionReportInput: Input {
             mediaArray.append(item)
         }
         
-        return "media: [\(mediaArray.joined(separator: ", "))]\n"
+        return "media: \"[\(mediaArray.joined(separator: ", "))]\"\n"
     }
     
     private var queryBody: String {

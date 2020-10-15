@@ -374,7 +374,7 @@ class Mutator: Request {
         }
         return """
             mutation {
-                createProductionReport(input: {
+                createProductionReport(input:{
                     \(createReportInput.formatted)
                 }) {
                     productionReport {
@@ -385,6 +385,9 @@ class Mutator: Request {
                         soapmakerHours
                         soapPhotos
                         media
+                    }
+                }
+            }
         """
     }
     
@@ -393,9 +396,9 @@ class Mutator: Request {
             NSLog("Couldn't cast input to UpdateProductionReportInput.  Please make sure your input matches the mutation's required input.")
             return nil
         }
-        return """
+        let inputString = """
             mutation {
-                updateProductionReport(input: {
+                updateProductionReport(input:{
                     \(updateReportInput.formatted)
                 }) {
                     productionReport {
@@ -406,7 +409,11 @@ class Mutator: Request {
                         soapmakerHours
                         soapPhotos
                         media
+                    }
+                }
+            }
         """
+        return inputString
     }
 
     private static func deleteProductionReport(input: Input) -> String? {
@@ -416,11 +423,13 @@ class Mutator: Request {
         }
         return """
         mutation {
-            deleteProductionReport(input: {
+            deleteProductionReport(input:{
                 \(id.formatted)
             }) {
                 success
                 error
+            }
+        }
         """
     }
 }

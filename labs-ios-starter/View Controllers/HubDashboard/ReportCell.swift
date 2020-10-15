@@ -12,7 +12,6 @@ class ReportCell: UICollectionViewCell {
     // MARK: - Properties
     var report: ProductionReport? { didSet { updateContent() } }
     override var isSelected: Bool { didSet { updateAppearance() } }
-    weak var dashboardVC: HubDashboardViewController?
     
     // Labels
     private let dateLabel: UILabel = {
