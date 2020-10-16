@@ -672,7 +672,7 @@
             <objects>
                 <viewController id="yQ5-mv-t2u" customClass="HotelsViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gjp-7d-lpG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRw-7J-duI">
@@ -854,7 +854,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBy-YR-z8s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1239" y="-699"/>
+            <point key="canvasLocation" x="1241" y="-749"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="JBM-rm-gXK">
@@ -946,7 +946,7 @@
             <objects>
                 <viewController id="f0Z-XQ-DpI" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mla-2e-vur">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osJ-Cj-K7R">
@@ -996,7 +996,7 @@
             <objects>
                 <viewController id="Wgf-De-h5o" customClass="PropertyDetailViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CSU-Te-AsK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="aCN-oK-8fW">
@@ -1102,8 +1102,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tXa-m2-i0G"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Property Detail" id="qcC-05-k4o"/>
+                    <navigationItem key="navigationItem" title="Property Detail" id="qcC-05-k4o">
+                        <barButtonItem key="rightBarButtonItem" title="Create" id="mKO-YQ-eEo">
+                            <color key="tintColor" name="ESB Blue"/>
+                            <connections>
+                                <action selector="createButtonTapped:" destination="Wgf-De-h5o" id="D26-rP-PVS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="createButton" destination="mKO-YQ-eEo" id="6Vf-R5-BOS"/>
                         <outlet property="deleteButton" destination="TzH-VU-2TL" id="ssl-VE-pBb"/>
                         <outlet property="editButton" destination="TNb-zD-WF6" id="uVP-ux-N1r"/>
                         <outlet property="saveButton" destination="I2d-m6-vML" id="ljL-2e-oxj"/>

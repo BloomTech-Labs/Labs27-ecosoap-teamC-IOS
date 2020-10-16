@@ -9,9 +9,6 @@
 import UIKit
 
 class PropertyDetailViewController: UIViewController {
-
-    
-
     
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
@@ -19,18 +16,13 @@ class PropertyDetailViewController: UIViewController {
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var createButton: UIBarButtonItem!
+    
+    // MARK: - Properties
     var hideAll = false
     var addressInput = AddressInput()
-    // MARK: - Properties
-    var property: Property? {
-        didSet {
-            updateViews()
-        }
-    }
     var delegate: PropertyInfoTableViewCell?
     var controller = BackendController.shared
-    
-   
     
     // MARK: - Properties
     private let accountInfoLabels = ["Name",
@@ -42,23 +34,28 @@ class PropertyDetailViewController: UIViewController {
                                      "Coordinates"]
     
     private var propertyData: [String] = []
+    var property: Property? {
+           didSet {
+               updateViews()
+           }
+       }
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-      setHideElements()
-      updatePropertyNow()
+        setHideElements()
+        updatePropertyNow()
     }
     
     private func setHideElements() {
         if hideAll == true {
-            stackView.isHidden = true 
-                self.editButton.isHidden = true
-                self.deleteButton.isHidden = true
-                self.saveButton.isHidden = true
+            stackView.isHidden = true
+            self.editButton.isHidden = true
+            self.deleteButton.isHidden = true
+            self.saveButton.isHidden = true
             
-           
+            
         }
     }
     
@@ -83,24 +80,25 @@ class PropertyDetailViewController: UIViewController {
     }
     
     @IBAction func editButtonIsTapped(_ sender: UIButton) {
-       
+        
         UIView.animate(withDuration: 1.0) {
-             sender.isHidden = true
+            sender.isHidden = true
             self.deleteButton.isHidden = true
             self.saveButton.isHidden = false
-          
+            
         }
- 
-        
-        
+    }
+    @IBAction func createButtonTapped(_ sender: UIBarButtonItem) {
+    
     }
     
     @IBAction func savedButtonTapped(_ sender: UIButton) {
-       updatePropertyNow()
+        updatePropertyNow()
         
     }
+    
     @objc func updatePropertyNow() {
-                guard let property = property else { return }
+        guard let property = property else { return }
         let input = UpdatePropertyInput(id: property.id, name: delegate?.descriptionTextField.text, propertyType: .HOTEL, services: [.SOAP, .LINENS, .BOTTLES, .PAPER], collectionType: .GENERATED_LABEL, phone: property.phone, shippingNote: property.shippingNote, notes: property.notes, hubId: property.hub?.id, contractId: property.contractId, rooms: property.rooms, logo: property.logo, billingAddress: AddressInput(address1: property.billingAddress?.address1, address2: property.billingAddress?.address2, address3: property.billingAddress?.address3, city: property.billingAddress?.city, state: property.billingAddress?.state, postalCode: property.billingAddress?.postalCode, country: nil), shippingAddress: AddressInput(address1: property.shippingAddress?.address1, address2: property.shippingAddress?.address2, address3: property.shippingAddress?.address3, city: property.shippingAddress?.city, state: property.shippingAddress?.state, postalCode: property.shippingAddress?.postalCode, country: nil) , coordinates: CoordinatesInput(longitude: property.coordinates?.longitude, latitude: property.coordinates?.latitude), impact: ImpactStatsInput(soapRecycled: property.impact?.soapRecycled, linensRecycled: property.impact?.linensRecycled, bottlesRecycled: property.impact?.bottlesRecycled, paperRecycled: property.impact?.paperRecycled, peopleServed: property.impact?.peopleServed, womenEmployed: property.impact?.womenEmployed), userIds: property.usersById, pickupIds: property.pickupsById)
         
         controller.updateProperty(input: input) { (error) in
@@ -140,7 +138,7 @@ extension PropertyDetailViewController: UITableViewDelegate, UITableViewDataSour
         
         cell.titleLabel.text = accountInfoLabels[indexPath.row].uppercased()
         if propertyData.count > 0 {
-        cell.descriptionTextField.text = propertyData[indexPath.row]
+            cell.descriptionTextField.text = propertyData[indexPath.row]
         } else {
             cell.descriptionTextField.text = ""
         }

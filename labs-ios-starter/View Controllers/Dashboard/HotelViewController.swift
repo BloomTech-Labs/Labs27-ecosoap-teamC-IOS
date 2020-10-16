@@ -11,8 +11,8 @@ import SwiftUI
 import Charts
 import TinyConstraints
 class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ChartViewDelegate {
-   
- 
+    
+    
     var impactStats = [ImpactStats]()
     @IBOutlet weak var propertyTextField: UITextField!
     @IBOutlet weak var lineChartView: LineChartView!
@@ -53,13 +53,13 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         lineChartView.xAxis.enabled = true
         lineChartView.xAxis.labelPosition = .bottom
         lineChartView.rightAxis.drawLabelsEnabled = false
-//        let yAxis = lineChartView.leftAxis
-//        yAxis.labelFont = .boldSystemFont(ofSize: 8)
-//        yAxis.setLabelCount(6, force: false)
-//        yAxis.labelTextColor = .white
-//        yAxis.axisLineColor = .white
-//        yAxis.labelPosition = .outsideChart
-//        lineChartView.xAxis.labelPosition = .bottom
+        //        let yAxis = lineChartView.leftAxis
+        //        yAxis.labelFont = .boldSystemFont(ofSize: 8)
+        //        yAxis.setLabelCount(6, force: false)
+        //        yAxis.labelTextColor = .white
+        //        yAxis.axisLineColor = .white
+        //        yAxis.labelPosition = .outsideChart
+        //        lineChartView.xAxis.labelPosition = .bottom
         lineChartView.animate(xAxisDuration: 2.5)
         
         // Ends
@@ -75,44 +75,44 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.hideKeyboardWhenViewTapped()
     }
     
-//    func toggleSection(_ header: HotelHeaderTableViewCell, section: Int) {
-//        let collapsed = !(properties[section].isExpanded ?? true)
-//
-//        // Toggle collapse
-//        properties[section].isExpanded = collapsed
-//        header.setCollapsed(collapsed)
-//
-//        // Adjust the height of the rows inside the section
-//        firsttableView.beginUpdates()
-//        for i in 0 ..< properties[section].name.count {
-//            let indexPath = IndexPath(item: i, section: 0)
-//            firsttableView.reloadRows(at: [indexPath], with: .top)
-//        }
-//        firsttableView.endUpdates()
-//    }
-
-
+    //    func toggleSection(_ header: HotelHeaderTableViewCell, section: Int) {
+    //        let collapsed = !(properties[section].isExpanded ?? true)
+    //
+    //        // Toggle collapse
+    //        properties[section].isExpanded = collapsed
+    //        header.setCollapsed(collapsed)
+    //
+    //        // Adjust the height of the rows inside the section
+    //        firsttableView.beginUpdates()
+    //        for i in 0 ..< properties[section].name.count {
+    //            let indexPath = IndexPath(item: i, section: 0)
+    //            firsttableView.reloadRows(at: [indexPath], with: .top)
+    //        }
+    //        firsttableView.endUpdates()
+    //    }
+    
+    
     
     private func fetchAll() {
-            controller.initialFetch(userId: controller.loggedInUser.id) { (error) in
-                self.grabProperties()
-                if let error = error {
-                    NSLog("\(error): Error occured during initial fetch")
-                }
-                if let user = self.controller.users[self.controller.loggedInUser.id] {
-                    self.controller.loggedInUser = user
-                    print(self.controller.loggedInUser)
-                }
-                print("\(self.controller.users)")
-                print("\(self.controller.properties)")
-                print("\(self.controller.pickups)")
-    //            print("\(self.controller.payments)")
-                print("\(self.controller.hubs)")
-                print("\(self.controller.pickupCartons)")
-                print("\(self.controller.hospitalityContracts)")
-                
+        controller.initialFetch(userId: controller.loggedInUser.id) { (error) in
+            self.grabProperties()
+            if let error = error {
+                NSLog("\(error): Error occured during initial fetch")
             }
+            if let user = self.controller.users[self.controller.loggedInUser.id] {
+                self.controller.loggedInUser = user
+                print(self.controller.loggedInUser)
+            }
+            print("\(self.controller.users)")
+            print("\(self.controller.properties)")
+            print("\(self.controller.pickups)")
+            //            print("\(self.controller.payments)")
+            print("\(self.controller.hubs)")
+            print("\(self.controller.pickupCartons)")
+            print("\(self.controller.hospitalityContracts)")
+            
         }
+    }
     
     private func grabProperties() {
         var propertyNames: [String] = []
@@ -128,54 +128,54 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.propertyTextField.text = propertyNames[0]
             self.selectedProperty = self.properties[0]
         }
- 
+        
     }
     
     private func updateViews() {
         guard let selectedProperty = selectedProperty else { return }
-       controller.impactStatsByPropertyId(id: selectedProperty.id) { (error) in
-           if let error = error {
-               print("Error fetching stats \(error)")
-           }
-        
-           DispatchQueue.main.async {
-            self.lineChartView.reloadInputViews()
-           }
-       }
+        controller.impactStatsByPropertyId(id: selectedProperty.id) { (error) in
+            if let error = error {
+                print("Error fetching stats \(error)")
+            }
+            
+            DispatchQueue.main.async {
+                self.lineChartView.reloadInputViews()
+            }
+        }
     }
     
     private func overallBreakDown() -> (Int, Int, Int, Int) {
-           guard let selectedProperty = selectedProperty else { return (0,0,0,0) }
-           let bottlesRecycled = selectedProperty.impact?.bottlesRecycled ?? 0
-           let soapRecycled = selectedProperty.impact?.soapRecycled ?? 0
-           let paperRecycled = selectedProperty.impact?.paperRecycled ?? 0
-           let linensRecycled = selectedProperty.impact?.linensRecycled ?? 0
-           
-           let total = bottlesRecycled + soapRecycled + paperRecycled + linensRecycled
-           let soapPercentage = (Double(soapRecycled) / Double(total)) * 100
-           let bottlesPercentage = (Double(bottlesRecycled) / Double(total)) * 100
-           let paperPercentage = (Double(paperRecycled) / Double(total)) * 100
-           let linensPercentage = (Double(linensRecycled) / Double(total)) * 100
-           return (Int(soapPercentage), Int(linensPercentage), Int(bottlesPercentage), Int(paperPercentage))
-       }
+        guard let selectedProperty = selectedProperty else { return (0,0,0,0) }
+        let bottlesRecycled = selectedProperty.impact?.bottlesRecycled ?? 0
+        let soapRecycled = selectedProperty.impact?.soapRecycled ?? 0
+        let paperRecycled = selectedProperty.impact?.paperRecycled ?? 0
+        let linensRecycled = selectedProperty.impact?.linensRecycled ?? 0
+        
+        let total = bottlesRecycled + soapRecycled + paperRecycled + linensRecycled
+        let soapPercentage = (Double(soapRecycled) / Double(total)) * 100
+        let bottlesPercentage = (Double(bottlesRecycled) / Double(total)) * 100
+        let paperPercentage = (Double(paperRecycled) / Double(total)) * 100
+        let linensPercentage = (Double(linensRecycled) / Double(total)) * 100
+        return (Int(soapPercentage), Int(linensPercentage), Int(bottlesPercentage), Int(paperPercentage))
+    }
     
     
     
     private let disclosureIndicator: UIImageView = {
-           let disclosureIndicator = UIImageView()
-           disclosureIndicator.image = UIImage(systemName: "chevron.down")
-           disclosureIndicator.contentMode = .scaleAspectFit
-           disclosureIndicator.preferredSymbolConfiguration = .init(textStyle: .body, scale: .small)
-           return disclosureIndicator
-       }()
-       
+        let disclosureIndicator = UIImageView()
+        disclosureIndicator.image = UIImage(systemName: "chevron.down")
+        disclosureIndicator.contentMode = .scaleAspectFit
+        disclosureIndicator.preferredSymbolConfiguration = .init(textStyle: .body, scale: .small)
+        return disclosureIndicator
+    }()
+    
     private let disclosureIndicatorDown: UIImageView = {
-              let disclosureIndicatorDown = UIImageView()
-              disclosureIndicatorDown.image = UIImage(systemName: "chevron.up")
-              disclosureIndicatorDown.contentMode = .scaleAspectFit
-              disclosureIndicatorDown.preferredSymbolConfiguration = .init(textStyle: .body, scale: .small)
-              return disclosureIndicatorDown
-          }()
+        let disclosureIndicatorDown = UIImageView()
+        disclosureIndicatorDown.image = UIImage(systemName: "chevron.up")
+        disclosureIndicatorDown.contentMode = .scaleAspectFit
+        disclosureIndicatorDown.preferredSymbolConfiguration = .init(textStyle: .body, scale: .small)
+        return disclosureIndicatorDown
+    }()
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         print(entry)
@@ -215,73 +215,74 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
             }
         case "ShowPropertyDetailPushSegue":
-//            guard let propertyDetailVC = segue.destination as? PropertyDetailViewController else { return }
-//            guard let selectedIndexPath = propertiesTableView.indexPathForSelectedRow else { return }
-//            propertyDetailVC.property = properties[selectedIndexPath.row]
+            //            guard let propertyDetailVC = segue.destination as? PropertyDetailViewController else { return }
+            //            guard let selectedIndexPath = propertiesTableView.indexPathForSelectedRow else { return }
+            //            propertyDetailVC.property = properties[selectedIndexPath.row]
             if let savedPropertyVC = segue.destination as? PropertyDetailViewController {
-                          savedPropertyVC.controller = controller
-                          if let selectedIndex = propertiesTableView.indexPathForSelectedRow {
-                            savedPropertyVC.property = properties[selectedIndex.row]
-                          }
-                          
-                      }
+                savedPropertyVC.controller = controller
+                savedPropertyVC.navigationItem.rightBarButtonItem = nil
+                if let selectedIndex = propertiesTableView.indexPathForSelectedRow {
+                    savedPropertyVC.property = properties[selectedIndex.row]
+                }
+                
+            }
         default:
             break
         }
-
-       }
-  
+        
+    }
+    
     
     // TableView Section
     
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return sections.count
-//    }
-//
+    //    func numberOfSections(in tableView: UITableView) -> Int {
+    //        return sections.count
+    //    }
+    //
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return properties.count
         
     }
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 44
-//    }
-//
+    //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    //        return 44
+    //    }
+    //
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//
-//        return properties[(indexPath as NSIndexPath).section].isExpanded ?? true ? 0 : 44.0
-//    }
-//
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return 1
-//    }
-//
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let headerCellIdentifier = "HotelCell"
-//           let headerCell = tableView.dequeueReusableCell(withIdentifier: headerCellIdentifier) as? HotelHeaderTableViewCell
-//
-//        headerCell?.textLabel?.text = "Hotels"
-//        headerCell?.textLabel?.font = UIFont(name: "Euphemia UCAS", size: 20)
-//        headerCell?.setCollapsed(properties[section].isExpanded ?? true)
-//        headerCell?.imageView?.image = disclosureIndicator.image
-//        if headerCell?.isSelected == true  {
-//            self.toggleArrow?.toggle()
-//            headerCell?.imageView?.image = disclosureIndicator.image ?? disclosureIndicatorDown.image
-//        }
-//        headerCell?.section = section
-//        headerCell?.delegate = self
-//
-//           return headerCell
-//    }
+    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    //
+    //        return properties[(indexPath as NSIndexPath).section].isExpanded ?? true ? 0 : 44.0
+    //    }
+    //
+    //    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    //        return 1
+    //    }
+    //
+    //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    //        let headerCellIdentifier = "HotelCell"
+    //           let headerCell = tableView.dequeueReusableCell(withIdentifier: headerCellIdentifier) as? HotelHeaderTableViewCell
+    //
+    //        headerCell?.textLabel?.text = "Hotels"
+    //        headerCell?.textLabel?.font = UIFont(name: "Euphemia UCAS", size: 20)
+    //        headerCell?.setCollapsed(properties[section].isExpanded ?? true)
+    //        headerCell?.imageView?.image = disclosureIndicator.image
+    //        if headerCell?.isSelected == true  {
+    //            self.toggleArrow?.toggle()
+    //            headerCell?.imageView?.image = disclosureIndicator.image ?? disclosureIndicatorDown.image
+    //        }
+    //        headerCell?.section = section
+    //        headerCell?.delegate = self
+    //
+    //           return headerCell
+    //    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    if tableView == propertiesTableView,
+        if tableView == propertiesTableView,
             let cell = tableView.dequeueReusableCell(withIdentifier: "PropertiesCell") as? PropertiesTableViewCell {
-         grabProperties()
-        let property = properties[indexPath.row]
-        cell.property = property
-        
-        return cell
+            grabProperties()
+            let property = properties[indexPath.row]
+            cell.property = property
+            
+            return cell
         }
         return UITableViewCell()
     }
@@ -302,7 +303,7 @@ extension HotelsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         guard let propertyPickerData = propertyPickerData else { return nil }
-
+        
         let componentArray = propertyPickerData[component]
         let title = componentArray[row]
         
