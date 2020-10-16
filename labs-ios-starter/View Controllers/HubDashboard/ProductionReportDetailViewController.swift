@@ -163,4 +163,18 @@ class ProductionReportDetailViewController: UIViewController {
             }
         }
     }
+    
+    func deleteReport() {
+        if let id = report?.id {
+            let input = DeleteProductionReportInput(id: id)
+            
+            controller.deleteProductionReport(input: input) { (error) in
+                if let error = error {
+                    NSLog("\(error): Error occured while deleting production report.")
+                }
+            }
+        } else {
+            NSLog("Can't delete a production report that doesn't exist.")
+        }
+    }
 }

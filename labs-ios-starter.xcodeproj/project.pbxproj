@@ -76,7 +76,6 @@
 		BA5B10BC252BB7A7001202FE /* HubDashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5B10BB252BB7A7001202FE /* HubDashboard.storyboard */; };
 		BA5B10C4252D21CD001202FE /* HubDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10C3252D21CD001202FE /* HubDashboardViewController.swift */; };
 		BA5B10CA252D227B001202FE /* ProductionReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10C9252D227B001202FE /* ProductionReportDetailViewController.swift */; };
-		BA5B10CD252E2AD8001202FE /* ProductionReportImagesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10CC252E2AD8001202FE /* ProductionReportImagesCollectionView.swift */; };
 		BA5B10D1252E4158001202FE /* ProductionReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10D0252E4158001202FE /* ProductionReport.swift */; };
 		BAA8E9A025252576005EA47D /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BAA8E99F25252576005EA47D /* OktaAuth */; };
 		BAD33C832534C7FE0080FCC6 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -163,7 +162,6 @@
 		BA5B10BB252BB7A7001202FE /* HubDashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = HubDashboard.storyboard; path = "labs-ios-starter/Storyboards/HubDashboard.storyboard"; sourceTree = SOURCE_ROOT; };
 		BA5B10C3252D21CD001202FE /* HubDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubDashboardViewController.swift; sourceTree = "<group>"; };
 		BA5B10C9252D227B001202FE /* ProductionReportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionReportDetailViewController.swift; sourceTree = "<group>"; };
-		BA5B10CC252E2AD8001202FE /* ProductionReportImagesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionReportImagesCollectionView.swift; sourceTree = "<group>"; };
 		BA5B10D0252E4158001202FE /* ProductionReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionReport.swift; sourceTree = "<group>"; };
 		BAD33C8D25362E800080FCC6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		BAD33C96253630240080FCC6 /* LogInInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInInput.swift; sourceTree = "<group>"; };
@@ -459,7 +457,6 @@
 			children = (
 				BA5B10C3252D21CD001202FE /* HubDashboardViewController.swift */,
 				BAD33CB9253780650080FCC6 /* ReportCell.swift */,
-				BA5B10CC252E2AD8001202FE /* ProductionReportImagesCollectionView.swift */,
 				BA5B10C9252D227B001202FE /* ProductionReportDetailViewController.swift */,
 			);
 			path = HubDashboard;
@@ -570,7 +567,6 @@
 				BA5B10C4252D21CD001202FE /* HubDashboardViewController.swift in Sources */,
 				13EF37B7250FE86E002E7959 /* PropertyDetailViewController.swift in Sources */,
 				BAD33C832534C7FE0080FCC6 /* (null) in Sources */,
-				BA5B10CD252E2AD8001202FE /* ProductionReportImagesCollectionView.swift in Sources */,
 				13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */,
 				13BA9FE025001A7900973F03 /* ProfileViewController.swift in Sources */,
 				1380291A24E63E820000C9FA /* StatisticsLayout.swift in Sources */,
