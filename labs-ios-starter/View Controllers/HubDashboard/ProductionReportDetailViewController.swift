@@ -11,7 +11,7 @@ import UIKit
 class ProductionReportDetailViewController: UIViewController {
 
     // MARK: - Outlets
-    @IBOutlet var reportImagesCollectionView: ProductionReportImagesCollectionView!
+    @IBOutlet var reportImagesCollectionView: ReportImageCollectionView!
     @IBOutlet var editButton: UIBarButtonItem!
     @IBOutlet var deleteButton: UIBarButtonItem!
     @IBOutlet var datePicker: UIDatePicker!

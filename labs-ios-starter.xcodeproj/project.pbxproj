@@ -87,6 +87,7 @@
 		BAD33CB4253766BA0080FCC6 /* UpdateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB3253766BA0080FCC6 /* UpdateProductionReportInput.swift */; };
 		BAD33CB725376ED10080FCC6 /* DeleteProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB625376ED10080FCC6 /* DeleteProductionReportInput.swift */; };
 		BAD33CBA253780650080FCC6 /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB9253780650080FCC6 /* ReportCell.swift */; };
+		BAD33CC5253A61260080FCC6 /* ReportImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CC4253A61250080FCC6 /* ReportImageCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +171,7 @@
 		BAD33CB3253766BA0080FCC6 /* UpdateProductionReportInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProductionReportInput.swift; sourceTree = "<group>"; };
 		BAD33CB625376ED10080FCC6 /* DeleteProductionReportInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductionReportInput.swift; sourceTree = "<group>"; };
 		BAD33CB9253780650080FCC6 /* ReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
+		BAD33CC4253A61250080FCC6 /* ReportImageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportImageCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,6 +460,7 @@
 				BA5B10C3252D21CD001202FE /* HubDashboardViewController.swift */,
 				BAD33CB9253780650080FCC6 /* ReportCell.swift */,
 				BA5B10C9252D227B001202FE /* ProductionReportDetailViewController.swift */,
+				BAD33CC4253A61250080FCC6 /* ReportImageCollectionView.swift */,
 			);
 			path = HubDashboard;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				13FD2AA224E49B39006D6B43 /* PickupsViewController.swift in Sources */,
 				13A4A7EB24E35923005326F9 /* SchedulePickupViewController.swift in Sources */,
 				13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */,
+				BAD33CC5253A61260080FCC6 /* ReportImageCollectionView.swift in Sources */,
 				1326A737250FFD4000EFA7CF /* PropertyInfoTableViewCell.swift in Sources */,
 				BAD33C97253630240080FCC6 /* LogInInput.swift in Sources */,
 				13FD2A9C24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift in Sources */,
