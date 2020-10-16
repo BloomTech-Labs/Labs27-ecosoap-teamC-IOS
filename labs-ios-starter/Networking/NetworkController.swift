@@ -36,6 +36,8 @@ class BackendController {
     var pickupCartons: [String: PickupCarton] = [:]
     var hospitalityContracts: [String: HospitalityContract] = [:]
     var productionReports: [String: ProductionReport] = [:]
+    
+    var productionReportNeedsUpdate = false
 
     private var parsers: [ResponseModel: (Any?) throws ->()] = [.property: BackendController.propertyParser,
                                                         .properties: BackendController.propertiesParser,

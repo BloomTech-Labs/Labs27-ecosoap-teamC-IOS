@@ -42,6 +42,14 @@ class HubDashboardViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if controller.productionReportNeedsUpdate {
+            reports = []
+            fetchReports()
+        }
+    }
+    
     @objc func viewReport() {
         performSegue(withIdentifier: "ViewReportSegue", sender: self)
     }
@@ -105,6 +113,7 @@ class HubDashboardViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.setUpDataSource()
                 }
+                    self.controller.productionReportNeedsUpdate = false
             }
         } 
     }

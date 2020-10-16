@@ -127,6 +127,7 @@ class ProductionReportDetailViewController: UIViewController {
                      "http://www.fillmurray.com/800/800"]
 
         saveReport(date: date, barsProduced: barsProduced, soapmakersWorked: soapmakersWorked, soapmakerHours: soapmakerHours, soapPhotos: soapPhotos, media: media)
+        controller.productionReportNeedsUpdate = true
         navigationController?.popViewController(animated: true)
     }
     
