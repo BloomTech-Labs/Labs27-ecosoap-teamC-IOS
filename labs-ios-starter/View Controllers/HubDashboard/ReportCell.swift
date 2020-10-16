@@ -24,6 +24,7 @@ class ReportCell: UICollectionViewCell {
     private let soapmakersWorkedLabel = UILabel()
     private let soapmakerHoursLabel =  UILabel()
     
+    // Button
     private let viewReportButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false

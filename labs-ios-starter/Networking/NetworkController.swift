@@ -481,7 +481,6 @@ class BackendController {
                 completion(error)
                 return
             }
-
             completion(nil)
         }
     }
@@ -491,7 +490,7 @@ class BackendController {
             completion(Errors.RequestInitFail)
             return
         }
-        requestAPI(with: request) { (data, error) in
+        requestAPI(with: request) { (_, error) in
             if let error = error {
                 completion(error)
                 return
@@ -506,12 +505,25 @@ class BackendController {
             completion(Errors.RequestInitFail)
             return
         }
-        requestAPI(with: request) { (data, error) in
+        requestAPI(with: request) { (_, error) in
             if let error = error {
                 completion(error)
                 return
             }
-            
+            completion(nil)
+        }
+    }
+    
+    func deleteProductionReport(input: DeleteProductionReportInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .deleteProductionReport, input: input) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
             completion(nil)
         }
     }

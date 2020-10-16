@@ -25,6 +25,7 @@
                     <navigationItem key="navigationItem" title="Dashboard" id="Xty-Fm-cfB"/>
                     <connections>
                         <segue destination="0rH-x9-PbR" kind="show" identifier="ViewReportSegue" id="jUb-Ut-xY8"/>
+                        <segue destination="0rH-x9-PbR" kind="show" identifier="NewReportSegue" id="cGj-9j-wx6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZi-R6-OSY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -301,6 +302,9 @@
             <point key="canvasLocation" x="2311.594202898551" y="190.84821428571428"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="cGj-9j-wx6"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="106"/>
         <namedColor name="ESB Aqua">
