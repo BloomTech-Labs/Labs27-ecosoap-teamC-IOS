@@ -8,10 +8,8 @@
 
 import UIKit
 
-class PropertyDetailViewController: UIViewController, MydataSendingDelegate {
-    func sendDataToController(myData: String) {
-        delegate?.descriptionTextField.text = myData
-    }
+class PropertyDetailViewController: UIViewController {
+
     
 
     
@@ -19,29 +17,20 @@ class PropertyDetailViewController: UIViewController, MydataSendingDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
-    var delegate: PropertyInfoTableViewCell?
-   var addressInput = AddressInput()
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var stackView: UIStackView!
+    var hideAll = false
+    var addressInput = AddressInput()
     // MARK: - Properties
     var property: Property? {
         didSet {
             updateViews()
         }
     }
-
+    var delegate: PropertyInfoTableViewCell?
     var controller = BackendController.shared
     
-    private var saveButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor(named: .colorESBBlue)
-        button.setTitle("Save Changes", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        button.target(forAction: #selector(updatePropertyNow), withSender: self)
-        button.isUserInteractionEnabled = true
-        button.isEnabled = true
-        return button
-    }()
+   
     
     // MARK: - Properties
     private let accountInfoLabels = ["Name",
@@ -58,11 +47,20 @@ class PropertyDetailViewController: UIViewController, MydataSendingDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        delegate?.delegate = self
-      
+      setHideElements()
+      updatePropertyNow()
     }
     
-    
+    private func setHideElements() {
+        if hideAll == true {
+            stackView.isHidden = true 
+                self.editButton.isHidden = true
+                self.deleteButton.isHidden = true
+                self.saveButton.isHidden = true
+            
+           
+        }
+    }
     
     // MARK: - Private Methods
     private func setupViews() {
@@ -71,7 +69,6 @@ class PropertyDetailViewController: UIViewController, MydataSendingDelegate {
     
     private func updateViews() {
         guard let property = property else { return }
-        propertyData.append(property.id)
         propertyData.append(property.name)
         propertyData.append(property.propertyType)
         propertyData.append("\(property.rooms)")
@@ -86,26 +83,25 @@ class PropertyDetailViewController: UIViewController, MydataSendingDelegate {
     }
     
     @IBAction func editButtonIsTapped(_ sender: UIButton) {
-        self.view.addSubview(self.saveButton)
-        saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
-        saveButton.alpha = 0
-        UIView.animate(withDuration: 2.0) {
+       
+        UIView.animate(withDuration: 1.0) {
              sender.isHidden = true
             self.deleteButton.isHidden = true
-            self.saveButton.alpha = 1.0
+            self.saveButton.isHidden = false
           
         }
-        updatePropertyNow()
  
         
         
     }
     
+    @IBAction func savedButtonTapped(_ sender: UIButton) {
+       updatePropertyNow()
+        
+    }
     @objc func updatePropertyNow() {
                 guard let property = property else { return }
-        let input = UpdatePropertyInput(id: property.id, name: delegate?.descriptionTextField.text , propertyType: .HOTEL, services: [.SOAP, .LINENS, .BOTTLES, .PAPER], collectionType: .GENERATED_LABEL, phone: property.phone, shippingNote: property.shippingNote, notes: property.notes, hubId: property.hub?.id, contractId: property.contractId, rooms: property.rooms, logo: property.logo, billingAddress: AddressInput(address1: property.billingAddress?.address1, address2: property.billingAddress?.address2, address3: property.billingAddress?.address3, city: property.billingAddress?.city, state: property.billingAddress?.state, postalCode: property.billingAddress?.postalCode, country: nil), shippingAddress: AddressInput(address1: property.shippingAddress?.address1, address2: property.shippingAddress?.address2, address3: property.shippingAddress?.address3, city: property.shippingAddress?.city, state: property.shippingAddress?.state, postalCode: property.shippingAddress?.postalCode, country: nil) , coordinates: CoordinatesInput(longitude: property.coordinates?.longitude, latitude: property.coordinates?.latitude), impact: ImpactStatsInput(soapRecycled: property.impact?.soapRecycled, linensRecycled: property.impact?.linensRecycled, bottlesRecycled: property.impact?.bottlesRecycled, paperRecycled: property.impact?.paperRecycled, peopleServed: property.impact?.peopleServed, womenEmployed: property.impact?.womenEmployed), userIds: property.usersById, pickupIds: property.pickupsById)
+        let input = UpdatePropertyInput(id: property.id, name: delegate?.descriptionTextField.text, propertyType: .HOTEL, services: [.SOAP, .LINENS, .BOTTLES, .PAPER], collectionType: .GENERATED_LABEL, phone: property.phone, shippingNote: property.shippingNote, notes: property.notes, hubId: property.hub?.id, contractId: property.contractId, rooms: property.rooms, logo: property.logo, billingAddress: AddressInput(address1: property.billingAddress?.address1, address2: property.billingAddress?.address2, address3: property.billingAddress?.address3, city: property.billingAddress?.city, state: property.billingAddress?.state, postalCode: property.billingAddress?.postalCode, country: nil), shippingAddress: AddressInput(address1: property.shippingAddress?.address1, address2: property.shippingAddress?.address2, address3: property.shippingAddress?.address3, city: property.shippingAddress?.city, state: property.shippingAddress?.state, postalCode: property.shippingAddress?.postalCode, country: nil) , coordinates: CoordinatesInput(longitude: property.coordinates?.longitude, latitude: property.coordinates?.latitude), impact: ImpactStatsInput(soapRecycled: property.impact?.soapRecycled, linensRecycled: property.impact?.linensRecycled, bottlesRecycled: property.impact?.bottlesRecycled, paperRecycled: property.impact?.paperRecycled, peopleServed: property.impact?.peopleServed, womenEmployed: property.impact?.womenEmployed), userIds: property.usersById, pickupIds: property.pickupsById)
         
         controller.updateProperty(input: input) { (error) in
             if let error = error {
@@ -114,6 +110,8 @@ class PropertyDetailViewController: UIViewController, MydataSendingDelegate {
             } else {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    self.delegate?.detailVC = self
+                    
                 }
             }
         }
@@ -141,9 +139,12 @@ extension PropertyDetailViewController: UITableViewDelegate, UITableViewDataSour
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PropertyInfoCell", for: indexPath) as? PropertyInfoTableViewCell else { return UITableViewCell() }
         
         cell.titleLabel.text = accountInfoLabels[indexPath.row].uppercased()
+        if propertyData.count > 0 {
         cell.descriptionTextField.text = propertyData[indexPath.row]
-      
-        
+        } else {
+            cell.descriptionTextField.text = ""
+        }
+        cell.detailVC = self
         
         return cell
     }

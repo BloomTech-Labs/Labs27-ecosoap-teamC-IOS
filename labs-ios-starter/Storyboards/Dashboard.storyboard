@@ -672,7 +672,7 @@
             <objects>
                 <viewController id="yQ5-mv-t2u" customClass="HotelsViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gjp-7d-lpG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRw-7J-duI">
@@ -946,7 +946,7 @@
             <objects>
                 <viewController id="f0Z-XQ-DpI" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mla-2e-vur">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osJ-Cj-K7R">
@@ -996,7 +996,7 @@
             <objects>
                 <viewController id="Wgf-De-h5o" customClass="PropertyDetailViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CSU-Te-AsK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="aCN-oK-8fW">
@@ -1047,40 +1047,58 @@
                                     <outlet property="delegate" destination="Wgf-De-h5o" id="ksp-AW-B5v"/>
                                 </connections>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="Olq-gM-LQm">
-                                <rect key="frame" x="20" y="592" width="374" height="39"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="t6l-4i-M34">
+                                <rect key="frame" x="20" y="592" width="374" height="118"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNb-zD-WF6">
-                                        <rect key="frame" x="0.0" y="0.0" width="168.5" height="39"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="Olq-gM-LQm">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="39"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNb-zD-WF6">
+                                                <rect key="frame" x="0.0" y="0.0" width="168.5" height="39"/>
+                                                <color key="backgroundColor" name="ESB Blue"/>
+                                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
+                                                <state key="normal" title="Edit">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="editButtonIsTapped:" destination="Wgf-De-h5o" eventType="touchUpInside" id="f84-bX-X1q"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TzH-VU-2TL">
+                                                <rect key="frame" x="205.5" y="0.0" width="168.5" height="39"/>
+                                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
+                                                <state key="normal" title="Delete">
+                                                    <color key="titleColor" name="ESB Blue"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2d-m6-vML">
+                                        <rect key="frame" x="0.0" y="77" width="374" height="41"/>
                                         <color key="backgroundColor" name="ESB Blue"/>
-                                        <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
-                                        <state key="normal" title="Edit">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="NWY-GI-5XR"/>
+                                        </constraints>
+                                        <state key="normal" title="Save Button">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="editButtonIsTapped:" destination="Wgf-De-h5o" eventType="touchUpInside" id="f84-bX-X1q"/>
+                                            <action selector="savedButtonTapped:" destination="Wgf-De-h5o" eventType="touchUpInside" id="LbA-Oh-D1Z"/>
                                         </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TzH-VU-2TL">
-                                        <rect key="frame" x="205.5" y="0.0" width="168.5" height="39"/>
-                                        <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
-                                        <state key="normal" title="Delete">
-                                            <color key="titleColor" name="ESB Blue"/>
-                                        </state>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" name="ESB System Background"/>
                         <constraints>
-                            <constraint firstItem="Olq-gM-LQm" firstAttribute="centerX" secondItem="CSU-Te-AsK" secondAttribute="centerX" id="3EQ-Ta-5SS"/>
-                            <constraint firstItem="Olq-gM-LQm" firstAttribute="leading" secondItem="tXa-m2-i0G" secondAttribute="leading" constant="20" id="BiY-6R-QVD"/>
                             <constraint firstItem="aCN-oK-8fW" firstAttribute="top" secondItem="tXa-m2-i0G" secondAttribute="top" id="Gle-3b-RRT"/>
+                            <constraint firstItem="tXa-m2-i0G" firstAttribute="bottom" secondItem="t6l-4i-M34" secondAttribute="bottom" constant="15" id="K2q-Nd-ULz"/>
+                            <constraint firstItem="t6l-4i-M34" firstAttribute="top" secondItem="aCN-oK-8fW" secondAttribute="bottom" constant="26" id="Lbg-rQ-ZsF"/>
                             <constraint firstItem="aCN-oK-8fW" firstAttribute="trailing" secondItem="tXa-m2-i0G" secondAttribute="trailing" id="PPo-EF-Z2c"/>
-                            <constraint firstItem="tXa-m2-i0G" firstAttribute="trailing" secondItem="Olq-gM-LQm" secondAttribute="trailing" constant="20" id="QCL-U4-kH3"/>
-                            <constraint firstItem="Olq-gM-LQm" firstAttribute="top" secondItem="aCN-oK-8fW" secondAttribute="bottom" constant="26" id="R6R-x5-A4q"/>
-                            <constraint firstItem="tXa-m2-i0G" firstAttribute="bottom" secondItem="Olq-gM-LQm" secondAttribute="bottom" constant="94" id="dbz-kW-mzv"/>
+                            <constraint firstItem="t6l-4i-M34" firstAttribute="centerX" secondItem="CSU-Te-AsK" secondAttribute="centerX" id="cmq-Jb-ldb"/>
                             <constraint firstItem="aCN-oK-8fW" firstAttribute="leading" secondItem="tXa-m2-i0G" secondAttribute="leading" id="k7z-jS-Shc"/>
+                            <constraint firstItem="tXa-m2-i0G" firstAttribute="trailing" secondItem="t6l-4i-M34" secondAttribute="trailing" constant="20" id="ugQ-sN-I9i"/>
+                            <constraint firstItem="t6l-4i-M34" firstAttribute="leading" secondItem="tXa-m2-i0G" secondAttribute="leading" constant="20" id="yRw-yr-gQK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tXa-m2-i0G"/>
                     </view>
@@ -1088,12 +1106,14 @@
                     <connections>
                         <outlet property="deleteButton" destination="TzH-VU-2TL" id="ssl-VE-pBb"/>
                         <outlet property="editButton" destination="TNb-zD-WF6" id="uVP-ux-N1r"/>
+                        <outlet property="saveButton" destination="I2d-m6-vML" id="ljL-2e-oxj"/>
+                        <outlet property="stackView" destination="t6l-4i-M34" id="5NJ-fA-Kzp"/>
                         <outlet property="tableView" destination="aCN-oK-8fW" id="XSl-QX-HOd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ie-0Z-ow6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="501" y="-748"/>
+            <point key="canvasLocation" x="500.00000000000006" y="-748.66071428571422"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

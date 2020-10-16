@@ -15,6 +15,8 @@ class PropertyInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionTextField: UITextField!
     var wasEdited = false
+    weak var detailVC: PropertyDetailViewController?
+    static var delegate = PropertyInfoTableViewCell()
     // MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()

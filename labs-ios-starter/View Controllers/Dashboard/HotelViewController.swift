@@ -206,12 +206,28 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           if segue.identifier == "ShowPropertyDetailPushSegue" {
-               guard let propertyDetailVC = segue.destination as? PropertyDetailViewController else { return }
-               guard let selectedIndexPath = propertiesTableView.indexPathForSelectedRow else { return }
-               propertyDetailVC.property = properties[selectedIndexPath.row]
-            propertyDetailVC.delegate?.wasEdited = true 
-           }
+        
+        switch segue.identifier {
+        case "addNewPropertySegue":
+            if let createPropertyVC = segue.destination as? PropertyDetailViewController {
+                createPropertyVC.controller = controller
+                createPropertyVC.hideAll = true 
+                
+            }
+        case "ShowPropertyDetailPushSegue":
+//            guard let propertyDetailVC = segue.destination as? PropertyDetailViewController else { return }
+//            guard let selectedIndexPath = propertiesTableView.indexPathForSelectedRow else { return }
+//            propertyDetailVC.property = properties[selectedIndexPath.row]
+            if let savedPropertyVC = segue.destination as? PropertyDetailViewController {
+                          savedPropertyVC.controller = controller
+                          if let selectedIndex = propertiesTableView.indexPathForSelectedRow {
+                            savedPropertyVC.property = properties[selectedIndex.row]
+                          }
+                          
+                      }
+        default:
+            break
+        }
 
        }
   
