@@ -10,11 +10,10 @@ import UIKit
 
 class ProfileInfoTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionTextField: UITextField!
-    @IBOutlet weak var iconImageView: UIImageView!
-    @IBOutlet weak var circularBackgroundImageView: UIImageView!
-   
+    @IBOutlet weak var profileTitleLabel: UILabel!
+    
+    @IBOutlet weak var profileDescriptionTextField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,5 +25,6 @@ class ProfileInfoTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+  
    
 }

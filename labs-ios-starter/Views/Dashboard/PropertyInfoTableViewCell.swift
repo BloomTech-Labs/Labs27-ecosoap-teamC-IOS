@@ -8,8 +8,9 @@
 
 import UIKit
 
-class PropertyInfoTableViewCell: UITableViewCell {
-
+class PropertyInfoTableViewCell: UITableViewCell, StringTextField {
+    var textFieldTextField: String?
+    
     // MARK: - IBOutlets
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -20,7 +21,10 @@ class PropertyInfoTableViewCell: UITableViewCell {
     // MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+   
+        if detailVC?.saveButton.isUserInteractionEnabled == true  {
+            descriptionTextField.text = textFieldTextField
+        }
         // Initialization code
     }
 

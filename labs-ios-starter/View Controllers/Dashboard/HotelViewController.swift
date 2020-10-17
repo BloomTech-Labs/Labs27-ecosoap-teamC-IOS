@@ -226,55 +226,26 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
                 
             }
+        case "profileSegue":
+            if let savedProfileVC = segue.destination as? ProfileViewController {
+                savedProfileVC.controller = controller
+                
+               
+            }
         default:
             break
-        }
         
+    }
     }
     
     
     // TableView Section
-    
-    
-    //    func numberOfSections(in tableView: UITableView) -> Int {
-    //        return sections.count
-    //    }
-    //
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return properties.count
         
     }
-    //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    //        return 44
-    //    }
-    //
     
-    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //
-    //        return properties[(indexPath as NSIndexPath).section].isExpanded ?? true ? 0 : 44.0
-    //    }
-    //
-    //    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-    //        return 1
-    //    }
-    //
-    //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    //        let headerCellIdentifier = "HotelCell"
-    //           let headerCell = tableView.dequeueReusableCell(withIdentifier: headerCellIdentifier) as? HotelHeaderTableViewCell
-    //
-    //        headerCell?.textLabel?.text = "Hotels"
-    //        headerCell?.textLabel?.font = UIFont(name: "Euphemia UCAS", size: 20)
-    //        headerCell?.setCollapsed(properties[section].isExpanded ?? true)
-    //        headerCell?.imageView?.image = disclosureIndicator.image
-    //        if headerCell?.isSelected == true  {
-    //            self.toggleArrow?.toggle()
-    //            headerCell?.imageView?.image = disclosureIndicator.image ?? disclosureIndicatorDown.image
-    //        }
-    //        headerCell?.section = section
-    //        headerCell?.delegate = self
-    //
-    //           return headerCell
-    //    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == propertiesTableView,
             let cell = tableView.dequeueReusableCell(withIdentifier: "PropertiesCell") as? PropertiesTableViewCell {

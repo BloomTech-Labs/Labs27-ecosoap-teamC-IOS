@@ -708,7 +708,6 @@
                                                 <color key="tintColor" name="ESB Blue"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="7X2-TB-23B" firstAttribute="bottom" secondItem="GtO-tV-FOH" secondAttribute="bottomMargin" id="Ba9-of-Jr0"/>
                                             <constraint firstItem="7X2-TB-23B" firstAttribute="leading" secondItem="GtO-tV-FOH" secondAttribute="leadingMargin" id="YXt-68-i1x"/>
@@ -809,7 +808,7 @@
                         <barButtonItem key="rightBarButtonItem" image="gear" catalog="system" id="tUf-hW-0ik">
                             <color key="tintColor" name="ESB Blue"/>
                             <connections>
-                                <segue destination="f0Z-XQ-DpI" kind="show" id="BSU-Il-Rcn"/>
+                                <segue destination="lqS-pw-GaL" kind="show" identifier="profileSegue" id="9hn-at-fb2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -822,39 +821,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ki7-1F-xhV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-542.02898550724638" y="-427.23214285714283"/>
-        </scene>
-        <!--New production report-->
-        <scene sceneID="T02-af-ag8">
-            <objects>
-                <viewController id="iJZ-YB-z5y" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mu1-y3-mIm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Z2z-4X-eIn">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="612"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="ESB System Background"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="G4W-wK-tIH">
-                                        <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G4W-wK-tIH" id="W6l-lL-8Pz">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="1OF-6Z-jAP"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="New production report" id="gjl-R6-TDj"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RBy-YR-z8s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1241" y="-749"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="JBM-rm-gXK">
@@ -940,56 +906,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cbl-1R-PDl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2320" y="-427"/>
-        </scene>
-        <!--Settings-->
-        <scene sceneID="VB9-Du-1zi">
-            <objects>
-                <viewController id="f0Z-XQ-DpI" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mla-2e-vur">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osJ-Cj-K7R">
-                                <rect key="frame" x="20" y="641" width="169" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="ESB Blue"/>
-                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
-                                <state key="normal" title="Edit">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="c4R-JP-3CU">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="612"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="ESB System Background"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="BeP-5u-RiW">
-                                        <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BeP-5u-RiW" id="Gkd-E6-JCb">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sC2-E1-fTi">
-                                <rect key="frame" x="226" y="641" width="168" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
-                                <state key="normal" title="Delete">
-                                    <color key="titleColor" name="ESB Blue"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="5xE-8k-vuw"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Settings" id="3Rb-vU-mNw"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UX6-B7-MN7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-542" y="-1104"/>
         </scene>
         <!--Property Detail-->
         <scene sceneID="ahQ-5w-8i4">
@@ -1122,6 +1038,120 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ie-0Z-ow6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="500.00000000000006" y="-748.66071428571422"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="9Z8-Fi-Hoj">
+            <objects>
+                <viewController id="lqS-pw-GaL" customClass="ProfileViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QmW-NC-1Tk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="DV7-7M-WUG">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="566"/>
+                                <color key="backgroundColor" name="ESB System Background"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileInfoCell" rowHeight="75" id="3PX-Qm-FcM" customClass="ProfileInfoTableViewCell" customModule="labs_ios_starter" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="55.5" width="374" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3PX-Qm-FcM" id="6Ca-d0-zYc">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="75"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="NlQ-Ht-4Wr">
+                                                    <rect key="frame" x="20" y="11" width="334" height="53"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDb-pT-0Oj">
+                                                            <rect key="frame" x="0.0" y="0.0" width="334" height="14.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V9Z-Lp-hZW">
+                                                            <rect key="frame" x="0.0" y="18.5" width="334" height="34.5"/>
+                                                            <color key="tintColor" name="ESB Blue"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="NlQ-Ht-4Wr" secondAttribute="bottom" id="4cQ-aY-ZhC"/>
+                                                <constraint firstItem="NlQ-Ht-4Wr" firstAttribute="top" secondItem="6Ca-d0-zYc" secondAttribute="topMargin" id="UDz-i7-3sR"/>
+                                                <constraint firstItem="NlQ-Ht-4Wr" firstAttribute="leading" secondItem="6Ca-d0-zYc" secondAttribute="leadingMargin" id="W8v-Qk-Ryz"/>
+                                                <constraint firstItem="NlQ-Ht-4Wr" firstAttribute="centerY" secondItem="6Ca-d0-zYc" secondAttribute="centerY" id="fiH-Ba-w5G"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="NlQ-Ht-4Wr" secondAttribute="trailing" id="k8u-uY-It1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="profileDescriptionTextField" destination="V9Z-Lp-hZW" id="Ybf-hD-ukh"/>
+                                            <outlet property="profileTitleLabel" destination="pDb-pT-0Oj" id="Dai-nO-lTf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="lqS-pw-GaL" id="THe-M2-zIe"/>
+                                    <outlet property="delegate" destination="lqS-pw-GaL" id="xNZ-4I-89p"/>
+                                </connections>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="hLK-DE-upI">
+                                <rect key="frame" x="20" y="592" width="374" height="118"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="zZK-XZ-V4E">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="39"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVG-iI-SNB">
+                                                <rect key="frame" x="0.0" y="0.0" width="168.5" height="39"/>
+                                                <color key="backgroundColor" name="ESB Blue"/>
+                                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
+                                                <state key="normal" title="Edit">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fF5-C0-IKz">
+                                                <rect key="frame" x="205.5" y="0.0" width="168.5" height="39"/>
+                                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
+                                                <state key="normal" title="Delete">
+                                                    <color key="titleColor" name="ESB Blue"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vx-eF-Rgh">
+                                        <rect key="frame" x="0.0" y="77" width="374" height="41"/>
+                                        <color key="backgroundColor" name="ESB Blue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="eaW-mM-OWf"/>
+                                        </constraints>
+                                        <state key="normal" title="Save Button">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="ESB System Background"/>
+                        <constraints>
+                            <constraint firstItem="DV7-7M-WUG" firstAttribute="trailing" secondItem="Cc6-51-Xh2" secondAttribute="trailing" id="9hY-mN-q2w"/>
+                            <constraint firstItem="DV7-7M-WUG" firstAttribute="top" secondItem="Cc6-51-Xh2" secondAttribute="top" id="D1Q-ju-WMv"/>
+                            <constraint firstItem="hLK-DE-upI" firstAttribute="centerX" secondItem="QmW-NC-1Tk" secondAttribute="centerX" id="FUZ-PE-Ayt"/>
+                            <constraint firstItem="Cc6-51-Xh2" firstAttribute="bottom" secondItem="hLK-DE-upI" secondAttribute="bottom" constant="15" id="ICp-Ds-sCQ"/>
+                            <constraint firstItem="Cc6-51-Xh2" firstAttribute="trailing" secondItem="hLK-DE-upI" secondAttribute="trailing" constant="20" id="LM4-YK-5Xd"/>
+                            <constraint firstItem="DV7-7M-WUG" firstAttribute="leading" secondItem="Cc6-51-Xh2" secondAttribute="leading" id="fVi-bE-amC"/>
+                            <constraint firstItem="hLK-DE-upI" firstAttribute="top" secondItem="DV7-7M-WUG" secondAttribute="bottom" constant="26" id="mWH-jO-jVe"/>
+                            <constraint firstItem="hLK-DE-upI" firstAttribute="leading" secondItem="Cc6-51-Xh2" secondAttribute="leading" constant="20" id="sWX-6S-d2k"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Cc6-51-Xh2"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="02F-zW-lRg"/>
+                    <connections>
+                        <outlet property="tableView" destination="DV7-7M-WUG" id="Th2-2g-R4q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="egd-J7-bga" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-799" y="-1126"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -287,9 +287,11 @@ class BackendController {
 
                     // For every properly initialized property.
                     // If they contain a valid Hub, add it to the dictionary.
-                    if let hub = property.hub {
-                        self.hubs[hub.id] = hub
-                    }
+                    
+                 
+//                    if let hub = property.hubId {
+//                        self.hubs[hub.id] = hub
+//                    }
 
                     // Handle pickups.
                     if let pickups = propertyContainer["pickups"] as? [[String: Any]] {

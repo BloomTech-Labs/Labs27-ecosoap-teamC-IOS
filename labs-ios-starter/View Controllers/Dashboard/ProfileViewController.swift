@@ -16,16 +16,14 @@ class ProfileViewController: UIViewController {
     // MARK: - Properties
     private let accountInfoLabels = ["Name",
                                "Company",
-                               "Address",]
+                               "Address",
+                                "Phone",
+                                "Email",
+                                "Skype"]
     private let contactInfoLabels = ["Phone",
                                      "Email",
                                      "Skype"]
-    private let accountInfoImageViews = [UIImage(systemName: "person.fill"),
-                                         UIImage(systemName: "briefcase.fill"),
-                                         UIImage(systemName: "house.fill")]
-    private let contactInfoImageViews = [UIImage(systemName: "phone.fill"),
-                                         UIImage(named: "Skype Logo"),
-                                         UIImage(systemName: "envelope.fill")]
+
     private let placeholderData = ["John Doe",
                                    "Hilton Worldwide Holdings Inc.",
                                    "250 Forbes Ave"]
@@ -33,53 +31,97 @@ class ProfileViewController: UIViewController {
                                    "example@gmail.com",
                                     "jdoe"]
     
+    var controller = BackendController.shared
+    var profileData: [String] = []
+    var userProfile: User? {
+        didSet {
+            updateViews()
+        }
+    }
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let userProfile = userProfile else { return }
+        controller.userById(id: controller.loggedInUser.id) { error in
+            if let error = error {
+                NSLog("Error in fetching the user: \(error)")
+                return
+            }
+          
+            self.controller.loggedInUser = userProfile
+              
+                print(self.controller.loggedInUser)
+            
+            
+        }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(true)
+            updateViews()
+        }
+    
+   
+    private func updateViews() {
+        
+            profileData.append("\(controller.loggedInUser.firstName)")
+            profileData.append(controller.loggedInUser.company ?? "")
+            profileData.append(controller.loggedInUser.address?.address1 ?? "")
+            profileData.append(controller.loggedInUser.phone ?? "")
+            profileData.append(controller.loggedInUser.email)
+            profileData.append(controller.loggedInUser.skype ?? "")
+        
+
+    }
+    
+ 
+    
+    private func fetchAll() {
+          controller.initialFetch(userId: controller.loggedInUser.id) { (error) in
+              if let error = error {
+                  NSLog("\(error): Error occured during initial fetch")
+              }
+              if let user = self.controller.users[self.controller.loggedInUser.id] {
+                  self.controller.loggedInUser = user
+                
+                  print(self.controller.loggedInUser)
+              }
+              print("\(self.controller.users)")
+              print("\(self.controller.properties)")
+              print("\(self.controller.pickups)")
+              //            print("\(self.controller.payments)")
+              print("\(self.controller.hubs)")
+              print("\(self.controller.pickupCartons)")
+              print("\(self.controller.hospitalityContracts)")
+              
+          }
+      }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
+    
+    
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
-            return accountInfoLabels.count
-        } else {
-            return contactInfoLabels.count
-        }
+        return accountInfoLabels.count
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "Account Info"
-        } else {
-            return "Contact Info"
-        }
-    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        if section == 0 {
+//            return "Account Info"
+//        } else {
+//            return "Contact Info"
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileInfoCell", for: indexPath) as? ProfileInfoTableViewCell else { return UITableViewCell() }
-        
-        if indexPath.section == 0 {
-            cell.titleLabel.text = accountInfoLabels[indexPath.row].uppercased()
-            cell.iconImageView.image = accountInfoImageViews[indexPath.row]
-            cell.iconImageView.tintColor = .white
-            cell.circularBackgroundImageView.tintColor = UIColor(named: .colorESBGreen)
-            cell.descriptionTextField.text = placeholderData[indexPath.row]
-        } else {
-            cell.titleLabel.text = contactInfoLabels[indexPath.row].uppercased()
-            cell.iconImageView.image = contactInfoImageViews[indexPath.row]
-            cell.iconImageView.tintColor = .white
-            cell.circularBackgroundImageView.tintColor = UIColor(named: .colorESBGreen)
-            cell.descriptionTextField.text = placeholderData2[indexPath.row]
-        }
+        cell.profileTitleLabel.text = accountInfoLabels[indexPath.row].uppercased()
+        cell.profileDescriptionTextField.text = profileData[indexPath.row]
         
         return cell
     }

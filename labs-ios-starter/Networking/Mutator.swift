@@ -260,43 +260,14 @@ class Mutator: Request {
                 }
                 coordinates {
                   longitude
-                        latitude
+                  latitude
 
                 }
                 shippingNote
                 notes
                 hub {
-                  id
-                  name
-                  address {
-                    address1
-                    address2
-                    address3
-                    city
-                    state
-                    postalCode
-                    country
-                    # formattedAddress
-                  }
-                  email
-                  phone
-                  coordinates {
-                    longitude
-                            latitude
-                  }
-                  properties {
-                    id
-                  }
-                  workflow
-                  impact {
-                    soapRecycled
-                    linensRecycled
-                    bottlesRecycled
-                    paperRecycled
-                    peopleServed
-                    womenEmployed
-                  }
-                }
+                 id
+               }
                 impact {
                   soapRecycled
                   linensRecycled
@@ -310,51 +281,10 @@ class Mutator: Request {
                 }
                 pickups {
                   id
-                  confirmationCode
-                  collectionType
-                  status
-                  readyDate
-                  pickupDate
-                  property {
-                    id
-                  }
-                  cartons {
-                    id
-                    product
-                    percentFull
-                  }
-                  notes
                 }
                 contract {
-                  id
-                  startDate
-                  endDate
-                  paymentStartDate
-                  paymentEndDate
-                  properties {
-                    id
-                  }
-                  paymentFrequency
-                  price
-                  discount
-                  billingMethod
-                  automatedBilling
-                  payments {
-                    id
-                    invoice
-                    invoice
-                    amountPaid
-                    amountDue
-                    date
-                    invoicePeriodStartDate
-                    invoicePeriodEndDate
-                    dueDate
-                    paymentMethod
-                    hospitalityContract {
-                      id
-                    }
-                  }
-                }
+                 id
+               }
             }
           }
         }
