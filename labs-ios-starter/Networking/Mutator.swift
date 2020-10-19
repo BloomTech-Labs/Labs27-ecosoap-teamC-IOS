@@ -20,13 +20,15 @@ class Mutator: Request {
                                      .schedulePickup: Mutator.schedulePickup,
                                      .cancelPickup: Mutator.cancelPickup,
                                      .updateUserProfile: Mutator.updateUserProfile,
-                                     .updateProperty: Mutator.updateProperty]
+                                     .updateProperty: Mutator.updateProperty,
+                                     .createProperty: Mutator.createProperty]
 
     private static let payloads: [MutationName: ResponseModel] = [.logIn: .user,
                                                                   .schedulePickup: .pickup,
                                                                   .cancelPickup: .pickup,
                                                                   .updateUserProfile: .user,
-                                                                  .updateProperty: .property]
+                                                                  .updateProperty: .property,
+                                                                  .createProperty: .property]
 
     init?(name: MutationName, input: Input) {
         guard let function = Mutator.collection[name] else {
@@ -289,5 +291,81 @@ class Mutator: Request {
           }
         }
         """
+        
+        
     }
+    
+         
+         private static func createProperty(input: Input) -> String? {
+         guard let property = input as? CreatePropertyInput else {
+             NSLog("Couldn't cast input to CreatePropertyInput. Please make sure your input matches the mutation's required input.")
+             return nil
+         }
+
+         return """
+         mutation {
+           updateProperty(input: {
+             \(property.formatted)
+           }) {
+             property {
+                 id
+                 name
+                 propertyType
+                 rooms
+                 services
+                 collectionType
+                 logo
+                 phone
+                 billingAddress {
+                   address1
+                   address2
+                   address3
+                   city
+                   state
+                   postalCode
+                   country
+                   # formattedAddress
+                 }
+                 shippingAddress {
+                   address1
+                   address2
+                   address3
+                   city
+                   state
+                   postalCode
+                   country
+                   # formattedAddress
+                 }
+                 coordinates {
+                   longitude
+                   latitude
+
+                 }
+                 shippingNote
+                 notes
+                 hub {
+                  id
+                }
+                 impact {
+                   soapRecycled
+                   linensRecycled
+                   bottlesRecycled
+                   paperRecycled
+                   peopleServed
+                   womenEmployed
+                 }
+                 users {
+                   id
+                 }
+                 pickups {
+                   id
+                 }
+                 contract {
+                  id
+                }
+             }
+           }
+         }
+         """
+     }
 }

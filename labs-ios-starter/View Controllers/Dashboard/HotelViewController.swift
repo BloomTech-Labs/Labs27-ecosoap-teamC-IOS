@@ -196,9 +196,11 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             //            propertyDetailVC.property = properties[selectedIndexPath.row]
             if let savedPropertyVC = segue.destination as? PropertyDetailViewController {
                 savedPropertyVC.controller = controller
+                
                 savedPropertyVC.navigationItem.rightBarButtonItem = nil
                 if let selectedIndex = propertiesTableView.indexPathForSelectedRow {
                     savedPropertyVC.property = properties[selectedIndex.row]
+                    savedPropertyVC.lockTextField = true
                 }
                 
             }

@@ -78,6 +78,7 @@
 		BA2912432537735800932B42 /* HotelHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2912422537735800932B42 /* HotelHeaderTableViewCell.swift */; };
 		BA291245253779A800932B42 /* PropertiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA291244253779A800932B42 /* PropertiesTableViewCell.swift */; };
 		BA4BD45C253A2A09001CBACB /* labs_ios_starterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4BD45B253A2A09001CBACB /* labs_ios_starterTests.swift */; };
+		BA4EFBB0253E4E5400A4946A /* CreatePropertyInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4EFBAF253E4E5400A4946A /* CreatePropertyInput.swift */; };
 		BA5B10B7252BA993001202FE /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10B6252BA993001202FE /* Role.swift */; };
 		BAD33C832534C7FE0080FCC6 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BAD33C862534FCC40080FCC6 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -172,6 +173,7 @@
 		BA4BD459253A2A09001CBACB /* labs-ios-starterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "labs-ios-starterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA4BD45B253A2A09001CBACB /* labs_ios_starterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = labs_ios_starterTests.swift; sourceTree = "<group>"; };
 		BA4BD45D253A2A09001CBACB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA4EFBAF253E4E5400A4946A /* CreatePropertyInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePropertyInput.swift; sourceTree = "<group>"; };
 		BA5B10B6252BA993001202FE /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		BAD33C8D25362E800080FCC6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		BAD33C96253630240080FCC6 /* LogInInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInInput.swift; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 				9C9ACA6B24F71F8C002D47B5 /* CancelPickupInput.swift */,
 				9C9ACA6D24F72327002D47B5 /* CreatePaymentInput.swift */,
 				9C9ACA7124F72EFD002D47B5 /* UpdateUserProfileInput.swift */,
+				BA4EFBAF253E4E5400A4946A /* CreatePropertyInput.swift */,
 				BAD33C96253630240080FCC6 /* LogInInput.swift */,
 				9C9ACA7824F76248002D47B5 /* UpdatePropertyInput.swift */,
 			);
@@ -659,6 +662,7 @@
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
 				9C9ACA6E24F72327002D47B5 /* CreatePaymentInput.swift in Sources */,
 				13A62495251BEA4600E335DC /* PickupDetailViewController.swift in Sources */,
+				BA4EFBB0253E4E5400A4946A /* CreatePropertyInput.swift in Sources */,
 				9CEA63BD24EE2D2800A2C446 /* Hub.swift in Sources */,
 				9C9ACA7224F72EFD002D47B5 /* UpdateUserProfileInput.swift in Sources */,
 				BA291245253779A800932B42 /* PropertiesTableViewCell.swift in Sources */,

@@ -28,6 +28,7 @@ class PropertyDetailViewController: UIViewController, StringTextField {
     var addressInput = AddressInput()
     var delegate: PropertyInfoTableViewCell?
     var controller = BackendController.shared
+    var lockTextField = false
     
     // MARK: - Properties
     private let accountInfoLabels = ["Name",
@@ -50,8 +51,13 @@ class PropertyDetailViewController: UIViewController, StringTextField {
         super.viewDidLoad()
         setupViews()
         setHideElements()
-        self.tableView.reloadData()
-        
+        setTextFieldsLocked()
+        saveButton.isHidden = true
+       
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
     }
     
     private func setHideElements() {
@@ -60,7 +66,14 @@ class PropertyDetailViewController: UIViewController, StringTextField {
             self.editButton.isHidden = true
             self.deleteButton.isHidden = true
             self.saveButton.isHidden = true
+            
+        }
+    }
     
+    private func setTextFieldsLocked() {
+        if lockTextField == true {
+            delegate?.descriptionTextField.isUserInteractionEnabled = false
+            delegate?.descriptionTextField.isEnabled = false
         }
     }
     
@@ -86,7 +99,7 @@ class PropertyDetailViewController: UIViewController, StringTextField {
     }
     
     @IBAction func editButtonIsTapped(_ sender: UIButton) {
-        
+        lockTextField = true
         UIView.animate(withDuration: 1.0) {
             sender.isHidden = true
             self.deleteButton.isHidden = true

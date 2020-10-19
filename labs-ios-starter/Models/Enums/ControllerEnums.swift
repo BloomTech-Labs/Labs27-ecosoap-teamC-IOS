@@ -28,6 +28,7 @@ enum MutationName: String {
     case createPayment
     case updateUserProfile
     case updateProperty
+    case createProperty
 }
 
 enum QueryName: String {

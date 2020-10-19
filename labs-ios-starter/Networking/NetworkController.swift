@@ -365,6 +365,21 @@ class BackendController {
             completion(nil)
         }
     }
+    
+    func createProperty(input: CreatePropertyInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .createProperty, input: input) else {
+              completion(Errors.RequestInitFail)
+              return
+          }
+          requestAPI(with: request) { (_, error) in
+              if let error = error {
+                  completion(error)
+                  return
+              }
+
+              completion(nil)
+          }
+      }
 
     func cancelPickup(input: CancelPickupInput, completion: @escaping (Error?) -> Void) {
         guard let request = Mutator(name: .cancelPickup, input: input) else {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PropertyInfoTableViewCell: UITableViewCell, StringTextField {
+class PropertyInfoTableViewCell: UITableViewCell, StringTextField, UITextFieldDelegate {
     var textFieldTextField: String?
     
     // MARK: - IBOutlets
@@ -21,9 +21,13 @@ class PropertyInfoTableViewCell: UITableViewCell, StringTextField {
     // MARK: - View Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-   
+        descriptionTextField.delegate = self 
         if detailVC?.saveButton.isUserInteractionEnabled == true  {
             descriptionTextField.text = textFieldTextField
+        }
+        if detailVC?.lockTextField == true {
+            descriptionTextField.isUserInteractionEnabled = false
+            descriptionTextField.isEnabled = false 
         }
         // Initialization code
     }
@@ -34,6 +38,10 @@ class PropertyInfoTableViewCell: UITableViewCell, StringTextField {
         // Configure the view for the selected state
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        detailVC?.textFieldTextField = (descriptionTextField.text ?? "") + string
+        return true 
+    }
   
 
 }
