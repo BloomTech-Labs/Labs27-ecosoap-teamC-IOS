@@ -19,7 +19,62 @@ class HubDashboardViewController: UIViewController {
     
     let controller = BackendController.shared
     
-    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+    // Button
+    private let newReportButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("New Production Report", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor(named: "ESB Blue")
+        button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(newReport), for: .touchUpInside)
+        return button
+    }()
+    
+    private let productionReportsLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Production Reports"
+        label.font = UIFont.boldSystemFont(ofSize: 24)
+        return label
+    }()
+    
+    // TODO: Implement impact statistics
+    private let impactStatisticsLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Impact Statistics"
+        label.font = UIFont.boldSystemFont(ofSize: 24)
+        return label
+    }()
+    
+    // Views
+    // TODO: Implement impact statistics
+    lazy var impactStatisticsView = UIView()
+    
+    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createCollectionViewLayout())
+    
+    // Stack Views
+    private lazy var statisticsStack: UIStackView = {
+        let statisticsStack = UIStackView(arrangedSubviews: [impactStatisticsLabel, impactStatisticsView])
+        statisticsStack.alignment = .leading
+        statisticsStack.spacing = padding
+        statisticsStack.axis = .vertical
+        statisticsStack.distribution = .fill
+        return statisticsStack
+    }()
+    
+    private lazy var reportStack: UIStackView = {
+        let reportStack = UIStackView(arrangedSubviews: [productionReportsLabel, collectionView, newReportButton])
+        reportStack.alignment = .fill
+        reportStack.spacing = padding
+        reportStack.axis = .vertical
+        reportStack.distribution = .fill
+        return reportStack
+    }()
+    
+    // Data Source
     private var dataSource: UICollectionViewDiffableDataSource<Section, ProductionReport>?
     
     // Constraints
@@ -31,21 +86,18 @@ class HubDashboardViewController: UIViewController {
         fetchReports()
         setUpCollectionView()
         collectionView.delegate = self
-        
-        if controller.loggedInUser.role == .HUB_ADMIN {
-            isAdmin = true
-//            newReportButton.isHidden = false
-        } else {
-            isAdmin = false
-//            newReportButton.isHidden = true
-        }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateViews()
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if controller.productionReportNeedsUpdate {
             reports = []
             fetchReports()
+            updateViews()
         }
     }
     
@@ -53,9 +105,25 @@ class HubDashboardViewController: UIViewController {
     @objc func viewReport() {
         performSegue(withIdentifier: "ViewReportSegue", sender: self)
     }
+    @objc func newReport() {
+        performSegue(withIdentifier: "NewReportSegue", sender: self)
+    }
     
+    // MARK: - Methods
     
-    private func createLayout() -> UICollectionViewLayout {
+    func updateViews() {
+        if controller.loggedInUser.role == .HUB_ADMIN {
+            isAdmin = true
+            newReportButton.isHidden = false
+        } else {
+            isAdmin = false
+            newReportButton.isHidden = true
+        }
+        setUp()
+    }
+    
+    // Collection View
+    private func createCollectionViewLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(50))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -73,15 +141,8 @@ class HubDashboardViewController: UIViewController {
         collectionView.register(ReportCell.self, forCellWithReuseIdentifier: String(describing: ReportCell.self))
         collectionView.backgroundColor = .white
         
-        view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-                                        collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-                                        collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-                                        collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-                                        collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
+
     }
     
     // Collection View Data Source
@@ -117,6 +178,41 @@ class HubDashboardViewController: UIViewController {
                     self.controller.productionReportNeedsUpdate = false
             }
         } 
+    }
+    
+    // View
+    func setUp() {
+        view.backgroundColor = .systemGray6
+        view.clipsToBounds = true
+
+        view.addSubview(statisticsStack)
+        view.addSubview(reportStack)
+
+        statisticsStack.translatesAutoresizingMaskIntoConstraints = false
+        reportStack.translatesAutoresizingMaskIntoConstraints = false
+        setUpConstraints()
+    }
+    
+   
+    func setUpConstraints() {
+        view.preservesSuperviewLayoutMargins = true
+        let leading = view.safeAreaLayoutGuide.leadingAnchor
+        let top = view.safeAreaLayoutGuide.topAnchor
+        let bottom = view.safeAreaLayoutGuide.bottomAnchor
+        let width = view.safeAreaLayoutGuide.widthAnchor
+        let height = view.safeAreaLayoutGuide.heightAnchor
+
+        NSLayoutConstraint.activate([
+                                        statisticsStack.topAnchor.constraint(equalTo: top, constant: padding),
+                                        statisticsStack.leadingAnchor.constraint(equalTo: leading, constant: padding),
+                                        statisticsStack.bottomAnchor.constraint(equalTo: reportStack.topAnchor, constant: -padding),
+                                        reportStack.leadingAnchor.constraint(equalTo: leading, constant: padding),
+                                        reportStack.bottomAnchor.constraint(equalTo: bottom, constant: -padding),
+                                        reportStack.heightAnchor.constraint(equalTo: height, multiplier: 0.7),
+            statisticsStack.widthAnchor.constraint(equalTo: width, constant: -20),
+            reportStack.widthAnchor.constraint(equalTo: width, constant: -20)
+        ])
+
     }
     
     // MARK: - Navigation
