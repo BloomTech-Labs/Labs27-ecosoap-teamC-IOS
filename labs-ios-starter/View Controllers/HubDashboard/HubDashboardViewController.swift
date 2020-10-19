@@ -12,10 +12,7 @@ class HubDashboardViewController: UIViewController {
     enum Section {
         case main
     }
-    
-    // MARK: - Outlets
-//    @IBOutlet var newReportButton: UIButton!
-    
+
     // MARK: - Properties
     var isAdmin: Bool = false
     var reports: [ProductionReport] = []
@@ -25,7 +22,9 @@ class HubDashboardViewController: UIViewController {
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
     private var dataSource: UICollectionViewDiffableDataSource<Section, ProductionReport>?
     
-    private let padding: CGFloat = 12
+    // Constraints
+    private let padding: CGFloat = 10
+    private let cornerRadius: CGFloat = 8
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +49,7 @@ class HubDashboardViewController: UIViewController {
         }
     }
     
+    // MARK: - Actions
     @objc func viewReport() {
         performSegue(withIdentifier: "ViewReportSegue", sender: self)
     }
@@ -84,6 +84,7 @@ class HubDashboardViewController: UIViewController {
         ])
     }
     
+    // Collection View Data Source
     private func setUpDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, ProductionReport>(collectionView: collectionView) {
             (collectionView, indexPath, report) -> UICollectionViewCell? in
@@ -120,7 +121,7 @@ class HubDashboardViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddProductionReportSegue" {
+        if segue.identifier == "NewReportSegue" {
             guard let productionReportVC = segue.destination as? ProductionReportDetailViewController else { return }
             productionReportVC.isAdmin = isAdmin
             productionReportVC.isEditing = true
