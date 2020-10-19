@@ -8,11 +8,14 @@
 
 import UIKit
 
+protocol ProfileTextFieldDelegate {
+    var profileTextField: String? { get set }
+}
 class ProfileViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
-    
+    var delegate: ProfileInfoTableViewCell?
     // MARK: - Properties
     private let accountInfoLabels = ["Name",
                                "Company",
@@ -62,6 +65,22 @@ class ProfileViewController: UIViewController {
         }
     
    
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        
+        let input = UpdateUserProfileInput(id: controller.loggedInUser.id, firstName: controller.loggedInUser.firstName, middleName: controller.loggedInUser.middleName, lastName: controller.loggedInUser.lastName, title: controller.loggedInUser.title, company: profileData[1], email: profileData[4], phone: profileData[3], skype: profileData[5], address: AddressInput(address1: controller.loggedInUser.address?.address1, address2: controller.loggedInUser.address?.address2, address3: controller.loggedInUser.address?.address3, city: controller.loggedInUser.address?.city, state: controller.loggedInUser.address?.state, postalCode: controller.loggedInUser.address?.postalCode, country: nil), signupTime: controller.loggedInUser.signupTime, properties: nil)
+        
+        controller.updateUserProfile(input: input) { error in
+            if let error = error {
+                NSLog("Error in updating the profile: \(error)")
+                return
+            }
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+                print("profile updated")
+            }
+            
+        }
+    }
     private func updateViews() {
         
             profileData.append("\(controller.loggedInUser.firstName)")

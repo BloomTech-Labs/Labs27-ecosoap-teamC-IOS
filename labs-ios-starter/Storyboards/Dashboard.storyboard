@@ -815,6 +815,7 @@
                     <connections>
                         <outlet property="lineChartView" destination="UpA-k7-64E" id="KyP-fp-rU6"/>
                         <outlet property="propertiesTableView" destination="7mC-2F-w57" id="dlM-P5-Ip1"/>
+                        <outlet property="propertyButton" destination="iRw-7J-duI" id="aU7-yo-nUJ"/>
                         <outlet property="propertyTextField" destination="7X2-TB-23B" id="8qb-14-fc6"/>
                     </connections>
                 </viewController>
@@ -1127,6 +1128,9 @@
                                         <state key="normal" title="Save Button">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="lqS-pw-GaL" eventType="touchUpInside" id="yyS-jG-YqT"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

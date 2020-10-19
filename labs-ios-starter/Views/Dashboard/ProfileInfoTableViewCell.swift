@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ProfileInfoTableViewCell: UITableViewCell {
+class ProfileInfoTableViewCell: UITableViewCell, ProfileTextFieldDelegate {
+    var profileTextField: String?
+    
 
     @IBOutlet weak var profileTitleLabel: UILabel!
     
@@ -16,7 +18,7 @@ class ProfileInfoTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        profileDescriptionTextField.text = profileTextField
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

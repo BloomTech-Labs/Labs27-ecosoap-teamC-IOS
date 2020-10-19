@@ -17,6 +17,7 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var propertyTextField: UITextField!
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var propertiesTableView: UITableView!
+    @IBOutlet weak var propertyButton: UIButton!
     
     let controller = BackendController.shared
     var toggleArrow: Bool?
@@ -44,7 +45,7 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
         }
-        
+        propertyButton.layer.cornerRadius = 8
         updateViews()
         setData()
         // Line Chart Implementation
@@ -53,13 +54,6 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         lineChartView.xAxis.enabled = true
         lineChartView.xAxis.labelPosition = .bottom
         lineChartView.rightAxis.drawLabelsEnabled = false
-        //        let yAxis = lineChartView.leftAxis
-        //        yAxis.labelFont = .boldSystemFont(ofSize: 8)
-        //        yAxis.setLabelCount(6, force: false)
-        //        yAxis.labelTextColor = .white
-        //        yAxis.axisLineColor = .white
-        //        yAxis.labelPosition = .outsideChart
-        //        lineChartView.xAxis.labelPosition = .bottom
         lineChartView.animate(xAxisDuration: 2.5)
         
         // Ends
@@ -74,24 +68,6 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         propertyTextField.inputView = propertyPicker
         self.hideKeyboardWhenViewTapped()
     }
-    
-    //    func toggleSection(_ header: HotelHeaderTableViewCell, section: Int) {
-    //        let collapsed = !(properties[section].isExpanded ?? true)
-    //
-    //        // Toggle collapse
-    //        properties[section].isExpanded = collapsed
-    //        header.setCollapsed(collapsed)
-    //
-    //        // Adjust the height of the rows inside the section
-    //        firsttableView.beginUpdates()
-    //        for i in 0 ..< properties[section].name.count {
-    //            let indexPath = IndexPath(item: i, section: 0)
-    //            firsttableView.reloadRows(at: [indexPath], with: .top)
-    //        }
-    //        firsttableView.endUpdates()
-    //    }
-    
-    
     
     private func fetchAll() {
         controller.initialFetch(userId: controller.loggedInUser.id) { (error) in
@@ -229,8 +205,6 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case "profileSegue":
             if let savedProfileVC = segue.destination as? ProfileViewController {
                 savedProfileVC.controller = controller
-                
-               
             }
         default:
             break
