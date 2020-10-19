@@ -155,6 +155,7 @@ class HubDashboardViewController: UIViewController {
             cell.report = report
             return cell
         }
+        
         collectionView.dataSource = dataSource
         
         var snapshot = NSDiffableDataSourceSnapshot<Section, ProductionReport>()
@@ -172,12 +173,13 @@ class HubDashboardViewController: UIViewController {
                 for report in self.controller.productionReports.values {
                     self.reports.append(report)
                 }
+                self.reports = self.reports.sorted(by: { $0.date > $1.date })
                 DispatchQueue.main.async {
                     self.setUpDataSource()
                 }
                     self.controller.productionReportNeedsUpdate = false
             }
-        } 
+        }
     }
     
     // View
