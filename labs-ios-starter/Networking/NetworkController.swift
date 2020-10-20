@@ -47,7 +47,8 @@ class BackendController {
                                                         .pickups: BackendController.pickupsParser,
                                                         .hub: BackendController.hubParser,
                                                         .productionReports: BackendController.productionReportsParser,
-                                                        .productionReport: BackendController.productionReportParser
+                                                        .productionReport: BackendController.productionReportParser,
+                                                        .success: BackendController.successParser
                                                         ]
 
     private static func productionReportsParser(data: Any?) throws {
@@ -62,7 +63,7 @@ class BackendController {
     
     private static func productionReportParser(data: Any?) throws {
         guard let reportContainer = data as? [String: Any] else {
-            throw newError(message: "Couldn't case REPORT data as dictionary for initialization.")
+            throw newError(message: "Couldn't cast REPORT data as dictionary for initialization.")
         }
         
         guard let report = ProductionReport(dictionary: reportContainer) else {
@@ -160,7 +161,15 @@ class BackendController {
                 shared.pickupCartons[carton.id] = carton
             }
         }
-
+    }
+    
+    private static func successParser(data: Any?) throws {
+        guard let deletePayload = data as? Int else {
+            throw newError(message: "Unable to cast data to dictionary after deleting Production Report.")
+        }
+        if deletePayload != 1 {
+            throw newError(message: "API did not delete the Production Report.")
+        }
     }
 
     // MARK: - Queries

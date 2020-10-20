@@ -18,15 +18,49 @@ class CreateProductionReportInput: Input {
     var formatted: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-mm-dd"
-        let string = """
-        hubId: \(hubId)
+        var string = """
+        hubId: \"\(hubId)\"
         date: \"\(date.asShortDateString())\"
-        barsProduced: \(String(describing: barsProduced))
-        soapmakersWorked: \(String(describing: soapmakersWorked))
-        soapmakerHours: \(String(describing: soapmakerHours))
-        soapPhotos: \(String(describing: soapPhotos))
-        media: \(String(describing: media))
         """
+        if let barsProduced = barsProduced {
+            string += "barsProduced: \(barsProduced)\n"
+        }
+
+        if let soapmakersWorked = soapmakersWorked {
+            string += "soapmakersWorked: \(soapmakersWorked)\n"
+        }
+
+        if let soapmakerHours = soapmakerHours {
+            string += "soapmakerHours: \(soapmakerHours)\n"
+        }
+
+        var soapPhotoQuery: String {
+            guard let soapPhotos = soapPhotos, !soapPhotos.isEmpty else {
+                return ""
+            }
+            var string = "soapPhotos: ["
+            for photo in soapPhotos {
+                string += "\"\(photo)\", "
+            }
+            string += "]\n"
+            return string
+        }
+        
+        var mediaQuery: String {
+            guard let media = media, !media.isEmpty else {
+                return ""
+            }
+            var string = "media: ["
+            for item in media {
+                string += "\"\(item)\", "
+            }
+            string += "]\n"
+            return string
+        }
+        
+        string += soapPhotoQuery
+        string += mediaQuery
+        
         return string
     }
     

@@ -43,12 +43,11 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ovn-6L-XM9" userLabel="Date Stack View">
                                 <rect key="frame" x="20" y="108" width="374" height="390"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="htQ-FR-o1T" customClass="ProductionReportImagesCollectionView" customModule="labs_ios_starter" customModuleProvider="target">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="htQ-FR-o1T" customClass="ReportImageCollectionView" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="12" y="0.0" width="350" height="150"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="Rw2-9a-N59"/>
-                                            <constraint firstAttribute="width" constant="350" id="sQT-Fz-ro6"/>
+                                            <constraint firstAttribute="height" constant="150" id="7yK-aa-ZzU"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FIx-bI-ynV">
                                             <size key="itemSize" width="350" height="150"/>
@@ -75,9 +74,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="yV6-ei-bDM">
-                                        <rect key="frame" x="47" y="174" width="280" height="216"/>
+                                        <rect key="frame" x="27" y="174" width="320" height="216"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="280" id="ZM9-5d-aEd"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="ZM9-5d-aEd"/>
                                         </constraints>
                                         <variation key="heightClass=compact-widthClass=compact" layoutMarginsFollowReadableWidth="YES"/>
                                         <connections>
@@ -102,13 +101,13 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" borderStyle="line" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K7w-ew-ZwL">
+                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K7w-ew-ZwL">
                                                 <rect key="frame" x="299" y="0.0" width="75" height="33.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="ak0-n5-sNF"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -121,13 +120,13 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" borderStyle="line" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A0u-Qk-wyF">
+                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A0u-Qk-wyF">
                                                 <rect key="frame" x="299" y="0.0" width="75" height="33.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="QYh-Id-Yhy"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -140,13 +139,13 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" borderStyle="line" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wH7-pG-jE1">
+                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wH7-pG-jE1">
                                                 <rect key="frame" x="299" y="0.0" width="75" height="33.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="Ofd-1W-jMr"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -155,10 +154,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EWm-Qh-QsD" userLabel="Add Photo Stack View">
                                 <rect key="frame" x="20" y="658.5" width="374" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUg-qF-fAU">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUg-qF-fAU">
                                         <rect key="frame" x="0.0" y="0.0" width="182" height="50"/>
                                         <color key="backgroundColor" name="ESB Blue"/>
-                                        <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="18"/>
                                         <state key="normal" title="Add Soap Photo">
                                             <color key="titleColor" name="ESB System Background"/>
                                         </state>
@@ -169,7 +168,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mj9-VA-37u">
                                         <rect key="frame" x="192" y="0.0" width="182" height="50"/>
                                         <color key="backgroundColor" name="ESB Blue"/>
-                                        <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="18"/>
                                         <state key="normal" title="Add Media">
                                             <color key="titleColor" name="ESB System Background"/>
                                         </state>
@@ -188,7 +187,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tRC-3V-TLK"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="18"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" name="ESB System Background"/>
                                 </state>

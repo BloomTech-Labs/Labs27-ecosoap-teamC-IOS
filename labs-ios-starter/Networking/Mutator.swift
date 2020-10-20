@@ -372,13 +372,13 @@ class Mutator: Request {
             NSLog("Couldn't cast input to CreateProductionReportInput.  Please make sure your input matches the mutation's required input.")
             return nil
         }
-        return """
+        let inputString =  """
             mutation {
                 createProductionReport(input:{
                     \(createReportInput.formatted)
                 }) {
                     productionReport {
-                        hubId
+                        id
                         date
                         barsProduced
                         soapmakersWorked
@@ -389,6 +389,7 @@ class Mutator: Request {
                 }
             }
         """
+        return inputString
     }
     
     private static func updateProductionReport(input: Input) -> String? {
@@ -421,7 +422,7 @@ class Mutator: Request {
             NSLog("Couldn't cast input to DeleteProductionReportInput.  Please make sure your input matches the mutation's required input.")
             return nil
         }
-        return """
+        let inputString = """
         mutation {
             deleteProductionReport(input:{
                 \(id.formatted)
@@ -431,5 +432,6 @@ class Mutator: Request {
             }
         }
         """
+        return inputString
     }
 }

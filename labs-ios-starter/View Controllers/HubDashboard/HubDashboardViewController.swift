@@ -84,20 +84,14 @@ class HubDashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchReports()
-        setUpCollectionView()
         collectionView.delegate = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateViews()
-    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if controller.productionReportNeedsUpdate {
             reports = []
             fetchReports()
-            updateViews()
         }
     }
     
@@ -142,7 +136,6 @@ class HubDashboardViewController: UIViewController {
         collectionView.backgroundColor = .white
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-
     }
     
     // Collection View Data Source
@@ -174,12 +167,14 @@ class HubDashboardViewController: UIViewController {
                     self.reports.append(report)
                 }
                 self.reports = self.reports.sorted(by: { $0.date > $1.date })
+                
                 DispatchQueue.main.async {
                     self.setUpDataSource()
                 }
                     self.controller.productionReportNeedsUpdate = false
             }
         }
+        updateViews()
     }
     
     // View
@@ -214,7 +209,7 @@ class HubDashboardViewController: UIViewController {
             statisticsStack.widthAnchor.constraint(equalTo: width, constant: -20),
             reportStack.widthAnchor.constraint(equalTo: width, constant: -20)
         ])
-
+        setUpCollectionView()
     }
     
     // MARK: - Navigation
@@ -222,7 +217,7 @@ class HubDashboardViewController: UIViewController {
         if segue.identifier == "NewReportSegue" {
             guard let productionReportVC = segue.destination as? ProductionReportDetailViewController else { return }
             productionReportVC.isAdmin = isAdmin
-            productionReportVC.isEditing = true
+            productionReportVC.isEditingReport = true
             productionReportVC.isNewReport = true
         } else if segue.identifier == "ViewReportSegue" {
             guard let productionReportVC = segue.destination as? ProductionReportDetailViewController else { return }
@@ -230,7 +225,7 @@ class HubDashboardViewController: UIViewController {
             let indexPath = selectedIndexPaths[0]
             productionReportVC.report = reports[indexPath.row]
             productionReportVC.isAdmin = isAdmin
-            productionReportVC.isEditing = false
+            productionReportVC.isEditingReport = false
             productionReportVC.isNewReport = false
         }
     }
