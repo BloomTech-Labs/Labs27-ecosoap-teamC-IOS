@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ProfileInfoTableViewCell: UITableViewCell, ProfileTextFieldDelegate {
+class ProfileInfoTableViewCell: UITableViewCell, ProfileTextFieldDelegate, UITextFieldDelegate {
     var profileTextField: String?
     
-
+    weak var detailVC: ProfileViewController?
+    
     @IBOutlet weak var profileTitleLabel: UILabel!
     
     @IBOutlet weak var profileDescriptionTextField: UITextField!
@@ -27,6 +28,9 @@ class ProfileInfoTableViewCell: UITableViewCell, ProfileTextFieldDelegate {
         // Configure the view for the selected state
     }
 
-  
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        detailVC?.profileTextField = (profileDescriptionTextField.text ?? "") + string
+        return true 
+    }
    
 }

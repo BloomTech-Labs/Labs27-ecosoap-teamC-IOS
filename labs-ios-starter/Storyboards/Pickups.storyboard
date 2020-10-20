@@ -776,7 +776,7 @@
             <objects>
                 <viewController id="OTE-Xz-pjU" customClass="SelectPropertyViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g2M-CZ-i3s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Zk-3p-4u4">
@@ -836,7 +836,7 @@
         <!--Pickups-->
         <scene sceneID="6tC-3L-E5h">
             <objects>
-                <viewController id="2sS-PL-sX5" sceneMemberID="viewController">
+                <viewController id="2sS-PL-sX5" customClass="NewPickupsViewController" customModule="labs_ios_starter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OiA-ta-fPH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -933,6 +933,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IPR-Jq-AIa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="783" y="-471"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="wuw-DJ-FvC">
+            <objects>
+                <viewController id="0ow-yI-SzS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kKP-2d-s4O">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="u0R-wd-pmg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZNk-sa-O9H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1522" y="-466"/>
         </scene>
         <!--Pickups-->
         <scene sceneID="IiY-cB-0x0">

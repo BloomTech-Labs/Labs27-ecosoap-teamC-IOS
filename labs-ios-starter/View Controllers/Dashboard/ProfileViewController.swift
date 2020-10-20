@@ -11,7 +11,9 @@ import UIKit
 protocol ProfileTextFieldDelegate {
     var profileTextField: String? { get set }
 }
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, ProfileTextFieldDelegate {
+    var profileTextField: String?
+    
 
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
@@ -57,6 +59,7 @@ class ProfileViewController: UIViewController {
             
             
         }
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,7 +70,7 @@ class ProfileViewController: UIViewController {
    
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         
-        let input = UpdateUserProfileInput(id: controller.loggedInUser.id, firstName: controller.loggedInUser.firstName, middleName: controller.loggedInUser.middleName, lastName: controller.loggedInUser.lastName, title: controller.loggedInUser.title, company: profileData[1], email: profileData[4], phone: profileData[3], skype: profileData[5], address: AddressInput(address1: controller.loggedInUser.address?.address1, address2: controller.loggedInUser.address?.address2, address3: controller.loggedInUser.address?.address3, city: controller.loggedInUser.address?.city, state: controller.loggedInUser.address?.state, postalCode: controller.loggedInUser.address?.postalCode, country: nil), signupTime: controller.loggedInUser.signupTime, properties: nil)
+        let input = UpdateUserProfileInput(id: controller.loggedInUser.id, firstName: profileTextField, middleName: controller.loggedInUser.middleName, lastName: controller.loggedInUser.lastName, title: controller.loggedInUser.title, company: profileData[1], email: profileData[4], phone: profileData[3], skype: profileData[5], address: AddressInput(address1: controller.loggedInUser.address?.address1, address2: controller.loggedInUser.address?.address2, address3: controller.loggedInUser.address?.address3, city: controller.loggedInUser.address?.city, state: controller.loggedInUser.address?.state, postalCode: controller.loggedInUser.address?.postalCode, country: nil), signupTime: controller.loggedInUser.signupTime, properties: nil)
         
         controller.updateUserProfile(input: input) { error in
             if let error = error {
@@ -77,6 +80,7 @@ class ProfileViewController: UIViewController {
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
                 print("profile updated")
+                self.tableView.reloadData()
             }
             
         }
@@ -141,7 +145,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileInfoCell", for: indexPath) as? ProfileInfoTableViewCell else { return UITableViewCell() }
         cell.profileTitleLabel.text = accountInfoLabels[indexPath.row].uppercased()
         cell.profileDescriptionTextField.text = profileData[indexPath.row]
-        
+        cell.detailVC = self 
         return cell
     }
 }
