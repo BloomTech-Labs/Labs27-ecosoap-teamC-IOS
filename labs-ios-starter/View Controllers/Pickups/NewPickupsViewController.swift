@@ -15,15 +15,25 @@ class NewPickupsViewController: UIViewController {
     
     var controller = BackendController.shared
     
-    private var pickUp: Pickup? {
-        didSet {
-            updateViews()
-        }
-    }
-    private var pickUpData: [String] = []
+    var pickUps: [Pickup] = []
+    let dateFormatter = DateFormatter()
+    private var pickUpData: [[String]]?
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        grabPickups()
+        for pickup in pickUps {
+            controller.pickupsByPropertyId(propertyId: pickup.propertyId) { error in
+                self.grabPickups()
+                if let error = error {
+                    NSLog("Error in getting pickups: \(error)")
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.newPickTableView.reloadData()
+                }
+            }
+        }
         newPickTableView.delegate = self
         newPickTableView.dataSource = self
         
@@ -33,21 +43,22 @@ class NewPickupsViewController: UIViewController {
     }
     
     private func updateViews() {
-        guard let pickUp = pickUp else { return }
-        for property in controller.properties.values {
-            controller.pickupsByPropertyId(propertyId: property.id) { error in
-                if let error = error {
-                    NSLog("Error in getting the pickups dates: \(error)")
-                    return
-                }
-                DispatchQueue.main.async {
-                    print("pickups fetched succesfully")
-                    self.newPickTableView.reloadData()
-                    self.oldPickTableView.reloadData()
-                }
-            }
+      
+   
+    }
+    private func grabPickups() {
+        
+        var pickupDates: [String] = []
+        for pickup in controller.pickups.values {
+            guard let pickupDate = pickup.pickupDate else { return }
+            let dateString = dateFormatter.string(from: pickupDate)
+            pickupDates.append(dateString)
+            pickUps.append(pickup)
+            
         }
-        pickUpData.append(pickUp.pickupDate?.asShortDateString() ?? "")
+        let data: [[String]] = [pickupDates]
+        pickUpData = data
+        
     }
 
     /*
@@ -64,13 +75,16 @@ class NewPickupsViewController: UIViewController {
 
 extension NewPickupsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pickUpData.count
+        return pickUps.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == newPickTableView,
-            let cell = tableView.dequeueReusableCell(withIdentifier: "newPickupCell") {
-            cell.textLabel?.text = pickUpData[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "newPickupCell") as? NewPickUpTableViewCell {
+            self.grabPickups()
+            let pickUp = pickUps[indexPath.row]
+            cell.dateFormatter = dateFormatter
+            cell.pickUp = pickUp
             return cell
         }
             return UITableViewCell()
