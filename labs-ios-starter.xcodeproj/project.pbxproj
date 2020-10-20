@@ -79,6 +79,7 @@
 		BA291245253779A800932B42 /* PropertiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA291244253779A800932B42 /* PropertiesTableViewCell.swift */; };
 		BA4BD45C253A2A09001CBACB /* labs_ios_starterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4BD45B253A2A09001CBACB /* labs_ios_starterTests.swift */; };
 		BA4EFBB0253E4E5400A4946A /* CreatePropertyInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4EFBAF253E4E5400A4946A /* CreatePropertyInput.swift */; };
+		BA4EFBB2253E68CC00A4946A /* CreatePropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4EFBB1253E68CC00A4946A /* CreatePropertyViewController.swift */; };
 		BA5B10B7252BA993001202FE /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10B6252BA993001202FE /* Role.swift */; };
 		BAD33C832534C7FE0080FCC6 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BAD33C862534FCC40080FCC6 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -174,6 +175,7 @@
 		BA4BD45B253A2A09001CBACB /* labs_ios_starterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = labs_ios_starterTests.swift; sourceTree = "<group>"; };
 		BA4BD45D253A2A09001CBACB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA4EFBAF253E4E5400A4946A /* CreatePropertyInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePropertyInput.swift; sourceTree = "<group>"; };
+		BA4EFBB1253E68CC00A4946A /* CreatePropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePropertyViewController.swift; sourceTree = "<group>"; };
 		BA5B10B6252BA993001202FE /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		BAD33C8D25362E800080FCC6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		BAD33C96253630240080FCC6 /* LogInInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInInput.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				13BA9FE125001A8500973F03 /* PropertiesViewController.swift */,
 				13EF37B6250FE86E002E7959 /* PropertyDetailViewController.swift */,
 				BA2912402537729700932B42 /* HotelViewController.swift */,
+				BA4EFBB1253E68CC00A4946A /* CreatePropertyViewController.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 				9C9ACA6E24F72327002D47B5 /* CreatePaymentInput.swift in Sources */,
 				13A62495251BEA4600E335DC /* PickupDetailViewController.swift in Sources */,
 				BA4EFBB0253E4E5400A4946A /* CreatePropertyInput.swift in Sources */,
+				BA4EFBB2253E68CC00A4946A /* CreatePropertyViewController.swift in Sources */,
 				9CEA63BD24EE2D2800A2C446 /* Hub.swift in Sources */,
 				9C9ACA7224F72EFD002D47B5 /* UpdateUserProfileInput.swift in Sources */,
 				BA291245253779A800932B42 /* PropertiesTableViewCell.swift in Sources */,

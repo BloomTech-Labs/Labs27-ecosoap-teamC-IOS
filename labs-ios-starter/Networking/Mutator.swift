@@ -296,15 +296,15 @@ class Mutator: Request {
     }
     
          
-         private static func createProperty(input: Input) -> String? {
-         guard let property = input as? CreatePropertyInput else {
-             NSLog("Couldn't cast input to CreatePropertyInput. Please make sure your input matches the mutation's required input.")
-             return nil
-         }
+     private static func createProperty(input: Input) -> String? {
+     guard let property = input as? CreatePropertyInput else {
+         NSLog("Couldn't cast input to CreatePropertyInput. Please make sure your input matches the mutation's required input.")
+         return nil
+     }
 
-         return """
-         mutation {
-           updateProperty(input: {
+     return """
+     mutation {
+          createProperty(input: {
              \(property.formatted)
            }) {
              property {
@@ -318,54 +318,28 @@ class Mutator: Request {
                  phone
                  billingAddress {
                    address1
-                   address2
-                   address3
-                   city
-                   state
-                   postalCode
-                   country
-                   # formattedAddress
                  }
                  shippingAddress {
                    address1
-                   address2
-                   address3
-                   city
-                   state
-                   postalCode
-                   country
-                   # formattedAddress
                  }
                  coordinates {
                    longitude
                    latitude
-
                  }
                  shippingNote
                  notes
                  hub {
-                  id
+                    id
                 }
-                 impact {
-                   soapRecycled
-                   linensRecycled
-                   bottlesRecycled
-                   paperRecycled
-                   peopleServed
-                   womenEmployed
-                 }
                  users {
-                   id
-                 }
-                 pickups {
-                   id
-                 }
+                    id
+                }
                  contract {
-                  id
+                    id
                 }
              }
            }
-         }
-         """
+     }
+     """
      }
 }

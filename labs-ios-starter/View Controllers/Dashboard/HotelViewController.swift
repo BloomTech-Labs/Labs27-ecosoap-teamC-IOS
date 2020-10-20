@@ -184,11 +184,9 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         switch segue.identifier {
-        case "addNewPropertySegue":
-            if let createPropertyVC = segue.destination as? PropertyDetailViewController {
+        case "creatingNewProperty":
+            if let createPropertyVC = segue.destination as? CreatePropertyViewController {
                 createPropertyVC.controller = controller
-                createPropertyVC.hideAll = true 
-                
             }
         case "ShowPropertyDetailPushSegue":
             //            guard let propertyDetailVC = segue.destination as? PropertyDetailViewController else { return }
@@ -225,7 +223,6 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == propertiesTableView,
             let cell = tableView.dequeueReusableCell(withIdentifier: "PropertiesCell") as? PropertiesTableViewCell {
-            grabProperties()
             let property = properties[indexPath.row]
             cell.property = property
             

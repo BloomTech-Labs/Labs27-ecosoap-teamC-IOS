@@ -12,7 +12,7 @@ class PropertiesTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-          
+          updateViews()
         // Initialization code
     }
     

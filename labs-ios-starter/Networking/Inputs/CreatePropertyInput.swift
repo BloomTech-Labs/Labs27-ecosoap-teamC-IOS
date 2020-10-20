@@ -10,47 +10,113 @@ import Foundation
 
 class CreatePropertyInput: Input {
     
-    var name: String
-    var propertyType: String
-    var rooms: Int
-    var services: [HospitalityService]
-    var collectionType: CollectionType
+    var name: String?
+    var propertyType: String?
+    var rooms: Int?
+    var services: [HospitalityService]?
+    var collectionType: CollectionType?
     var logo: URL?
     var phone: String?
-    var billingAddress: AddressInput
-    var shippingAddress: AddressInput
+    var billingAddress: AddressInput?
+    var shippingAddress: AddressInput?
     var coordinates: CoordinatesInput?
     var shippingNote: String?
     var notes: String?
-    var hubId: String
-    var userIds: [String]
-    var contractId: String
+    var hubId: String?
+    var userIds: [String]?
+    var contractId: String?
     
-    var formatted: String {
-        let string = """
-        name: \(name)
-        propertyType: \(propertyType)
-        rooms: \(rooms)
-        services: \(services)
-        collectionType: \(collectionType)
-        logo: \(String(describing: logo))
-        phone: \(String(describing: phone))
-        billingAddress: \(billingAddress)
-        shippingAddress: \(shippingAddress)
-        coordinates: \(String(describing: coordinates))
-        shippingNote: \(String(describing: shippingNote))
-        notes: \(String(describing: notes))
-        hubId: \(hubId)
-        userIds: \(userIds)
-        contractId: \(contractId)
-        """
+    private var servicesQuery: String {
+        guard let services = services,
+            !services.isEmpty else {
+                return ""
+        }
+        var arr: [String] = []
+        
+        for service in services {
+            arr.append(service.rawValue)
+        }
+        
+        return "services: [\(arr.joined(separator: ", "))]\n"
+    }
+    
+    private var userIdsQuery: String {
+        guard let userIds = userIds,
+            !userIds.isEmpty else {
+                return ""
+        }
+        
+        var string = "userIds: ["
+        for id in userIds {
+            string += "\"\(id)\", "
+        }
+        string += "]\n"
         return string
     }
     
-    init(name: String, propertyType: String, rooms: Int, services: [HospitalityService], collectionType: CollectionType, logo: URL, phone: String, billingAddress: AddressInput, shippingAddress: AddressInput, coordinates: CoordinatesInput, shippingNotes: String, notes: String, hubId: String, userIds: [String], contractId: String) {
+    
+    private var queryBody: String {
+        var string = ""
+        if let name = name {
+            string += "name: \"\(name)\"\n"
+        }
+        
+        if let propertyType = propertyType {
+            string += "propertyType: \(propertyType)\n"
+        }
+        if let rooms = rooms {
+            string += "rooms: \(rooms)\n"
+        }
+        string += servicesQuery
+        if let collectionType = collectionType {
+            string += "collectionType: \(collectionType)\n"
+        }
+        if let logo = logo {
+            string += "logo: \"\(logo.absoluteString)\"\n"
+        }
+        if let phone = phone {
+            string += "phone: \"\(phone)\"\n"
+        }
+        if let billingAddress = billingAddress {
+            string += "billing\(billingAddress.formatted.firstLetterCapitalizing())\n"
+        }
+        
+        if let shippingAddress = shippingAddress {
+            string += "shipping\(shippingAddress.formatted.firstLetterCapitalizing())\n"
+        }
+        if let coordinates = coordinates {
+            string += "\(coordinates.formatted)\n"
+        }
+        
+        if let shippingNote = shippingNote {
+            string += "shippingNote: \"\(shippingNote)\"\n"
+        }
+        
+        
+        if let notes = notes {
+            string += "notes: \"\(notes)\"\n"
+        }
+        
+        if let hubId = hubId {
+            string += "hubId: \"\(hubId)\"\n"
+        }
+        string += userIdsQuery
+        if let contractId = contractId {
+            string += "contractId: \"\(contractId)\"\n"
+        }
+        return string
+    }
+    
+    var formatted: String {
+           return """
+           \(queryBody)
+           """
+       }
+    
+    internal init(name: String? = nil, propertyType: PropertyType? = nil, rooms: Int? = nil, services: [HospitalityService]? = nil, collectionType: CollectionType? = nil, logo: URL? = nil, phone: String? = nil, billingAddress: AddressInput? = nil, shippingAddress: AddressInput? = nil, coordinates: CoordinatesInput? = nil, shippingNotes: String? = nil, notes: String? = nil, hubId: String? = nil, userIds: [String]? = nil, contractId: String? = nil) {
         
         self.name = name
-        self.propertyType = propertyType
+        self.propertyType = propertyType?.rawValue
         self.rooms = rooms
         self.services = services
         self.collectionType = collectionType
