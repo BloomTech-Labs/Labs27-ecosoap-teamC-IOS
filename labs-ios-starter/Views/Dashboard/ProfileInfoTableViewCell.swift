@@ -19,6 +19,7 @@ class ProfileInfoTableViewCell: UITableViewCell, ProfileTextFieldDelegate, UITex
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        profileDescriptionTextField.delegate = self
         profileDescriptionTextField.text = profileTextField
     }
 
@@ -29,6 +30,7 @@ class ProfileInfoTableViewCell: UITableViewCell, ProfileTextFieldDelegate, UITex
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
         detailVC?.profileTextField = (profileDescriptionTextField.text ?? "") + string
         return true 
     }

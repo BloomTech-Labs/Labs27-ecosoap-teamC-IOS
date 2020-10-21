@@ -98,7 +98,9 @@ class CreatePropertyViewController: UIViewController {
                            }
                            DispatchQueue.main.async {
                                print("property created")
+                           
                                self.navigationController?.popViewController(animated: true)
+                            
                            }
                        }
                    }
@@ -112,5 +114,14 @@ class CreatePropertyViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    func showAlertMessage(title: String, message: String, actiontitle: String) {
+        let endAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let endAction = UIAlertAction(title: actiontitle, style: .default) { (action: UIAlertAction ) in
+        }
+        
+        endAlert.addAction(endAction)
+        present(endAlert, animated: true, completion: nil)
+    }
     
 }

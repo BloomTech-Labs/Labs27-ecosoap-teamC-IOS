@@ -80,7 +80,7 @@ class ProfileViewController: UIViewController, ProfileTextFieldDelegate {
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
                 print("profile updated")
-                self.tableView.reloadData()
+             
             }
             
         }
