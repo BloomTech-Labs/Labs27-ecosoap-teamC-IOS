@@ -35,6 +35,7 @@ class BackendController {
     var hubs: [String: Hub] = [:]
     var pickupCartons: [String: PickupCarton] = [:]
     var hospitalityContracts: [String: HospitalityContract] = [:]
+    var impactStates: [String: ImpactStats] = [:]
 
     private var parsers: [ResponseModel: (Any?) throws ->()] = [.property: BackendController.propertyParser,
                                                         .properties: BackendController.propertiesParser,
@@ -49,7 +50,6 @@ class BackendController {
         guard let propertyContainer = data as? [String: Any] else {
             throw newError(message: "Couldn't cast data as PROPERTY dictionary for initialization")
         }
-
         guard let property = Property(dictionary: propertyContainer) else {
             throw Errors.ObjectInitFail
         }

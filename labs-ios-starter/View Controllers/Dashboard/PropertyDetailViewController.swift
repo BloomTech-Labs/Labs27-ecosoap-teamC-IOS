@@ -108,18 +108,7 @@ class PropertyDetailViewController: UIViewController, StringTextField {
         }
     }
     @IBAction func createButtonTapped(_ sender: UIBarButtonItem) {
-        guard let property = property else { return }
-        let input = CreatePropertyInput(name: textFieldTextField, propertyType: .HOTEL, rooms: property.rooms , services: [.BOTTLES, .LINENS, .PAPER, .OTHER], collectionType: .COURIER_CONSOLIDATED, logo: property.logo!, phone: property.phone ?? "", billingAddress: AddressInput(address1: property.billingAddress?.address1, address2: property.billingAddress?.address2, address3: property.billingAddress?.address3, city: property.billingAddress?.city, state: property.billingAddress?.state, postalCode: property.billingAddress?.postalCode, country: nil), shippingAddress: AddressInput(address1: property.shippingAddress?.address1, address2: property.shippingAddress?.address2, address3: property.shippingAddress?.address3, city: property.shippingAddress?.city, state: property.shippingAddress?.state, postalCode: property.shippingAddress?.postalCode, country: nil), coordinates: CoordinatesInput(longitude: property.coordinates?.longitude, latitude: property.coordinates?.latitude), shippingNotes: property.shippingNote ?? "", notes: property.notes ?? "", hubId: property.hubId ?? "", userIds: property.usersById, contractId: property.contractId ?? "")
-        controller.createProperty(input: input) { error in
-            if let error = error {
-                NSLog("error in creating property: \(error)")
-                return
-            }
-            DispatchQueue.main.async {
-                print("property created")
-                self.tableView.reloadData()
-            }
-        }
+   
     }
     
     @IBAction func savedButtonTapped(_ sender: UIButton) {

@@ -296,7 +296,7 @@ class Mutator: Request {
     }
     
          
-     private static func createProperty(input: Input) -> String? {
+    static func createProperty(input: Input) -> String? {
      guard let property = input as? CreatePropertyInput else {
          NSLog("Couldn't cast input to CreatePropertyInput. Please make sure your input matches the mutation's required input.")
          return nil
@@ -325,17 +325,21 @@ class Mutator: Request {
                  coordinates {
                    longitude
                    latitude
+
                  }
                  shippingNote
                  notes
                  hub {
-                    id
+                  id
                 }
                  users {
-                    id
-                }
+                   id
+                 }
+                 pickups {
+                   id
+                 }
                  contract {
-                    id
+                  id
                 }
              }
            }

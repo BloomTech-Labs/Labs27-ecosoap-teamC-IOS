@@ -19,7 +19,7 @@ class CreatePropertyInput: Input {
     var phone: String?
     var billingAddress: AddressInput?
     var shippingAddress: AddressInput?
-    var coordinates: CoordinatesInput?
+    var coordinates: CoordinatesInput
     var shippingNote: String?
     var notes: String?
     var hubId: String?
@@ -31,6 +31,7 @@ class CreatePropertyInput: Input {
             !services.isEmpty else {
                 return ""
         }
+        
         var arr: [String] = []
         
         for service in services {
@@ -45,7 +46,6 @@ class CreatePropertyInput: Input {
             !userIds.isEmpty else {
                 return ""
         }
-        
         var string = "userIds: ["
         for id in userIds {
             string += "\"\(id)\", "
@@ -55,8 +55,9 @@ class CreatePropertyInput: Input {
     }
     
     
-    private var queryBody: String {
+    var formatted: String {
         var string = ""
+        
         if let name = name {
             string += "name: \"\(name)\"\n"
         }
@@ -64,19 +65,25 @@ class CreatePropertyInput: Input {
         if let propertyType = propertyType {
             string += "propertyType: \(propertyType)\n"
         }
+        
         if let rooms = rooms {
             string += "rooms: \(rooms)\n"
         }
+        
         string += servicesQuery
+        
         if let collectionType = collectionType {
             string += "collectionType: \(collectionType)\n"
         }
+        
         if let logo = logo {
             string += "logo: \"\(logo.absoluteString)\"\n"
         }
+        
         if let phone = phone {
             string += "phone: \"\(phone)\"\n"
         }
+        
         if let billingAddress = billingAddress {
             string += "billing\(billingAddress.formatted.firstLetterCapitalizing())\n"
         }
@@ -84,9 +91,9 @@ class CreatePropertyInput: Input {
         if let shippingAddress = shippingAddress {
             string += "shipping\(shippingAddress.formatted.firstLetterCapitalizing())\n"
         }
-        if let coordinates = coordinates {
+     
             string += "\(coordinates.formatted)\n"
-        }
+        
         
         if let shippingNote = shippingNote {
             string += "shippingNote: \"\(shippingNote)\"\n"
@@ -100,20 +107,20 @@ class CreatePropertyInput: Input {
         if let hubId = hubId {
             string += "hubId: \"\(hubId)\"\n"
         }
+      
         string += userIdsQuery
+   
+        
         if let contractId = contractId {
             string += "contractId: \"\(contractId)\"\n"
         }
+        print(string)
         return string
     }
     
-    var formatted: String {
-           return """
-           \(queryBody)
-           """
-       }
     
-    internal init(name: String? = nil, propertyType: PropertyType? = nil, rooms: Int? = nil, services: [HospitalityService]? = nil, collectionType: CollectionType? = nil, logo: URL? = nil, phone: String? = nil, billingAddress: AddressInput? = nil, shippingAddress: AddressInput? = nil, coordinates: CoordinatesInput? = nil, shippingNotes: String? = nil, notes: String? = nil, hubId: String? = nil, userIds: [String]? = nil, contractId: String? = nil) {
+    
+    init(name: String? = nil, propertyType: PropertyType? = nil, rooms: Int? = nil, services: [HospitalityService]? = nil, collectionType: CollectionType? = nil, logo: URL? = nil, phone: String? = nil, billingAddress: AddressInput? = nil, shippingAddress: AddressInput? = nil, coordinates: CoordinatesInput, shippingNote: String? = nil, notes: String? = nil, hubId: String? = nil, userIds: [String]? = nil, contractId: String? = nil) {
         
         self.name = name
         self.propertyType = propertyType?.rawValue
@@ -124,6 +131,8 @@ class CreatePropertyInput: Input {
         self.phone = phone
         self.billingAddress = billingAddress
         self.shippingAddress = shippingAddress
+        self.coordinates = coordinates
+        self.shippingNote = shippingNote
         self.notes = notes
         self.hubId = hubId
         self.userIds = userIds

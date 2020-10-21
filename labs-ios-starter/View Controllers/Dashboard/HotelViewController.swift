@@ -46,13 +46,13 @@ class HotelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
         propertyButton.layer.cornerRadius = 8
-        updateViews()
         setData()
         // Line Chart Implementation
         lineChartView.rightAxis.enabled = false
         lineChartView.delegate = self
         lineChartView.xAxis.enabled = true
         lineChartView.xAxis.labelPosition = .bottom
+        
         lineChartView.rightAxis.drawLabelsEnabled = false
         lineChartView.animate(xAxisDuration: 2.5)
         

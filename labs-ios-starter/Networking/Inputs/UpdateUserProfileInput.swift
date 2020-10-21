@@ -68,7 +68,7 @@ class UpdateUserProfileInput: Input {
         if let _ = properties {
             string += propertiesQuery
         }
-
+print(string)
         return string
     }
 

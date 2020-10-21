@@ -12,15 +12,24 @@ class PickupDetailViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet weak var propertyNameLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var driverLabel: UILabel!
+    @IBOutlet weak var soapLabel: UILabel!
+     @IBOutlet weak var paperLabel: UILabel!
+     @IBOutlet weak var linensLabel: UILabel!
+     @IBOutlet weak var bottleLabel: UILabel!
+    @IBOutlet weak var notesLabel: UILabel!
     
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view3: UIView!
     @IBOutlet weak var view4: UIView!
     @IBOutlet weak var view5: UIView!
-    
+
     // MARK: - Properties
-    var controller: BackendController?
+    var controller = BackendController.shared
     var pickup: Pickup? {
         didSet {
             setupViews()
@@ -31,16 +40,26 @@ class PickupDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        view1.layer.cornerRadius = 8
-        view2.layer.cornerRadius = 8
-        view3.layer.cornerRadius = 8
-        view4.layer.cornerRadius = 8
-        view5.layer.cornerRadius = 8
+
     }
     
     // MARK: - Private Methods
     private func setupViews() {
         guard let pickup = pickup else { return }
+        guard let property = controller.properties[pickup.propertyId] else { return }
+        locationLabel?.text = property.shippingAddress?.address1
+        let dateString = pickup.pickupDate?.asShortDateString()
+        dateLabel?.text = dateString
+        let timeString = pickup.readyDate.asShortDateString()
+        timeLabel?.text = timeString
+        driverLabel?.text = "Pending"
+        
+        soapLabel?.text = "\(property.impact?.soapRecycled)"
+        paperLabel?.text = "\(property.impact?.paperRecycled)"
+        linensLabel?.text = "\(property.impact?.linensRecycled)"
+        bottleLabel?.text =  "\(property.impact?.linensRecycled)"
+        notesLabel?.text = pickup.notes
+        
 //        let property = controller?.properties[pickup.propertyId]
 //        propertyNameLabel.text = property?.name
         
@@ -78,9 +97,18 @@ class PickupDetailViewController: UIViewController {
     private func updateViews() {
         
     }
+    @IBAction func editButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "editPickupSegue", sender: self)
+    }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editPickupSegue" {
+            guard let pickupDetailsVC = segue.destination as? SchedulePickupViewController else { return }
+            pickupDetailsVC.pickup = pickup
+            pickupDetailsVC.hideIt = true 
+            pickupDetailsVC.controller = controller
+        }
     }
     
     // MARK: - IBActions
