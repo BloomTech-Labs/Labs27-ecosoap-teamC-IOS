@@ -43,29 +43,41 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ovn-6L-XM9" userLabel="Date Stack View">
                                 <rect key="frame" x="20" y="108" width="374" height="390"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="htQ-FR-o1T" customClass="ReportImageCollectionView" customModule="labs_ios_starter" customModuleProvider="target">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="htQ-FR-o1T" customClass="ReportImageCollectionView" customModule="labs_ios_starter" customModuleProvider="target">
                                         <rect key="frame" x="12" y="0.0" width="350" height="150"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="7yK-aa-ZzU"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FIx-bI-ynV">
-                                            <size key="itemSize" width="350" height="150"/>
-                                            <size key="estimatedItemSize" width="350" height="150"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qbg-rs-YZn">
+                                            <size key="itemSize" width="350" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="ReportImageCell" id="5Sz-Y5-UXK">
-                                                <rect key="frame" x="0.0" y="0.0" width="350" height="150"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" restorationIdentifier="ReportImageCell" reuseIdentifier="ReportImageCell" id="5Sz-Y5-UXK" customClass="ReportImageCollectionViewCell" customModule="labs_ios_starter" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="11" width="350" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="27K-NY-eL4">
-                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="150"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="27K-NY-eL4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="128"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gyq-xu-79l">
+                                                            <rect key="frame" x="8" y="0.0" width="350" height="150"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                    </subviews>
                                                 </collectionViewCellContentView>
+                                                <size key="customSize" width="350" height="128"/>
+                                                <connections>
+                                                    <outlet property="reportImageView" destination="gyq-xu-79l" id="h91-sg-Q4y"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="delegate" destination="0rH-x9-PbR" id="OmG-O0-W7n"/>
+                                        </connections>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8W-DT-8Ix">
                                         <rect key="frame" x="168" y="150" width="38.5" height="24"/>

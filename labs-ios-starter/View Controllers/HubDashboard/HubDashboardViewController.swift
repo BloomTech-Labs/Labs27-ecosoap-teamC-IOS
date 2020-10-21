@@ -227,6 +227,7 @@ class HubDashboardViewController: UIViewController {
             productionReportVC.isAdmin = isAdmin
             productionReportVC.isEditingReport = false
             productionReportVC.isNewReport = false
+
         }
     }
 }

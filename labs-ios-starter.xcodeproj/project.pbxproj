@@ -88,6 +88,7 @@
 		BAD33CB725376ED10080FCC6 /* DeleteProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB625376ED10080FCC6 /* DeleteProductionReportInput.swift */; };
 		BAD33CBA253780650080FCC6 /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB9253780650080FCC6 /* ReportCell.swift */; };
 		BAD33CC5253A61260080FCC6 /* ReportImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CC4253A61250080FCC6 /* ReportImageCollectionView.swift */; };
+		BAD33CCC253F21C70080FCC6 /* ReportImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CCB253F21C70080FCC6 /* ReportImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -172,6 +173,7 @@
 		BAD33CB625376ED10080FCC6 /* DeleteProductionReportInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductionReportInput.swift; sourceTree = "<group>"; };
 		BAD33CB9253780650080FCC6 /* ReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
 		BAD33CC4253A61250080FCC6 /* ReportImageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportImageCollectionView.swift; sourceTree = "<group>"; };
+		BAD33CCB253F21C70080FCC6 /* ReportImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportImageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -461,6 +463,7 @@
 				BAD33CB9253780650080FCC6 /* ReportCell.swift */,
 				BA5B10C9252D227B001202FE /* ProductionReportDetailViewController.swift */,
 				BAD33CC4253A61250080FCC6 /* ReportImageCollectionView.swift */,
+				BAD33CCB253F21C70080FCC6 /* ReportImageCollectionViewCell.swift */,
 			);
 			path = HubDashboard;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				BA5B10D1252E4158001202FE /* ProductionReport.swift in Sources */,
 				BAD33CAE25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift in Sources */,
 				13D15E4B250895C700F021D5 /* ProfileInfoTableViewCell.swift in Sources */,
+				BAD33CCC253F21C70080FCC6 /* ReportImageCollectionViewCell.swift in Sources */,
 				9C364A8E24F5EA1600FF204D /* Mutator.swift in Sources */,
 				13FD2A9324E4575D006D6B43 /* PickupDateTableViewCell.swift in Sources */,
 				BA5B10B7252BA993001202FE /* Role.swift in Sources */,

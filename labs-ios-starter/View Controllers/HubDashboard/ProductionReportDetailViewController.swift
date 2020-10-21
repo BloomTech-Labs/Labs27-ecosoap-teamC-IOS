@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductionReportDetailViewController: UIViewController {
+class ProductionReportDetailViewController: UIViewController, UICollectionViewDelegate {
     
     // MARK: - Outlets
     @IBOutlet var reportImagesCollectionView: ReportImageCollectionView!
@@ -30,10 +30,12 @@ class ProductionReportDetailViewController: UIViewController {
     var controller = BackendController.shared
     let gray = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
     
+    
     // MARK: Views
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        reportImagesCollectionView.delegate = self
     }
     
     func updateViews() {
@@ -103,7 +105,7 @@ class ProductionReportDetailViewController: UIViewController {
     func displayReport() {
         guard let report = report else { return }
         
-        // TODO: Add images to collection view
+        reportImagesCollectionView.report = report
         datePicker.date = report.date
         barsProducedTextField.text = String(report.barsProduced ?? 0)
         soapmakersWorkedTextField.text = String(report.soapmakersWorked ?? 0)
