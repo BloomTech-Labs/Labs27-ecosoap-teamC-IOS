@@ -28,7 +28,7 @@
    
 ## Watch Project's Video
  -Hotel Manager User Introduction:
-[![Watch the video](https://scontent.ftij3-1.fna.fbcdn.net/v/t1.0-9/122359857_4233692273324426_3097026276652567663_o.jpg?_nc_cat=101&cb=846ca55b-ee17756f&ccb=2&_nc_sid=730e14&_nc_ohc=fa_4xT2HJH4AX9o6J_0&_nc_ht=scontent.ftij3-1.fna&oh=e3653d6e2ce9f7703a392697442f6ee6&oe=5FB800CF)](https://www.youtube.com/watch?v=RWu1HsFf6Mw&feature=youtu.be)
+[![Watch the video](https://scontent.ftij3-1.fna.fbcdn.net/v/t1.0-9/122139305_4233698023323851_809940238631702768_o.jpg?_nc_cat=103&cb=846ca55b-ee17756f&ccb=2&_nc_sid=730e14&_nc_ohc=NEjo3I1icqkAX_GIlYJ&_nc_ht=scontent.ftij3-1.fna&oh=6437de58e24ad6ee5edbc135a1e63079&oe=5FB6B7D4)width="200" height="400" />](https://www.youtube.com/watch?v=RWu1HsFf6Mw&feature=youtu.be)
 
 ### 4️⃣ Key Features
 - Hub Admins can create, update, and delete daily production reports. (Preview of feature in progress: https://youtu.be/AjfmCDPfMFA)
