@@ -106,7 +106,7 @@ class BackendController {
     
     private static func loggedInUserParser(data: Any?) throws {
         guard let userContainer = data as? [String: Any] else {
-            throw newError(message: "Couldn't USER cast data as dictionary for initialization")
+            throw newError(message: "Couldn't cast USER data as dictionary for initialization")
         }
 
         guard let user = User(dictionary: userContainer) else {

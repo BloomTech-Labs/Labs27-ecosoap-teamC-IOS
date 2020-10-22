@@ -22,10 +22,13 @@ class ReportImageCollectionView: UICollectionView {
             addImagesToStringArray()
             convertStringArrayToURLs()
             // Attempt to make it wait to fetch all images before setting up the datasource.
-            performSelector(onMainThread: #selector(fetchImages), with: nil, waitUntilDone: true)
-                // Third message printed shows dummy image: Images: [<UIImage:0x6000025dc510 named(main: ESB Logo) {200, 200}>]
-            print("Images: \(images)")
             // It still moves on to set up the data source before fetchImages is complete.
+            
+//            performSelector(onMainThread: #selector(fetchImages), with: nil, waitUntilDone: true)
+            
+                // Third message printed shows dummy image: Images: [<UIImage:0x6000025dc510 named(main: ESB Logo) {200, 200}>]
+//            print("Images: \(images)")
+
             setUpDataSource()
         }
     }
@@ -104,7 +107,6 @@ class ReportImageCollectionView: UICollectionView {
     
     // MARK: - Data Source
     func setUpDataSource() {
-        self.register(ReportImageCollectionViewCell.self, forCellWithReuseIdentifier: "ReportImageCell")
         
         let newDataSource = UICollectionViewDiffableDataSource<Section, UIImage>(collectionView: self) {
             (collectionView, indexPath, image) -> UICollectionViewCell? in
