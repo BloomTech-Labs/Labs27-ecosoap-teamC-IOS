@@ -20,13 +20,19 @@ class Mutator: Request {
                                      .schedulePickup: Mutator.schedulePickup,
                                      .cancelPickup: Mutator.cancelPickup,
                                      .updateUserProfile: Mutator.updateUserProfile,
-                                     .updateProperty: Mutator.updateProperty]
+                                     .updateProperty: Mutator.updateProperty,
+                                     .createProductionReport: Mutator.createProductionReport,
+                                     .updateProductionReport: Mutator.updateProductionReport,
+                                     .deleteProductionReport: Mutator.deleteProductionReport]
 
     private static let payloads: [MutationName: ResponseModel] = [.logIn: .user,
                                                                   .schedulePickup: .pickup,
                                                                   .cancelPickup: .pickup,
                                                                   .updateUserProfile: .user,
-                                                                  .updateProperty: .property]
+                                                                  .updateProperty: .property,
+                                                                  .createProductionReport: .productionReport,
+                                                                  .updateProductionReport: .productionReport,
+                                                                  .deleteProductionReport: .success]
 
     init?(name: MutationName, input: Input) {
         guard let function = Mutator.collection[name] else {
@@ -359,5 +365,73 @@ class Mutator: Request {
           }
         }
         """
+    }
+    
+    private static func createProductionReport(input: Input) -> String? {
+        guard let createReportInput = input as? CreateProductionReportInput else {
+            NSLog("Couldn't cast input to CreateProductionReportInput.  Please make sure your input matches the mutation's required input.")
+            return nil
+        }
+        let inputString =  """
+            mutation {
+                createProductionReport(input:{
+                    \(createReportInput.formatted)
+                }) {
+                    productionReport {
+                        id
+                        date
+                        barsProduced
+                        soapmakersWorked
+                        soapmakerHours
+                        soapPhotos
+                        media
+                    }
+                }
+            }
+        """
+        return inputString
+    }
+    
+    private static func updateProductionReport(input: Input) -> String? {
+        guard let updateReportInput = input as? UpdateProductionReportInput else {
+            NSLog("Couldn't cast input to UpdateProductionReportInput.  Please make sure your input matches the mutation's required input.")
+            return nil
+        }
+        let inputString = """
+            mutation {
+                updateProductionReport(input:{
+                    \(updateReportInput.formatted)
+                }) {
+                    productionReport {
+                        id
+                        date
+                        barsProduced
+                        soapmakersWorked
+                        soapmakerHours
+                        soapPhotos
+                        media
+                    }
+                }
+            }
+        """
+        return inputString
+    }
+
+    private static func deleteProductionReport(input: Input) -> String? {
+        guard let id = input as? DeleteProductionReportInput else {
+            NSLog("Couldn't cast input to DeleteProductionReportInput.  Please make sure your input matches the mutation's required input.")
+            return nil
+        }
+        let inputString = """
+        mutation {
+            deleteProductionReport(input:{
+                \(id.formatted)
+            }) {
+                success
+                error
+            }
+        }
+        """
+        return inputString
     }
 }

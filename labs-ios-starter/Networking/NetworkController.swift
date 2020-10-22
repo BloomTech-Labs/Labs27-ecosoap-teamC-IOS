@@ -35,6 +35,9 @@ class BackendController {
     var hubs: [String: Hub] = [:]
     var pickupCartons: [String: PickupCarton] = [:]
     var hospitalityContracts: [String: HospitalityContract] = [:]
+    var productionReports: [String: ProductionReport] = [:]
+    
+    var productionReportNeedsUpdate = false
 
     private var parsers: [ResponseModel: (Any?) throws ->()] = [.property: BackendController.propertyParser,
                                                         .properties: BackendController.propertiesParser,
@@ -43,11 +46,35 @@ class BackendController {
                                                         .pickup:  BackendController.pickupParser,
                                                         .pickups: BackendController.pickupsParser,
                                                         .hub: BackendController.hubParser,
+                                                        .productionReports: BackendController.productionReportsParser,
+                                                        .productionReport: BackendController.productionReportParser,
+                                                        .success: BackendController.successParser
                                                         ]
 
+    private static func productionReportsParser(data: Any?) throws {
+        guard let reportsContainer = data as? [[String: Any]] else {
+            throw newError(message: "Couldn't cast data as PRODUCTION REPORTs dictionary for initialization.")
+        }
+        
+        for report in reportsContainer {
+            try productionReportParser(data: report)
+        }
+    }
+    
+    private static func productionReportParser(data: Any?) throws {
+        guard let reportContainer = data as? [String: Any] else {
+            throw newError(message: "Couldn't cast REPORT data as dictionary for initialization.")
+        }
+        
+        guard let report = ProductionReport(dictionary: reportContainer) else {
+            throw Errors.ObjectInitFail
+        }
+        shared.productionReports[report.id] = report
+    }
+    
     private static func propertyParser(data: Any?) throws {
         guard let propertyContainer = data as? [String: Any] else {
-            throw newError(message: "Couldn't cast data as PROPERTY dictionary for initialization")
+            throw newError(message: "Couldn't cast data as PROPERTY dictionary for initialization.")
         }
 
         guard let property = Property(dictionary: propertyContainer) else {
@@ -79,7 +106,7 @@ class BackendController {
     
     private static func loggedInUserParser(data: Any?) throws {
         guard let userContainer = data as? [String: Any] else {
-            throw newError(message: "Couldn't USER cast data as dictionary for initialization")
+            throw newError(message: "Couldn't cast USER data as dictionary for initialization")
         }
 
         guard let user = User(dictionary: userContainer) else {
@@ -134,7 +161,15 @@ class BackendController {
                 shared.pickupCartons[carton.id] = carton
             }
         }
-
+    }
+    
+    private static func successParser(data: Any?) throws {
+        guard let deletePayload = data as? Int else {
+            throw newError(message: "Unable to cast data to dictionary after deleting Production Report.")
+        }
+        if deletePayload != 1 {
+            throw newError(message: "API did not delete the Production Report.")
+        }
     }
 
     // MARK: - Queries
@@ -242,6 +277,20 @@ class BackendController {
             completion(nil)
         }
     }
+    
+    func productionReportsByHubId(hubId: String, completion: @escaping (Error?) -> Void) {
+        guard let request = Queries(name: .productionReportsByHubId, id: hubId) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
 
     func initialFetch(userId: String, completion: @escaping (Error?) -> Void) {
         guard let request = Queries(name: .monsterFetch, id: userId) else {
@@ -270,6 +319,7 @@ class BackendController {
                 return
             }
             self.users[user.id] = user
+            
 
             // Unwrap array of Properties if present
             guard let properties = container["properties"] as? [[String: Any]] else {
@@ -327,9 +377,45 @@ class BackendController {
                     }
                 }
             }
-
+            
             completion(nil)
         }
+        // Fetch Production Reports, if present
+        if let hubId = loggedInUser.hub?.id {
+            guard let request = Queries(name: .productionReportsByHubId, id: hubId) else {
+                completion(Errors.RequestInitFail)
+                return
+            }
+            
+            requestAPI(with: request) { (data, error) in
+                if let error = error {
+                    completion(error)
+                    return
+                }
+                // Cast data into dictionary.
+                guard let container = data as? [String?: Any] else {
+                    NSLog("Couldn't unwrap ProductionReport data as dictionary in initial fetch.")
+                    NSLog("\(String(describing: data))")
+                    completion(NSError(domain: "Error unwrapping data", code: 0, userInfo: nil))
+                    return
+                }
+                // Initialize reports
+                guard let reports = container["productionReports"] as? [[String: Any]] else {
+                    NSLog("Failed to unwrap production reports array from report payload.")
+                    NSLog("\tReports: \(String(describing: container["productionReports"]))")
+                    completion(NSError(domain: "Error unwrapping data.", code: 0, userInfo: nil))
+                    return
+                }
+                
+                // Initialize each report and add it to the dictionary
+                for reportContainer in reports {
+                    if let report = ProductionReport(dictionary: reportContainer) {
+                        self.productionReports[report.id] = report
+                    }
+                }
+            }
+        }
+        completion(nil)
     }
 
     // MARK: Mutations
@@ -404,11 +490,53 @@ class BackendController {
                 completion(error)
                 return
             }
-
             completion(nil)
         }
     }
-
+    
+    func createProductionReport(input: CreateProductionReportInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .createProductionReport, input: input) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            completion(nil)
+        }
+    }
+    
+    func updateProductionReport(input: UpdateProductionReportInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .updateProductionReport, input: input) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
+    
+    func deleteProductionReport(input: DeleteProductionReportInput, completion: @escaping (Error?) -> Void) {
+        guard let request = Mutator(name: .deleteProductionReport, input: input) else {
+            completion(Errors.RequestInitFail)
+            return
+        }
+        requestAPI(with: request) { (_, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            completion(nil)
+        }
+    }
+    
     private func requestAPI(with request: Request, completion: @escaping (Any?, Error?) -> Void) {
         var urlRequest = URLRequest(url: apiURL)
         urlRequest.httpMethod = "POST"
@@ -456,8 +584,6 @@ class BackendController {
                     payload = .logIn
                 }
                 
-                
-
                 guard let parser = self.parsers[payload] else {
                     print("The payload \(payloadString) doesn't possess a parser.")
                     completion(queryContainer?[payloadString], nil)

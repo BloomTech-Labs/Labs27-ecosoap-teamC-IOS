@@ -56,7 +56,7 @@ class LoginViewControllerStarter: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Login", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(named: "ESB Green")
+        button.backgroundColor = UIColor(named: "ESB Blue")
         button.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         button.layer.cornerRadius = 8
         button.addTarget(self, action:#selector(self.login), for: .touchUpInside)
@@ -167,11 +167,11 @@ class LoginViewControllerStarter: UIViewController {
             
             if exists {
                 // TODO: Uncomment if-else statement after Production Reports Feature is merged with main.
-//                if BackendController.shared.loggedInUser.role == .HOTEL {
+                if BackendController.shared.loggedInUser.role == .HOTEL {
                     self.performSegue(withIdentifier: "ShowDetailProfileList", sender: nil)
-//                } else {
-//                    self.performSegue(withIdentifier: "ShowHubDashboardSegue", sender: nil)
-//                }
+                } else {
+                    self.performSegue(withIdentifier: "ShowHubDashboardSegue", sender: nil)
+                }
             } else {
                 NSLog("Invalid Login.")
             }

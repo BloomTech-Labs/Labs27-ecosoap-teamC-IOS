@@ -21,6 +21,7 @@ class Queries: Request {
                                               .impactStatsByPropertyId: Queries.impactStatsByPropertyId,
                                               .hubByPropertyId: Queries.hubByPropertyId,
                                               .pickupsByPropertyId: Queries.pickupsByPropertyId,
+                                              .productionReportsByHubId: Queries.productionReportsByHubId,
                                               .monsterFetch: Queries.monsterFetch]
 
     private static let payloads: [QueryName: ResponseModel] = [.userById: .user,
@@ -29,6 +30,7 @@ class Queries: Request {
                                                                .impactStatsByPropertyId: .impactStats,
                                                                .hubByPropertyId: .hub,
                                                                .pickupsByPropertyId: .pickups,
+                                                               .productionReportsByHubId: .productionReports,
                                                                .monsterFetch: .user]
 
     init?(name: QueryName, id: String) {
@@ -433,6 +435,27 @@ class Queries: Request {
           }
         }
 
+        """
+    }
+    
+    private static func productionReportsByHubId(hubId: String) -> String {
+        return """
+        query {
+            productionReportsByHubId(input: { hubId: "\(hubId)" }) {
+                productionReports {
+                    id
+                    hub {
+                        id
+                    }
+                    date
+                    barsProduced
+                    soapmakersWorked
+                    soapmakerHours
+                    soapPhotos
+                    media
+                }
+            }
+        }
         """
     }
 

@@ -14,7 +14,6 @@ class User {
     var firstName, lastName, email, password: String
     var middleName, title, company, phone, skype: String?
     var address: Address?
-    var signupTime: Date?
     var role: Role?
     var propertiesById: [String?] = []
     var hub: Hub?
@@ -57,10 +56,6 @@ class User {
 
         if let addressContainer = dictionary["address"] as? [String: Any] {
             self.address = Address(dictionary: addressContainer)
-        }
-
-        if let signupTimeString = dictionary["signupTime"] as? String {
-            self.signupTime = Date(longDate:  signupTimeString)
         }
         
         if let roleString = dictionary["role"] as? String {

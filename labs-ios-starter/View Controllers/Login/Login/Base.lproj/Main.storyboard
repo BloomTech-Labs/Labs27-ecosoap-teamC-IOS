@@ -22,11 +22,22 @@
                     <navigationItem key="navigationItem" id="fm5-ES-PwH"/>
                     <connections>
                         <segue destination="aOC-qF-9qB" kind="presentation" identifier="ShowDetailProfileList" modalPresentationStyle="fullScreen" id="Tfb-bT-2YH"/>
+                        <segue destination="jxn-Pi-3tI" kind="presentation" identifier="ShowHubDashboardSegue" modalPresentationStyle="fullScreen" id="T4Q-sn-SaL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcT-Mn-ZnW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1545" y="84"/>
+        </scene>
+        <!--HubDashboard-->
+        <scene sceneID="rRX-qM-2ys">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HubDashboard" id="jxn-Pi-3tI" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="eAR-9Y-ERy"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mQT-AL-fEQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2184" y="-27"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="3Na-TO-5aB">

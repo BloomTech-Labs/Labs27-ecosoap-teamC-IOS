@@ -73,11 +73,22 @@
 		9CEA63BD24EE2D2800A2C446 /* Hub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BC24EE2D2800A2C446 /* Hub.swift */; };
 		9CEA63BF24EE3CA200A2C446 /* HospitalityContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA63BE24EE3CA200A2C446 /* HospitalityContract.swift */; };
 		BA5B10B7252BA993001202FE /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10B6252BA993001202FE /* Role.swift */; };
+		BA5B10BC252BB7A7001202FE /* HubDashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5B10BB252BB7A7001202FE /* HubDashboard.storyboard */; };
+		BA5B10C4252D21CD001202FE /* HubDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10C3252D21CD001202FE /* HubDashboardViewController.swift */; };
+		BA5B10CA252D227B001202FE /* ProductionReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10C9252D227B001202FE /* ProductionReportDetailViewController.swift */; };
+		BA5B10D1252E4158001202FE /* ProductionReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B10D0252E4158001202FE /* ProductionReport.swift */; };
 		BAA8E9A025252576005EA47D /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BAA8E99F25252576005EA47D /* OktaAuth */; };
 		BAD33C832534C7FE0080FCC6 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BAD33C862534FCC40080FCC6 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BAD33C8E25362E800080FCC6 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33C8D25362E800080FCC6 /* UserController.swift */; };
 		BAD33C97253630240080FCC6 /* LogInInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33C96253630240080FCC6 /* LogInInput.swift */; };
+		BAD33CAE25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CAD25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift */; };
+		BAD33CB125375EED0080FCC6 /* CreateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB025375EED0080FCC6 /* CreateProductionReportInput.swift */; };
+		BAD33CB4253766BA0080FCC6 /* UpdateProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB3253766BA0080FCC6 /* UpdateProductionReportInput.swift */; };
+		BAD33CB725376ED10080FCC6 /* DeleteProductionReportInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB625376ED10080FCC6 /* DeleteProductionReportInput.swift */; };
+		BAD33CBA253780650080FCC6 /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CB9253780650080FCC6 /* ReportCell.swift */; };
+		BAD33CC5253A61260080FCC6 /* ReportImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CC4253A61250080FCC6 /* ReportImageCollectionView.swift */; };
+		BAD33CCC253F21C70080FCC6 /* ReportImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD33CCB253F21C70080FCC6 /* ReportImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,8 +161,19 @@
 		9CEA63BC24EE2D2800A2C446 /* Hub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hub.swift; sourceTree = "<group>"; };
 		9CEA63BE24EE3CA200A2C446 /* HospitalityContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalityContract.swift; sourceTree = "<group>"; };
 		BA5B10B6252BA993001202FE /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		BA5B10BB252BB7A7001202FE /* HubDashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = HubDashboard.storyboard; path = "labs-ios-starter/Storyboards/HubDashboard.storyboard"; sourceTree = SOURCE_ROOT; };
+		BA5B10C3252D21CD001202FE /* HubDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubDashboardViewController.swift; sourceTree = "<group>"; };
+		BA5B10C9252D227B001202FE /* ProductionReportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionReportDetailViewController.swift; sourceTree = "<group>"; };
+		BA5B10D0252E4158001202FE /* ProductionReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionReport.swift; sourceTree = "<group>"; };
 		BAD33C8D25362E800080FCC6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		BAD33C96253630240080FCC6 /* LogInInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInInput.swift; sourceTree = "<group>"; };
+		BAD33CAD25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionReportsByHubIdInput.swift; sourceTree = "<group>"; };
+		BAD33CB025375EED0080FCC6 /* CreateProductionReportInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductionReportInput.swift; sourceTree = "<group>"; };
+		BAD33CB3253766BA0080FCC6 /* UpdateProductionReportInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProductionReportInput.swift; sourceTree = "<group>"; };
+		BAD33CB625376ED10080FCC6 /* DeleteProductionReportInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductionReportInput.swift; sourceTree = "<group>"; };
+		BAD33CB9253780650080FCC6 /* ReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
+		BAD33CC4253A61250080FCC6 /* ReportImageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportImageCollectionView.swift; sourceTree = "<group>"; };
+		BAD33CCB253F21C70080FCC6 /* ReportImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportImageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +205,7 @@
 				13A4A7CE24E1F34D005326F9 /* Statistics.storyboard */,
 				13A4A7D024E1F363005326F9 /* Pickups.storyboard */,
 				13A4A7DB24E1FA42005326F9 /* Onboarding.storyboard */,
+				BA5B10BB252BB7A7001202FE /* HubDashboard.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -202,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				13A4A7D624E1F8D4005326F9 /* Dashboard */,
+				BA5B10C2252D218D001202FE /* HubDashboard */,
 				13A4A7EC24E3592C005326F9 /* Pickups */,
 				13DC372224E5EFA800AE20B3 /* Impact Statistics */,
 				13A4A7D224E1F374005326F9 /* Login */,
@@ -356,6 +380,10 @@
 				9C9ACA7124F72EFD002D47B5 /* UpdateUserProfileInput.swift */,
 				BAD33C96253630240080FCC6 /* LogInInput.swift */,
 				9C9ACA7824F76248002D47B5 /* UpdatePropertyInput.swift */,
+				BAD33CAD25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift */,
+				BAD33CB025375EED0080FCC6 /* CreateProductionReportInput.swift */,
+				BAD33CB3253766BA0080FCC6 /* UpdateProductionReportInput.swift */,
+				BAD33CB625376ED10080FCC6 /* DeleteProductionReportInput.swift */,
 			);
 			path = Inputs;
 			sourceTree = "<group>";
@@ -391,6 +419,7 @@
 				9C9A98E924E508BE007FC7DA /* Pickup.swift */,
 				9C9A98EB24E509B7007FC7DA /* ImpactStats.swift */,
 				9CEA63BC24EE2D2800A2C446 /* Hub.swift */,
+				BA5B10D0252E4158001202FE /* ProductionReport.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -425,6 +454,18 @@
 				9C5F86DD24EF8DAC00DECB24 /* PickupCarton.swift */,
 			);
 			path = "Property Models";
+			sourceTree = "<group>";
+		};
+		BA5B10C2252D218D001202FE /* HubDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				BA5B10C3252D21CD001202FE /* HubDashboardViewController.swift */,
+				BAD33CB9253780650080FCC6 /* ReportCell.swift */,
+				BA5B10C9252D227B001202FE /* ProductionReportDetailViewController.swift */,
+				BAD33CC4253A61250080FCC6 /* ReportImageCollectionView.swift */,
+				BAD33CCB253F21C70080FCC6 /* ReportImageCollectionViewCell.swift */,
+			);
+			path = HubDashboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -492,6 +533,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13A4A7D124E1F363005326F9 /* Pickups.storyboard in Resources */,
+				BA5B10BC252BB7A7001202FE /* HubDashboard.storyboard in Resources */,
 				466C4280249A8749007D033E /* LaunchScreen.storyboard in Resources */,
 				13A4A7CD24E1F332005326F9 /* Dashboard.storyboard in Resources */,
 				466C427D249A8749007D033E /* Assets.xcassets in Resources */,
@@ -528,6 +570,7 @@
 				13A4A7E924E24A8B005326F9 /* DashboardLayout.swift in Sources */,
 				9CEA63BB24EE26E700A2C446 /* Coordinates.swift in Sources */,
 				13C23F6024EC94AF00DC3F9A /* ImpactStatisticsIndividualCollectionViewCell.swift in Sources */,
+				BA5B10C4252D21CD001202FE /* HubDashboardViewController.swift in Sources */,
 				13EF37B7250FE86E002E7959 /* PropertyDetailViewController.swift in Sources */,
 				BAD33C832534C7FE0080FCC6 /* (null) in Sources */,
 				13FD2A9524E45788006D6B43 /* PickupNotesTableViewCell.swift in Sources */,
@@ -543,15 +586,20 @@
 				13DC372424E63B5F00AE20B3 /* ImpactStatisticsViewController.swift in Sources */,
 				9C25231E24F9E2C20023D660 /* Date.swift in Sources */,
 				13FD2A9924E457A1006D6B43 /* PickupPropertyTableViewCell.swift in Sources */,
+				BA5B10CA252D227B001202FE /* ProductionReportDetailViewController.swift in Sources */,
 				13FD2AA224E49B39006D6B43 /* PickupsViewController.swift in Sources */,
 				13A4A7EB24E35923005326F9 /* SchedulePickupViewController.swift in Sources */,
 				13A4A7D524E1F8CF005326F9 /* DashboardViewController.swift in Sources */,
+				BAD33CC5253A61260080FCC6 /* ReportImageCollectionView.swift in Sources */,
 				1326A737250FFD4000EFA7CF /* PropertyInfoTableViewCell.swift in Sources */,
 				BAD33C97253630240080FCC6 /* LogInInput.swift in Sources */,
 				13FD2A9C24E45C79006D6B43 /* AddPickupCartonTableViewCell.swift in Sources */,
 				133559EB24EDD09E00447EDE /* PickupTableViewCell.swift in Sources */,
 				13BA9FDE24FD9FF800973F03 /* ConfrimPickupViewController.swift in Sources */,
+				BA5B10D1252E4158001202FE /* ProductionReport.swift in Sources */,
+				BAD33CAE25375CAC0080FCC6 /* ProductionReportsByHubIdInput.swift in Sources */,
 				13D15E4B250895C700F021D5 /* ProfileInfoTableViewCell.swift in Sources */,
+				BAD33CCC253F21C70080FCC6 /* ReportImageCollectionViewCell.swift in Sources */,
 				9C364A8E24F5EA1600FF204D /* Mutator.swift in Sources */,
 				13FD2A9324E4575D006D6B43 /* PickupDateTableViewCell.swift in Sources */,
 				BA5B10B7252BA993001202FE /* Role.swift in Sources */,
@@ -560,16 +608,20 @@
 				9C9A98E624E506A6007FC7DA /* User.swift in Sources */,
 				13A4A7E224E2034F005326F9 /* DashboardCollectionViewCell.swift in Sources */,
 				9C364A9324F60E8300FF204D /* CartonInput.swift in Sources */,
+				BAD33CB4253766BA0080FCC6 /* UpdateProductionReportInput.swift in Sources */,
 				9C9ACA7724F7541D002D47B5 /* ImpactStatsInput.swift in Sources */,
 				9C364A9624F6217000FF204D /* ControllerEnums.swift in Sources */,
 				9C364A9124F60E6100FF204D /* PickupInput.swift in Sources */,
 				9C9ACA6C24F71F8C002D47B5 /* CancelPickupInput.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewControllerStarter.swift in Sources */,
+				BAD33CBA253780650080FCC6 /* ReportCell.swift in Sources */,
 				9CEA63B624EE24A700A2C446 /* APIEnums.swift in Sources */,
 				466C4276249A8748007D033E /* SceneDelegate.swift in Sources */,
 				9C9ACA7924F76248002D47B5 /* UpdatePropertyInput.swift in Sources */,
 				9C9A98EA24E508BE007FC7DA /* Pickup.swift in Sources */,
+				BAD33CB125375EED0080FCC6 /* CreateProductionReportInput.swift in Sources */,
 				9C9ACA7524F7524C002D47B5 /* CoordinatesInput.swift in Sources */,
+				BAD33CB725376ED10080FCC6 /* DeleteProductionReportInput.swift in Sources */,
 				9C9ACA7024F7296B002D47B5 /* AddressInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
